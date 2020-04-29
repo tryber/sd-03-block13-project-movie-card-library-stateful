@@ -43,6 +43,15 @@ export default class AddMovie extends React.Component {
 
   handleSubmitClick = () => { this.props.onClick(this.state); this.reset() }
 
+  createGender = genre => {
+    return (<label htmlFor="genre">Gênero
+        <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
+          {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
+        </select>
+      </label>
+    );
+  }
+
   render() {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     return (
@@ -59,11 +68,7 @@ export default class AddMovie extends React.Component {
         </label>
         {this.createInput({ ...inputFeatures['rating'], value: rating,
                 onChange: this.handleChange('rating') })}
-        <label htmlFor="genre">Gênero
-          <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
-            {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
-          </select>
-        </label>
+        {this.createGender(genre)}
           <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
       </form>
     );
