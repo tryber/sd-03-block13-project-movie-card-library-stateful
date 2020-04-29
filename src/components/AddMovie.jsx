@@ -13,17 +13,11 @@ class AddMovie extends React.Component {
     }
   }
 
-  onChangeTitle = (event) => {
-    this.setState({ title: event.target.value });
-  }
+  onChangeTitle = (event) => this.setState({ title: event.target.value });
 
-  onChangeSubtitle = (event) => {
-    this.setState({subtitle: event.target.value});
-  }
+  onChangeSubtitle = (event) => this.setState({subtitle: event.target.value});
 
-  onChangeImagePath = (event) => {
-    this.setState({imagePath: event.target.value})
-  }
+  onChangeImagePath = (event) => this.setState({imagePath: event.target.value});
 
   render() {
     const onClick = this.props.onClick;
