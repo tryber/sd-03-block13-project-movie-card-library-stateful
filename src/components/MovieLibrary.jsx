@@ -18,7 +18,7 @@ export default class MovieLibrary extends React.Component {
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
   }
 
-  handleAddMovieClick = (newMovie) => {
+  handleAddMovieClick(newMovie) {
       return this.setState(state => ({ movies: [...state.movies, newMovie] }));
     };
 
