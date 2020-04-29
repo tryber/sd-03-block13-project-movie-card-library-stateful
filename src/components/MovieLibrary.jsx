@@ -18,13 +18,11 @@ export default class MovieLibrary extends React.Component {
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
   }
 
-  handleAddMovieClick(newMovie) {
-      return this.setState(state => ({ movies: [...state.movies, newMovie] }));
-    };
+  handleAddMovieClick(newMovie) { this.setState((s) => ({ movies: [...s.movies, newMovie] })); };
 
   onSearchTextChange({ target }) { this.setState({ searchText: target.value }); }
 
-  onBookmarkedChange ({ target }) { this.setState({ bookmarkedOnly: target.checked }); }
+  onBookmarkedChange({ target }) { this.setState({ bookmarkedOnly: target.checked }); }
 
   onSelectedGenreChange({ target }) { this.setState({ selectedGenre: target.value }); }
 
@@ -38,14 +36,13 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList
-          movies=
-          {movies
-            .filter(film =>
+          movies={movies
+            .filter((film) =>
               film.title.includes(searchText) ||
               film.subtitle.includes(searchText) ||
               film.storyline.includes(searchText))
-            .filter(film => selectedGenre === '' ? true : film.genre === selectedGenre)
-            .filter(film => bookmarkedOnly === false ? true : film.bookmarked)
+            .filter((film) => selectedGenre === '' ? true : film.genre === selectedGenre)
+            .filter((film) => bookmarkedOnly === false ? true : film.bookmarked)
           }
         />
         <AddMovie onClick={this.handleAddMovieClick} />

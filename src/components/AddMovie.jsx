@@ -35,7 +35,7 @@ export default class AddMovie extends React.Component {
 
   reset() { this.setState(initialState); }
 
-  createInput = ({ id, text, type, value, onChange }) => {
+  createInput ({ id, text, type, value, onChange }) {
     return (
       <label htmlFor={id}>{text}
         <input type={type} value={value} id={id} onChange={onChange} />
@@ -45,13 +45,13 @@ export default class AddMovie extends React.Component {
 
   handleSubmitClick() { this.props.onClick(this.state); this.reset() }
 
-  createGender = genre => (
+  createGender (genre) {
     <label htmlFor="genre">Gênero
       <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
         {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
       </select>
     </label>
-  );
+  };
 
   render() {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
