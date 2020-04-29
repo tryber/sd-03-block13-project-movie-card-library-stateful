@@ -35,8 +35,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  somelabels() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+  firstlabels() {
+    const { title, subtitle, imagePath } = this.state;
     return (
       <div>
         <label htmlFor="input">
@@ -51,6 +51,14 @@ class AddMovie extends React.Component {
           Imagem
           <input type="text" value={imagePath} name="imagePath" onChange={this.handleChange} />
         </label>
+      </div>
+    );
+  }
+
+  morelabels() {
+    const { storyline, rating } = this.state;
+    return (
+      <div>
         <label htmlFor="input">
           Sinopse
           <textarea value={storyline} name="storyline" onChange={this.handleChange} />
@@ -76,7 +84,8 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.somelabels()}
+          {this.firstlabels()}
+          {this.morelabels()}
           <div>
             <label htmlFor="rating">
               Avaliação
