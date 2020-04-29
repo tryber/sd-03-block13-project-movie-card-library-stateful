@@ -2,7 +2,7 @@ import React from 'react';
 
 function SearchBar(props) {
   const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-    selectedGenre, onSelectedGenreChange } = this.props;
+    selectedGenre, onSelectedGenreChange } = props;
   return (
     <form>
       <label>Inclui o texto:
