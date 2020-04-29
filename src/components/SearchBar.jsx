@@ -2,21 +2,17 @@ import React from 'react';
 
 function SearchBar(props) {
   const {
-    searchText, onSearchText, bookmarkedOnly,
-    onBookmar, selectedGenre, onSelectedGenre,
+    searchText, onSearchTextChange, bookmarkedOnly,
+    onBookmarkedChange, selectedGenre, onSelectedGenreChange,
   } = props;
 
-  const handleForm = (event) => {
-    event.preventDefault();
-  };
-
-  return (<form onChange={handleForm}>
+  return (<form>
     <label htmlFor="search"> Inclui o texto</label>
-    <input type="text" id="search" value={searchText} onChange={onSearchText} />
+    <input type="text" id="search" value={searchText} onChange={onSearchTextChange} />
     <label htmlFor="seleectFavorito">Mostrar somente favoritos</label>
-    <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmar} name="seleectFavorito" />
+    <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} name="seleectFavorito" />
     <label htmlFor="selectedGenero">Filtrar por gênero</label>
-    <select value={selectedGenre} onChange={onSelectedGenre} name="selectedGenero">
+    <select value={selectedGenre} onChange={onSelectedGenreChange} name="selectedGenero">
       <option value="">Todos</option>
       <option value="action">Ação</option>
       <option value="comedy">Comédia</option>
