@@ -33,7 +33,7 @@ export default class AddMovie extends React.Component {
     }
   };
 
-  reset = () => this.setState(initialState);
+  reset() { this.setState(initialState); }
 
   createInput = ({ id, text, type, value, onChange }) => {
     return (
@@ -43,7 +43,7 @@ export default class AddMovie extends React.Component {
     );
   }
 
-  handleSubmitClick = () => { this.props.onClick(this.state); this.reset() }
+  handleSubmitClick() { this.props.onClick(this.state); this.reset() }
 
   createGender = genre => (
     <label htmlFor="genre">Gênero

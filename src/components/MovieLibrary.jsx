@@ -22,11 +22,11 @@ export default class MovieLibrary extends React.Component {
       return this.setState(state => ({ movies: [...state.movies, newMovie] }));
     };
 
-  onSearchTextChange = ({ target }) => this.setState({ searchText: target.value });
+  onSearchTextChange({ target }) { this.setState({ searchText: target.value }); }
 
-  onBookmarkedChange = ({ target }) => this.setState({ bookmarkedOnly: target.checked });
+  onBookmarkedChange ({ target }) { this.setState({ bookmarkedOnly: target.checked }); }
 
-  onSelectedGenreChange = ({ target }) => this.setState({ selectedGenre: target.value });
+  onSelectedGenreChange({ target }) { this.setState({ selectedGenre: target.value }); }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
