@@ -12,7 +12,7 @@ function SearchBar(props) {
 
   return (<form onChange={handleForm}>
     <label htmlFor="search"> Inclui o texto</label>
-    <input type="text" id="search" value={searchText } onChange={onSearchText }/>
+    <input type="text" id="search" value={searchText} onChange={onSearchText} />
     <label htmlFor="seleectFavorito">Mostrar somente favoritos</label>
     <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmar} name="seleectFavorito" />
     <label htmlFor="selectedGenero">Filtrar por gênero</label>
