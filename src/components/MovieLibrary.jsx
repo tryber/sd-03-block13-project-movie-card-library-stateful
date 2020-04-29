@@ -33,19 +33,15 @@ class MovieLibrary extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   filterIt(arr, searchKey) {
-    return arr.filter((obj) => {
-      return Object.keys(obj).some((key) => {
-        if (obj[key] !== null) {
-          const tempKey = obj[key].toString().toLowerCase();
-          const tempSearch = searchKey.toLowerCase();
-          return tempKey.includes(tempSearch) &&
-          tempKey.includes(this.state.selectedGenre)
-          
-        }
-      });
-    });
+    return arr.filter((obj) => Object.keys(obj).some((key) => {
+      if (obj[key] !== null) {
+        const tempKey = obj[key].toString().toLowerCase();
+        const tempSearch = searchKey.toLowerCase();
+        return tempKey.includes(tempSearch)
+          && tempKey.includes(this.state.selectedGenre);
+      }
+    }));
   }
-  
 
   render() {
     return (
@@ -58,8 +54,8 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
           selectedGenre={this.state.selectedGenre}
         />
-        
-        <MovieList movies={this.filterIt(this.state.movies,this.state.searchText)} />
+
+        <MovieList movies={this.filterIt(this.state.movies, this.state.searchText)} />
         <AddMove />
       </div>
     );
