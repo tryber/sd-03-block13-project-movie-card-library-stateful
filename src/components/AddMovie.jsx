@@ -29,15 +29,15 @@ class AddMovie extends React.Component {
     /* const onClick = this.props.onClick; */
     return (
       <form>
-        <label>
+        <label htmlFor="title">
           Título
           <input type="text" value={this.state.title} onChange={this.onChangeTitle} />
         </label>
-        <label>
+        <label htmlFor="subtitle">
           Subtítulo
           <input type="text" value={this.state.subtitle} onChange={this.onChangeSubtitle} />
         </label>
-        <label>
+        <label htmlFor="imagePath">
           Imagem
           <input type="text" value={this.state.imagePath} onChange={this.onChangeImagePath} />
         </label>
