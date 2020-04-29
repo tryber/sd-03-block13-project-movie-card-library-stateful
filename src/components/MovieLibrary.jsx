@@ -33,13 +33,15 @@ class MovieLibrary extends React.Component {
 
   // eslint-disable-next-line class-methods-use-this
   filterIt(arr, searchKey) {
+    let result = '';
     return arr.filter((obj) => Object.keys(obj).some((key) => {
       if (obj[key] !== null) {
         const tempKey = obj[key].toString().toLowerCase();
         const tempSearch = searchKey.toLowerCase();
-        return tempKey.includes(tempSearch)
+        result = tempKey.includes(tempSearch)
           && tempKey.includes(this.state.selectedGenre);
       }
+      return result;
     }));
   }
 
