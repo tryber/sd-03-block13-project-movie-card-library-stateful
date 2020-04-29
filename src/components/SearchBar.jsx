@@ -1,7 +1,7 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  
+
   selectGenreOptions() {
     return (
       <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
