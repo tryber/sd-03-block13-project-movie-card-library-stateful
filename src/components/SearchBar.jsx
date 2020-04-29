@@ -1,7 +1,7 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-
+  
   selectGenreOptions() {
     return (
       <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
         </label>
         <label htmlFor="selectedGenre">
           Filtrar por gênero
-          {selectGenreOptions()}
+          {this.selectGenreOptions}
         </label>
       </form>
     );
