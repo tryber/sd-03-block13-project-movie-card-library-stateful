@@ -4,24 +4,15 @@ function SearchBar(props) {
   return (
     <form>
       <label>Inclui o texto:
-        <input
-          type={'text'}
-          value={props.searchText}
-          onChange={props.onSearchTextChange}
-        />
+        <input type={'text'} value={props.searchText}
+          onChange={props.onSearchTextChange} />
       </label>
       <label>Mostrar somente favoritos
-        <input
-          type={'checkbox'}
-          checked={props.bookmarkedOnly}
-          onChange={props.onBookmarkedChange}
-      />
+        <input type={'checkbox'} checked={props.bookmarkedOnly}
+          onChange={props.onBookmarkedChange} />
       </label>
       <label>Filtrar por gênero
-        <select
-          value={props.selectedGenre}
-          onChange={props.onSelectedGenreChange}
-        >
+        <select value={props.selectedGenre} onChange={props.onSelectedGenreChange}>
           <option value={''}>Todos</option>
           <option value={'action'}>Ação</option>
           <option value={'comedy'}>Comédia</option>
@@ -29,7 +20,7 @@ function SearchBar(props) {
         </select>
       </label>
     </form>
-  )
+  );
 }
 
 export default SearchBar;

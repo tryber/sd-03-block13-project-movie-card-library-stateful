@@ -9,86 +9,62 @@ const initialState = {
   title: '',
 };
 
+const inputFeatures = {
+  title: { id: 'title', text: 'Título', type: 'text' },
+  subtitle: { id: 'subtitle', text: 'Subtítulo', type: 'text' },
+  imagePath: { id: 'image', text: 'Imagem', type: 'text' },
+  rating: { id: 'rating', text: 'Avaliação', type: 'number' },
+}
+
+const options = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller','Suspense']];
+
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.handleSubmitClick = this.handleSubmitClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.reset = this.reset.bind(this);
   }
 
-  handleChange({ target: { name, value } }) {
-    // console.log('###################################################', name);
-    this.setState({ [name]: value })
+  handleChange = name => (({ target: { value } }) => {
+      if (name === 'rating') value = Number(value);
+      this.setState({ [name]: value })
+    });
+
+  reset = () => this.setState(initialState);
+
+  createInput = ({ id, text, type, value, onChange }) => {
+    return (
+      <label htmlFor={id}>{text}
+        <input type={type} value={value} id={id} onChange={onChange} />
+      </label>
+    );
   }
 
-  reset() {
-    this.setState(initialState);
-  }
+  handleSubmitClick = () => { this.props.onClick(this.state); this.reset() }
 
   render() {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     return (
       <form>
-        <label>Título
-          <input
-            name={'title'}
-            onChange={this.handleChange}
-            type={'text'}
-            value={title}
-          />
+          {this.createInput({ ...inputFeatures['title'], value: title,
+                onChange: this.handleChange('title') })}
+          {this.createInput({ ...inputFeatures['subtitle'], value: subtitle,
+                onChange: this.handleChange('subtitle') })}
+          {this.createInput({ ...inputFeatures['imagePath'], value: imagePath,
+                onChange: this.handleChange('imagePath') })}
+        <label htmlFor="storyline">
+          <textarea value={storyline} id={'storyline'}
+            onChange={this.handleChange('storyline')}>Sinopse</textarea>
         </label>
-        <label>Subtítulo
-          <input
-            name={'subtitle'}
-            onChange={this.handleChange}
-            type={'text'}
-            value={subtitle}
-          />
-        </label>
-        <label>Imagem
-          <input
-            name={'imagePath'}
-            onChange={this.handleChange}
-            type={'text'}
-            value={imagePath}
-          />
-        </label>
-        <label>
-          <textarea
-            name={'storyline'}
-            onChange={this.handleChange}
-            value={storyline}
-          >Sinopse</textarea>
-        </label>
-        <label>Avaliação
-          <input
-            name={'rating'}
-            onChange={this.handleChange}
-            type={'number'}
-            value={rating}
-          />
-        </label>
-        <label>Gênero
-          <select
-            name={'genre'}
-            onChange={this.handleChange}
-            value={genre}
-          >
-            <option value={'action'}>Ação</option>
-            <option value={'comedy'}>Comédia</option>
-            <option value={'thriller'}>Suspense</option>
+        {this.createInput({ ...inputFeatures['rating'], value: rating,
+                onChange: this.handleChange('rating') })}
+        <label htmlFor="genre">Gênero
+          <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
+            {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
           </select>
-
-          <button type={'submit'}
-            onClick={() => {
-              this.props.onClick(this.state);
-              this.reset();
-              }}
-            >
-            Adicionar filme
-          </button>
         </label>
+          <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
       </form>
     );
   }
