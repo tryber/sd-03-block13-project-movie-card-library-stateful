@@ -20,14 +20,14 @@ function SearchBar(props) {
         value={searchText}
         onChange={onSearchTextChange}
       />
-      <label>Mostrar somente favoritos</label>
-      <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-      <label>Filtrar por gênero</label>
-      <select value={selectedGenre} onChange={onSelectedGenreChange}>
-       <option value="">Todos</option>
-       <option value="action">Ação</option>
-       <option value="comedy">Comédia</option>
-       <option value="thriller">Suspense</option>
+      <label htmlFor="seleectFavorito">Mostrar somente favoritos</label>
+      <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} name="seleectFavorito"/>
+      <label htmlFor="selectedGenero">Filtrar por gênero</label>
+      <select value={selectedGenre} onChange={onSelectedGenreChange} name="selectedGenero">
+        <option value="">Todos</option>
+        <option value="action">Ação</option>
+        <option value="comedy">Comédia</option>
+        <option value="thriller">Suspense</option>
       </select>
     </form>
   );
