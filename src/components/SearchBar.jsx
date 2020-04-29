@@ -1,9 +1,9 @@
-// implement SearchBar component here
 import React from 'react';
 
 function SearchBar(props) {
   const {
-    searchText, onSearchTextChange, bookmarkedOnly,onBookmarkedChange, selectedGenre, onSelectedGenreChange,
+    searchText, onSearchTextChange, bookmarkedOnly,
+    onBookmarkedChange, selectedGenre, onSelectedGenreChange,
   } = props;
 
   const handleForm = (event) => {
