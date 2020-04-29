@@ -26,16 +26,12 @@ class AddMovie extends React.Component {
     this.passaState = this.passaState.bind(this); */
 
   changeHandler(event) {
-    let {name, value} = event.target;
-    this.setState({
-      [name]: value,
-    });
+    let { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   alteraAvaliacao (event) {
-    this.setState({
-      rating: parseFloat(event.target.value),
-    });
+    this.setState({ rating: parseFloat(event.target.value) });
   }
 
   passaState() {
@@ -55,13 +51,16 @@ class AddMovie extends React.Component {
         <label htmlFor="titulo">Avaliação</label>
         <input type="text" name="titulo" value={this.state.title} onChange={this.changeHandler} />
         <label htmlFor="subtitulo">Avaliação</label>
-        <input type="text" name="subtitulo" value={this.state.subtitle} onChange={this.changeHandler} />
+        <input type="text" name="subtitulo" value={this.state.subtitle} 
+        onChange={this.changeHandler} />
         <label htmlFor="imagem">Avaliação</label>
-        <input type="text" name="imagem" value={this.state.imagePath} onChange={this.changeHandler} />
+        <input type="text" name="imagem" value={this.state.imagePath} 
+        onChange={this.changeHandler} />
         <label htmlFor="sinopse">Avaliação</label>
         <textarea name="imagem" value={this.state.storyLine} onChange={this.changeHandler} />
         <label htmlFor="avaliacao">Avaliação</label>
-        <input type="number" name="avaliacao" value={this.state.rating} onChange={this.alteraAvaliacao} />
+        <input type="number" name="avaliacao" value={this.state.rating} 
+        onChange={this.alteraAvaliacao} />
         <label htmlFor="genero">Gênero</label>
         <select name="genero" value={this.state.genre} onChange={this.changeHandler}>
           <option value="action">Ação</option>
