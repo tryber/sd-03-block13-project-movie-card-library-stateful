@@ -19,52 +19,49 @@ class AddMovie extends React.Component {
     this.alteraRating = this.alteraRating.bind(this);
     this.resetaState = this.resetaState.bind(this);
   }
-  
+
   alteraTitulo(event) {
-    this.setState({title: event.target.value})
+    this.setState({ title: event.target.value });
   }
-   
+
   alteraSubtitulo(event) {
-    this.setState({subtitle: event.target.value})
+    this.setState({ subtitle: event.target.value });
   }
 
   alteraImagem(event) {
-    this.setState({imagePath: event.target.value})
-
+    this.setState({ imagePath: event.target.value });
   }
 
   alteraStory(event) {
-    this.setState({storyline: event.target.value})
-
+    this.setState({ storyline: event.target.value });
   }
 
   alteraRating(event) {
-    this.setState({rating: Number(event.target.value)})
+    this.setState({ rating: Number(event.target.value )});
   }
   
   alteraSelectGenre(event) {
-    this.setState({genre: event.target.value})
+    this.setState({ genre: event.target.value });
   }
 
   currentState(props) {
-    this.setState(props.AddMovie)
-      }
+    this.setState(props.AddMovie);
+  }
 
   resetaState() {
     this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      })
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
-  
- render() {
-     
- return (
-   <form>
+
+  render() { 
+   return (
+     <form>
     <label htmlFor="titulo">Título</label>
      <input type="text" value={this.state.title} onChange={this.alteraTitulo} id="titulo" />
      <label htmlFor="subtitulo">Subtítulo</label>
