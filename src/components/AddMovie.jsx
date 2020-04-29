@@ -32,11 +32,10 @@ export default class AddMovie extends Component {
     });
   }
 
-
-  render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+  somelabels() {
+    const { title, subtitle, imagePath } = this.state;
     return (
-      <form>
+      <>
         <label htmlFor="input">
           Título
           <input type="text" value={title} id="title" onChange={this.onChangeHandler} />
@@ -49,6 +48,17 @@ export default class AddMovie extends Component {
           Imagem
           <input type="text" value={imagePath} id="imagePath" onChange={this.onChangeHandler} />
         </label>
+      </>
+
+    );
+  }
+
+
+  render() {
+    const { storyline, rating, genre } = this.state;
+    return (
+      <form>
+        {this.somelabels()}
         <label htmlFor="input">
           Sinopse
           <textarea value={storyline} id="storyline" onChange={this.onChangeHandler} />
