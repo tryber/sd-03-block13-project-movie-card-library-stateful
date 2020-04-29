@@ -1,6 +1,6 @@
 // implement SearchBar component here
 import React from 'react';
-// Refatorar componente para até 25 linhas, testes ok
+// Refatorar componente para até 25 linhas, testes
 function SearchBar(props) {
   const {
     searchText,
