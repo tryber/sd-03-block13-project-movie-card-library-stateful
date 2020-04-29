@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-  updateState = (event) => {
+  updateState(event) {
     const { value } = event.target;
     this.setState(
       {
@@ -43,20 +43,20 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label htmlFor="title">Título<input onChange={this.updateState}
+          <label htmlFor="title">Título<input onChange={(e) => this.updateState(e)}
             type="text" id="title" value={this.state.title} /></label>
 
-          <label htmlFor="subtitle">Subtítulo<input onChange={this.updateState}
+          <label htmlFor="subtitle">Subtítulo<input onChange={(e) => this.updateState(e)}
             type="text" id="subtitle" value={this.state.subtitle} /></label>
 
-          <label htmlFor="image">Imagem<input onChange={this.updateState}
+          <label htmlFor="image">Imagem<input onChange={(e) => this.updateState(e)}
             type="text" id="image" value={this.state.imagePath} /></label>
-          <label>Sinopse<textarea value={this.state.storyline} onChange={this.updateState}></textarea></label>
+          <label>Sinopse<textarea value={this.state.storyline} onChange={(e) => this.updateState(e)}></textarea></label>
 
           <label htmlFor="rating">Avaliação<input type="number" id="rating" value={this.state.rating}
-          onChange={this.updateState} /></label>
+          onChange={(e) => this.updateState(e)} /></label>
 
-          <label htmlFor="gender">Gênero<select id="gender" value={this.state.genre} onChange={this.updateState}>
+          <label htmlFor="gender">Gênero<select id="gender" value={this.state.genre} onChange={(e) => this.updateState(e)}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>

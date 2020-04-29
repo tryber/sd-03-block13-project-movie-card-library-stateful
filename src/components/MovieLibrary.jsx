@@ -10,6 +10,7 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies
     };
   }
+  render(){}
 }
 
 export default MovieLibrary;
