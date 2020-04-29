@@ -80,8 +80,14 @@ export default class AddMovie extends React.Component {
             <option value={'thriller'}>Suspense</option>
           </select>
 
-          <button type={'submit'} onClick={() => { this.props.onClick(this.state); this.reset() }}>
-          Adicionar filme</button>
+          <button type={'submit'}
+            onClick={() => {
+              this.props.onClick(this.state);
+              this.reset();
+              }}
+            >
+            Adicionar filme
+          </button>
         </label>
       </form>
     );
