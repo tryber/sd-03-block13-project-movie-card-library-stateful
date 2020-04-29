@@ -3,7 +3,7 @@ import React from 'react';
 function SearchBar(props) {
   const {
     searchText, onSearchText, bookmarkedOnly,
-    onBookmarked, selectedGenre, onSelectedGenre,
+    onBookmar, selectedGenre, onSelectedGenre,
   } = props;
 
   const handleForm = (event) => {
@@ -14,7 +14,7 @@ function SearchBar(props) {
       <label htmlFor="search"> Inclui o texto</label>
       <input type="text" id="search" value={searchText } onChange={onSearchText }/>
       <label htmlFor="seleectFavorito">Mostrar somente favoritos</label>
-      <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarked} name="seleectFavorito" />
+      <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmar} name="seleectFavorito" />
      <label htmlFor="selectedGenero">Filtrar por gênero</label>
      <select value={selectedGenre} onChange={onSelectedGenre} name="selectedGenero">
         <option value="">Todos</option>
