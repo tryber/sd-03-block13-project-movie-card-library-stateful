@@ -12,7 +12,7 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.state} />
+        <AddMovie />
       </div>
     );
   }

@@ -15,14 +15,15 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { name } = this.state;
     return (
       <div>
         <form>
           <fieldset>
             <legend>Search Movie</legend>
-            <input 
-              type="text" 
-              value={this.state.name}
+            <input
+              type="text"
+              value={name}
               onChange={this.handleChange}
             />
           </fieldset>
