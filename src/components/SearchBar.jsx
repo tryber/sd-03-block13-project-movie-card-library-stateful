@@ -10,15 +10,14 @@ function SearchBar(props) {
     event.preventDefault();
   };
 
-  return (
-    <form onChange={handleForm}>
+  return (<form onChange={handleForm}>
       <label htmlFor="search"> Inclui o texto</label>
-      <input type="text" id="search" value={searchText} onChange={onSearchTextChange}/>
+      <input type="text" id="search" value={searchText } onChange={onSearchTextChange }/>
       <label htmlFor="seleectFavorito">Mostrar somente favoritos</label>
       <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}
-         name="seleectFavorito" />
-      <label htmlFor="selectedGenero">Filtrar por gênero</label>
-      <select value={selectedGenre} onChange={onSelectedGenreChange} name="selectedGenero">
+        name="seleectFavorito" />
+     <label htmlFor="selectedGenero">Filtrar por gênero</label>
+     <select value={selectedGenre} onChange={onSelectedGenreChange} name="selectedGenero">
         <option value="">Todos</option>
         <option value="action">Ação</option>
         <option value="comedy">Comédia</option>
