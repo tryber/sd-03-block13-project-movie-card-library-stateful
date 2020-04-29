@@ -5,16 +5,25 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { searchText: '' };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+
+  }
+
+  onSearchTextChange() {
+    console.log('retornando', this);
+  }
+
+  onBookmarkedChange() {
+    console.log('retornando', this);
   }
 
   render() {
     const {
       bookmarkedOnly,
       onBookmarkedChange,
-      onSearchTextChange,
       onSelectedGenre,
-      searchText,
       selectedGenre,
     } = this.props;
 
@@ -25,13 +34,19 @@ class SearchBar extends React.Component {
             Inclui o texto:
             <input
               type="text"
-              value={searchText}
+              value={this.state.searchText}
               id="search-text"
-              onChange={onSearchTextChange}
+              onChange={this.onSearchTextChange}
             />
           </label>
           <label htmlFor="search-checkbox">
             Mostrar somente favoritos
+            <input
+              type="checkbox"
+              name="favorite-books"
+              id="search-checkbox"
+              onChange={this.onBookmarkedChange}
+            />
           </label>
           <h1>Esta é uma searchBar</h1>
         </form>
