@@ -16,8 +16,6 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
-    this.state.movies.map((element) => console.log(element.title));
   }
 
   onSearchTextChange(event) {

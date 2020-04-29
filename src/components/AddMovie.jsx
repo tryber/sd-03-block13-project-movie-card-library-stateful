@@ -13,11 +13,12 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.alteraTitulo = this.alteraTitulo.bind(this);
-    this.alteraSubtitulo = this.alteraSub.bind(this);
+    this.alteraSub= this.alteraSub.bind(this);
     this.alteraImagem = this.alteraImagem.bind(this);
-    this.alteraStory = this.altsto.bind(this);
-    this.alteraRating = this.alteraRat.bind(this);
+    this.altsto = this.altsto.bind(this);
+    this.alteraRat = this.alteraRat.bind(this);
     this.resetaState = this.resetaState.bind(this);
+    this.alteraSelectGenre = this.alteraSelectGenre.bind(this);
   }
 
   alteraTitulo(event) {
