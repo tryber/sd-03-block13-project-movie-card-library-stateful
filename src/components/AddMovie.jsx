@@ -13,11 +13,17 @@ class AddMovie extends React.Component {
     }
   }
 
-  onChangeTitle = (event) => this.setState({ title: event.target.value });
+  onChangeTitle(event) {
+    this.setState({ title: event.target.value });
+  }
 
-  onChangeSubtitle = (event) => this.setState({subtitle: event.target.value});
+  onChangeSubtitle(event) {
+    this.setState({subtitle: event.target.value});
+  }
 
-  onChangeImagePath = (event) => this.setState({imagePath: event.target.value});
+  onChangeImagePath(event) {
+    this.setState({imagePath: event.target.value});
+  }
 
   render() {
     const onClick = this.props.onClick;
@@ -25,15 +31,15 @@ class AddMovie extends React.Component {
       <form>
         <label>
           Título
-          <input type="text" value={this.state.title} onChange={this.onChangeTitle}></input>
+          <input type="text" value={this.state.title} onChange={this.onChangeTitle} />
         </label>
         <label>
           Subtítulo
-          <input type="text" value={this.state.subtitle} onChange={this.onChangeSubtitle}></input>
+          <input type="text" value={this.state.subtitle} onChange={this.onChangeSubtitle} />
         </label>
         <label>
           Imagem
-          <input type="text" value={this.state.imagePath} onChange={this.onChangeImagePath}></input>
+          <input type="text" value={this.state.imagePath} onChange={this.onChangeImagePath} />
         </label>
       </form>
     );
