@@ -16,6 +16,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterIt = this.filterIt.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -30,6 +31,22 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  filterIt(arr, searchKey) {
+    return arr.filter((obj) => {
+      return Object.keys(obj).some((key) => {
+        if (obj[key] !== null) {
+          const tempKey = obj[key].toString().toLowerCase();
+          const tempSearch = searchKey.toLowerCase();
+          return tempKey.includes(tempSearch) &&
+          tempKey.includes(this.state.selectedGenre)
+          
+        }
+      });
+    });
+  }
+  
+
   render() {
     return (
       <div>
@@ -41,8 +58,8 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
           selectedGenre={this.state.selectedGenre}
         />
-
-        <MovieList movies={this.state.movies} />
+        
+        <MovieList movies={this.filterIt(this.state.movies,this.state.searchText)} />
         <AddMove />
       </div>
     );
