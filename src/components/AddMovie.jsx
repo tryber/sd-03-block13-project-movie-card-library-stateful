@@ -1,13 +1,13 @@
-import React from './react'
+import React from './react';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action'
     }
@@ -18,15 +18,15 @@ class AddMovie extends React.Component {
   }
 
   onChangeSubtitle(event) {
-    this.setState({subtitle: event.target.value});
+    this.setState({ subtitle: event.target.value });
   }
 
   onChangeImagePath(event) {
-    this.setState({imagePath: event.target.value});
+    this.setState({ imagePath: event.target.value });
   }
 
   render() {
-    const onClick = this.props.onClick;
+    /* const onClick = this.props.onClick; */
     return (
       <form>
         <label>
