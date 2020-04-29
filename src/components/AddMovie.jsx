@@ -26,7 +26,7 @@ export default class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = name => (
+  handleChange = (name) => (
     ({ target: { value } }) => {
       if (name === 'rating') value = Number(value);
       this.setState({ [name]: value })
