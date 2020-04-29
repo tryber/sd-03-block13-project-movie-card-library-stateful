@@ -11,7 +11,6 @@ function SearchBar(props) {
     event.preventDefault();
   };
 
-
   return (
     <form onChange={handleForm}>
       <label htmlFor="search"> Inclui o texto</label>
@@ -31,9 +30,7 @@ function SearchBar(props) {
        <option value="thriller">Suspense</option>
       </select>
     </form>
-
   );
-
 }
 
 export default SearchBar;
