@@ -83,5 +83,7 @@ body {
 }
 
 .form {
-  margin: 10px;
+  flex-direction: column;
+  display: flex;
+  margin: 20px;
 }

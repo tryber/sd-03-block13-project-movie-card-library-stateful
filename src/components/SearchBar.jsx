@@ -10,39 +10,32 @@ function SearchBar(props) {
     onSelectedGenreChange,
   } = props;
   return (
-    <form>
-      <div className="form">
-        <label for="IncluiOtexto">Inclui o texto:&nbsp;</label>
+    <form className="form">
+      <label htmlFor="IncluiOtexto"><span>Inclui o texto:&nbsp;</span>
         <input
           id="IncluiOtexto"
           onChange={onSearchTextChange}
           type="text"
           value={searchText}
         />
-      </div>
-      <div className="form">
+      </label>
+      <label htmlFor="MostrarSomenteFavoritos">
         <input
+          checked={bookmarkedOnly}
           id="MostrarSomenteFavoritos"
           name="bookmarkedOnly"
           onChange={onBookmarkedChange}
           type="checkbox"
-          checked={bookmarkedOnly}
-        />
-        <label for="MostrarSomenteFavoritos">&nbsp;Mostrar somente favoritos</label>
-      </div>
-      <div className="form">
-        <label for="FiltrarPorGenero">Filtrar por gênero &nbsp;</label>
-        <select
-          id="FiltrarPorGenero"
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
-        >
+        /><span>&nbsp;Mostrar somente favoritos</span>
+      </label>
+      <label htmlFor="FiltrarPorGenero"><span>Filtrar por gênero&nbsp;</span>
+        <select id="FiltrarPorGenero" value={selectedGenre} onChange={onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-      </div>
+      </label>
     </form>
   );
 }
