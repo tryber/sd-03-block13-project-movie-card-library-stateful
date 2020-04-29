@@ -19,7 +19,7 @@ export default class MovieLibrary extends React.Component {
   }
 
   addMovie(movie) {
-    this.setState(state => ({ movies: [...state.movies, movie] }));
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   handleChangeInput(event) {
@@ -32,26 +32,29 @@ export default class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
+  checkBookmarked(movie) {
+    const { bookmarkedOnly } = this.state;
+    if (!bookmarkedOnly || (bookmarkedOnly && movie.bookmarked === true)) {
+      return movie;
+    }
+    return false;
+  }
+
+  checkGenre(movie) {
+    const { selectedGenre } = this.state;
+    if ((selectedGenre && movie.genre === selectedGenre) || !selectedGenre) return movie;
+    return false;
+  }
+
   filterMovie(movies) {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-    const checkBookmarked = (movie) => {
-      if ((!bookmarkedOnly) || (bookmarkedOnly && movie.bookmarked === true)) {
-        return movie;
-      }
-      return false;
-    };
-
-    const checkGenre = (movie) => {
-      if ((selectedGenre && movie.genre === selectedGenre) || !selectedGenre) return movie;
-      return false;
-    };
-
-    return movies.filter(movie => (movie.title.toLowerCase()
-      .includes(searchText.toLowerCase())
+    const { searchText } = this.state;
+    return movies.filter(
+      (movie) => (movie.title.toLowerCase().includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
       || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
-      && checkBookmarked(movie) && checkGenre(movie));
+      && this.checkBookmarked(movie)
+      && this.checkGenre(movie),
+    );
   }
 
   render() {
