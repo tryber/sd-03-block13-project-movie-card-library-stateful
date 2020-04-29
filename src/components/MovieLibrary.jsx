@@ -32,7 +32,7 @@ class MovieLibrary extends React.Component {
         this.setState({ selectedGenre: event.target.value });
     }
 
-    filterMovies = () => {
+    filterMovies() {
 
 
     }
