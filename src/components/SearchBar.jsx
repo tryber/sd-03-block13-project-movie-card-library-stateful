@@ -1,6 +1,18 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+
+  selectGenreOptions() {
+    return (
+      <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+        <option value={''}>Todos</option>
+        <option value={'action'}>Ação</option>
+        <option value={'comedy'}>Comédia</option>
+        <option value={'thriller'}>Suspense</option>
+      </select>
+    );
+  }
+
   render() {
     return (
       <form>
@@ -13,18 +25,13 @@ class SearchBar extends React.Component {
         <label htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
           <input
-            type="checkbox" 
+            type="checkbox"
             checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
           />
         </label>
         <label htmlFor="selectedGenre">
           Filtrar por gênero
-          <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
-            <option value={''}>Todos</option>
-            <option value={'action'}>Ação</option>
-            <option value={'comedy'}>Comédia</option>
-            <option value={'thriller'}>Suspense</option>
-          </select>
+          {selectGenreOptions()}
         </label>
       </form>
     );
