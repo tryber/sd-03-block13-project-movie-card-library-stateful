@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  alteraAvaliacao = event => {
+  alteraAvaliacao (event) {
     this.setState({
       rating: parseFloat(event.target.value),
     });
