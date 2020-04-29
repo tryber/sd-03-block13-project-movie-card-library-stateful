@@ -63,8 +63,8 @@ export default class AddMovie extends React.Component {
           {this.createInput({ ...inputFeatures['imagePath'], value: imagePath,
                 onChange: this.handleChange('imagePath') })}
         <label htmlFor="storyline">
-          <textarea value={storyline} id={'storyline'}
-            onChange={this.handleChange('storyline')}>Sinopse</textarea>
+          <textarea value={storyline} id={'storyline'} onChange={this.handleChange('storyline')}>
+          Sinopse</textarea>
         </label>
         {this.createInput({ ...inputFeatures['rating'], value: rating,
                 onChange: this.handleChange('rating') })}
