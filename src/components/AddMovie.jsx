@@ -22,12 +22,10 @@ class AddMovie extends React.Component {
   
   alteraTitulo = (event) =>  {
     this.setState({title: event.target.value})
-
   }
    
   alteraSubtitulo = (event) =>  {
     this.setState({subtitle: event.target.value})
-
   }
 
   alteraImagem = (event) =>  {
