@@ -5,10 +5,10 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { searchText: '', bookmarkedOnly: true };
+    this.state = { searchText: '', bookmarkedOnly: true, selectedGenre: '' };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenre = this.onSelectedGenre.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange() {
@@ -19,17 +19,12 @@ class SearchBar extends React.Component {
     console.log('retornando', this);
   }
 
-  onSelectedGenre() {
+  onSelectedGenreChangeChange() {
     console.log('retornando', this);
   }
 
   render() {
-    const {
-      bookmarkedOnly,
-      onBookmarkedChange,
-      onSelectedGenre,
-      selectedGenre,
-    } = this.props;
+    const { selectedGenre } = this.props;
 
     return (
       <div>
@@ -49,7 +44,7 @@ class SearchBar extends React.Component {
               type="checkbox"
               name="favorite-books"
               id="search-checkbox"
-              onChange={this.onBookmarkedChange}
+              onChange={this.onSelectedGenreChangeChange}
               checked={this.state.bookmarkedOnly}
             />
           </label>
@@ -58,6 +53,7 @@ class SearchBar extends React.Component {
               name="genre-select"
               id="genre-select"
               onChange={this.onBookmarkedChange}
+              value={this.state.selectedGenre}
             >
               <option value="">Todos</option>
               <option value="action">Ação</option>
@@ -65,7 +61,6 @@ class SearchBar extends React.Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <h1>Esta é uma searchBar</h1>
         </form>
       </div>
     );
