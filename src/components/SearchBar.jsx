@@ -1,9 +1,10 @@
 import React from 'react';
+
 const options = [
   ['', 'Todos'],
   ['action', 'Ação'],
   ['comedy', 'Comédia'],
-  ['thriller', 'Suspense']
+  ['thriller', 'Suspense'],
 ];
 
 function SearchBar(props) {
@@ -17,9 +18,9 @@ function SearchBar(props) {
       <label htmlFor={'check'}>Mostrar somente favoritos
         <input type={'checkbox'} id={'check'} checked={bMO} onChange={onBookmarkedChange} />
       </label>
-      <label hthmlFor={'genreFilter'}>Filtrar por gênero
+      <label htmlFor={'genreFilter'}>Filtrar por gênero
         <select value={selectedGenre} id={'genreFilter'} onChange={onSelectedGenreChange}>
-          {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
+          {options.map(([en, pt]) => <option key={en} value={en}>{pt}</option>)}
         </select>
       </label>
     </form>

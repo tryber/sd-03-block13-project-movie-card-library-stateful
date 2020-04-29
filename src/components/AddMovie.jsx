@@ -26,10 +26,12 @@ export default class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = name => (({ target: { value } }) => {
+  handleChange = name => (
+    ({ target: { value } }) => {
       if (name === 'rating') value = Number(value);
       this.setState({ [name]: value })
-    });
+    }
+  );
 
   reset = () => this.setState(initialState);
 
@@ -55,20 +57,20 @@ export default class AddMovie extends React.Component {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     return (
       <form>
-          {this.createInput({ ...inputFeatures['title'], value: title,
-                onChange: this.handleChange('title') })}
-          {this.createInput({ ...inputFeatures['subtitle'], value: subtitle,
-                onChange: this.handleChange('subtitle') })}
-          {this.createInput({ ...inputFeatures['imagePath'], value: imagePath,
-                onChange: this.handleChange('imagePath') })}
+        {this.createInput({ ...inputFeatures['title'], value: title,
+          onChange: this.handleChange('title') })}
+        {this.createInput({ ...inputFeatures['subtitle'], value: subtitle,
+          onChange: this.handleChange('subtitle') })}
+        {this.createInput({ ...inputFeatures['imagePath'], value: imagePath,
+          onChange: this.handleChange('imagePath') })}
         <label htmlFor="storyline">
           <textarea value={storyline} id={'storyline'} onChange={this.handleChange('storyline')}>
           Sinopse</textarea>
         </label>
         {this.createInput({ ...inputFeatures['rating'], value: rating,
-                onChange: this.handleChange('rating') })}
+          onChange: this.handleChange('rating') })}
         {this.createGender(genre)}
-          <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
+         <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
       </form>
     );
   }
