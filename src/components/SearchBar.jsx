@@ -1,23 +1,25 @@
 import React from 'react';
+const options = [
+  ['', 'Todos'],
+  ['action', 'Ação'],
+  ['comedy', 'Comédia'],
+  ['thriller', 'Suspense']
+];
 
 function SearchBar(props) {
-  const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-    selectedGenre, onSelectedGenreChange } = props;
+  const { searchText, bookmarkedOnly: bMO, selectedGenre } = props;
+  const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = props;
   return (
     <form>
-      <label>Inclui o texto:
-        <input type={'text'} value={searchText}
-          onChange={onSearchTextChange} />
+      <label htmlFor={'searchText'}>Inclui o texto:
+        <input type={'text'} value={searchText} id={'searchText'} onChange={onSearchTextChange} />
       </label>
-      <label>Mostrar somente favoritos
-        <input type={'checkbox'} checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+      <label htmlFor={'check'}>Mostrar somente favoritos
+        <input type={'checkbox'} id={'check'} checked={bMO} onChange={onBookmarkedChange} />
       </label>
-      <label>Filtrar por gênero
-        <select value={selectedGenre} onChange={onSelectedGenreChange}>
-          <option value={''}>Todos</option>
-          <option value={'action'}>Ação</option>
-          <option value={'comedy'}>Comédia</option>
-          <option value={'thriller'}>Suspense</option>
+      <label hthmlFor={'genreFilter'}>Filtrar por gênero
+        <select value={selectedGenre} id={'genreFilter'} onChange={onSelectedGenreChange}>
+          {options.map(([ en, pt ]) => <option key={en} value={en}>{pt}</option>)}
         </select>
       </label>
     </form>
