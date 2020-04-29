@@ -20,37 +20,37 @@ class AddMovie extends React.Component {
     this.resetaState = this.resetaState.bind(this);
   }
   
-  alteraTitulo = (event) =>  {
+  alteraTitulo(event) {
     this.setState({title: event.target.value})
   }
    
-  alteraSubtitulo = (event) =>  {
+  alteraSubtitulo(event) {
     this.setState({subtitle: event.target.value})
   }
 
-  alteraImagem = (event) =>  {
+  alteraImagem(event) {
     this.setState({imagePath: event.target.value})
 
   }
 
-  alteraStory = (event) =>  {
+  alteraStory(event) {
     this.setState({storyline: event.target.value})
 
   }
 
-  alteraRating = (event) =>  {
+  alteraRating(event) {
     this.setState({rating: Number(event.target.value)})
   }
   
-  alteraSelectGenre = (event) =>  {
+  alteraSelectGenre(event) {
     this.setState({genre: event.target.value})
   }
 
-  currentState = (props) =>  {
+  currentState(props) {
     this.setState(props.AddMovie)
       }
 
-  resetaState = () =>  {
+  resetaState() {
     this.setState({
         subtitle: '',
         title: '',
@@ -61,8 +61,8 @@ class AddMovie extends React.Component {
       })
   }
   
-
  render() {
+     
  return (
    <form>
     <label htmlFor="titulo">Título</label>
