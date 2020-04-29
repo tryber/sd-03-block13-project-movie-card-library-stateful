@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
     this.alteraGenero = this.alteraGenero.bind(this);
     this.passaState = this.passaState.bind(this); */
 
-  changeHandler = event => {
+  changeHandler(event) {
     let {name, value} = event.target;
     this.setState({
       [name]: value,

@@ -11,7 +11,10 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
-  const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = props;
+  const {
+    searchText,onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+    selectedGenre, onSelectedGenreChange
+  } = this.props;
 
   render() {
     return (
