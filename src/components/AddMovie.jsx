@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export default class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,8 @@ export default class AddMovie extends Component {
   }
 
   onChangeHandler(event) {
-    this.setState({ [event.target.id]: event.target.value });
+    const { id, value } = event.target;
+    this.setState({ [id]: value });
   }
 
   SubmitMovie() {
@@ -32,24 +34,36 @@ export default class AddMovie extends Component {
     });
   }
 
-  somelabels() {
-    const { title, subtitle, imagePath } = this.state;
+  tituloLabel() {
+    const { title } = this.state;
     return (
-      <>
-        <label htmlFor="input">
-          Título
-          <input type="text" value={title} id="title" onChange={this.onChangeHandler} />
-        </label>
-        <label htmlFor="input">
-          Subtítulo
-          <input type="text" value={subtitle} id="subtitle" onChange={this.onChangeHandler} />
-        </label>
-        <label htmlFor="input">
-          Imagem
-          <input type="text" value={imagePath} id="imagePath" onChange={this.onChangeHandler} />
-        </label>
-      </>
 
+      <label htmlFor="input">
+        Título
+        <input type="text" value={title} id="title" onChange={this.onChangeHandler} />
+      </label>
+
+
+    );
+  }
+
+  subtituloLabel() {
+    const { subtitle } = this.state;
+    return (
+      <label htmlFor="input">
+        Subtítulo
+        <input type="text" value={subtitle} id="subtitle" onChange={this.onChangeHandler} />
+      </label>
+    );
+  }
+
+  imagemLabel() {
+    const { imagePath } = this.state;
+    return (
+      <label htmlFor="input">
+        Imagem
+        <input type="text" value={imagePath} id="imagePath" onChange={this.onChangeHandler} />
+      </label>
     );
   }
 
@@ -58,7 +72,9 @@ export default class AddMovie extends Component {
     const { storyline, rating, genre } = this.state;
     return (
       <form>
-        {this.somelabels()}
+        {this.tituloLabel()}
+        {this.subtituloLabel()}
+        {this.imagemLabel()}
         <label htmlFor="input">
           Sinopse
           <textarea value={storyline} id="storyline" onChange={this.onChangeHandler} />

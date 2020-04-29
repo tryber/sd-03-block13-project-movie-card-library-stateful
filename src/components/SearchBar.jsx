@@ -8,18 +8,18 @@ export default class SearchBar extends Component {
     } = this.props;
     return (
       <form>
-        <label htmlFor>
+        <label htmlFor="input">
           Inclui o texto:
           <input type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
 
-        <label htmlFor>
+        <label htmlFor="input">
           Mostrar somente favoritos
           <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
 
         </label>
 
-        <label htmlFor>
+        <label htmlFor="input">
           Filtrar por gênero
           <select value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>

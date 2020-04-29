@@ -13,11 +13,33 @@ export default class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.addMovie = this.addMovie.bind(this);
   }
 
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = [...movies];
+    if (bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((e) => e.bookmarked);
+    }
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter((e) => e.genre === selectedGenre);
+    }
+    if (searchText) {
+      filteredMovies = filteredMovies.filter((e) => e.title.includes(searchText)
+        || e.subtitle.includes(searchText) || e.storyline.includes(searchText));
+    }
+
+    return filteredMovies;
+  }
+
+  addMovie(obj) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, obj] });
+  }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -28,8 +50,8 @@ export default class MovieLibrary extends Component {
           onBookmarkedChange={(event) => this.setState({ bookmarkedOnly: event.target.checked })}
           onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
-        <MovieList movies={movies} />
-        <AddMovie />
+        <MovieList movies={this.filterMovies()} />
+        <AddMovie onClick={this.addMovie} />
 
       </div>
 
