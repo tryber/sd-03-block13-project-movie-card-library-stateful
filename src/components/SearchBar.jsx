@@ -1,22 +1,15 @@
 // implement SearchBar component here
 import React from 'react';
 
-/* function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
-} */
-
 class SearchBar extends React.Component {
 
-  const {(
-    searchText,onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-    selectedGenre, onSelectedGenreChange
-  )} = this.props;
-
   render() {
+    const {
+      searchText,
+      onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange
+    } = this.props;
+
     return (
       <div>
         <form>
