@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import AddLabelOption from './AddLabelOption';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -11,7 +12,6 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,32 +20,9 @@ class AddMovie extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-
   render() {
-    const { onClick } = this.props;
-    const arrayImputs = ['Título',
-      'Subtítulo',
-      'imagem',
-      'Sinopse',
-      'rating',
-    ];
-    const types = [
-      'text',
-      'text',
-      'text',
-      'textarea',
-      'number',
-    ];
-    const arraySelect = [
-      'Ação',
-      'Comédia',
-      'Suspense',
-    ];
-    const arrayVal = [
-      'action',
-      'comedy',
-      'thriller',
-    ];
+    const arrayImputs = ['Título', 'Subtítulo', 'imagem', 'Sinopse', 'rating'];
+    const types = ['text', 'text', 'text', 'textarea', 'number'];
     const detructuring = this.state;
     return (
       <div>
@@ -61,24 +38,7 @@ class AddMovie extends Component {
             />
           </label>
         ))}
-        <label htmlFor="Gênero">
-          Gênero
-          <select
-            name="genre"
-            value={detructuring.texts}
-            onChange={this.handleChange}
-            text="Gênero"
-          >
-            {arraySelect.map((el, index) => (
-              <option value={
-                arrayVal[index]
-              }
-              >
-                {el}
-              </option>
-            ))}
-          </select>
-        </label>
+        <AddLabelOption />
       </div>
     );
   }

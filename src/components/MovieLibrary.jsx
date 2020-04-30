@@ -6,10 +6,6 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { data } = this.props;
     return (
