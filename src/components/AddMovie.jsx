@@ -59,14 +59,23 @@ class AddMovie extends React.Component {
     );
   }
 
+  formRating() {
+    const { rating } = this.state;
+    return (
+      <div>
+        <label htmlFor="rating">Avaliação</label>
+          <input type="number" value={this.state.rating} value={rating} name="rating" onChange={this.alteraAvaliacao} />
+      </div>
+    );
+  }
+
   render() {
     return (
       <form onSubmit={this.passaState}>
         {this.someForms()}
         <label htmlFor="storyLine">Sinopse</label>
         <textarea name="storyLine" value={this.state.storyLine} onChange={this.changeHandler} />
-        <label htmlFor="rating">Avaliação</label>
-        <input type="number" value={this.state.rating} name="rating" onChange={this.alteraAvaliacao} />
+        {this.formRating()}
         <label htmlFor="genre">Gênero</label>
         <select value={this.state.genre} name="genre" onChange={this.changeHandler}>
           <option value="action">Ação</option><option value="comedy">Comédia</option>
