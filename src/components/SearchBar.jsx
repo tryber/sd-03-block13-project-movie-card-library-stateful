@@ -28,17 +28,17 @@ export class SearchBar extends Component {
     return (
       <div>
         <fieldset>
-          <form style={{ marginLeft: "33px", padding: "8px 3px" }}>
+          <form style={{ marginLeft: '33px', padding: '8px 3px' }}>
             <label>
               Inclui o texto:
               <br />
               <input
                 value={this.props.searchText}
                 onChange={onSearchTextChange}
-                style={{ width: "600px", borderRadius: "5px" }}
-                type="text"
-                name=""
-                id=""
+                style={{ width: '600px', borderRadius: '5px' }}
+                type='text'
+                name=''
+                id=''
               />
             </label>
           </form>
