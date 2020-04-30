@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React from 'react';
+import Genre from '../genreData';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -8,15 +9,17 @@ class SearchBar extends React.Component {
   }
 
   formInputs() {
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange } = this.props;
     return (
       <div>
         <label htmlFor="search-text">
           Inclui o texto:
           <input
             type="text"
-            value={this.props.searchText}
+            value={searchText}
             id="search-text"
-            onChange={this.props.onSearchTextChange}
+            onChange={onSearchTextChange}
           />
         </label>
         <label htmlFor="search-checkbox">
@@ -25,8 +28,8 @@ class SearchBar extends React.Component {
             type="checkbox"
             name="favorite-books"
             id="search-checkbox"
-            onChange={this.props.onBookmarkedChange}
-            checked={this.props.bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            checked={bookmarkedOnly}
           />
         </label>
       </div>
@@ -34,6 +37,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { onSelectedGenreChange, selectedGenre } = this.props;
     return (
       <form>
         {this.formInputs()}
@@ -42,13 +46,14 @@ class SearchBar extends React.Component {
           <select
             name="genre-select"
             id="genre-select"
-            onChange={this.props.onSelectedGenreChange}
-            value={this.props.selectedGenre}
+            onChange={onSelectedGenreChange}
+            value={selectedGenre}
           >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            {Genre.map((genre) => (
+              <option key={genre.label} value={genre.value}>
+                {genre.label}
+              </option>
+            ))}
           </select>
         </label>
       </form>
