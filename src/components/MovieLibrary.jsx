@@ -2,7 +2,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import AddMove from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -16,10 +16,10 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterIt = this.filterIt.bind(this);
-  }
+    this.addMovie = this.addMovie.bind(this);
+   }
 
-  onSearchTextChange(event) {
+   onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
   }
 
@@ -31,34 +31,40 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  filterIt(arr, searchKey) {
-    let result = '';
-    return arr.filter((obj) => Object.keys(obj).some((key) => {
-      if (obj[key] !== null) {
-        const tempKey = obj[key].toString().toLowerCase();
-        const tempSearch = searchKey.toLowerCase();
-        result = tempKey.includes(tempSearch)
-          && tempKey.includes(this.state.selectedGenre);
-      }
-      return result;
-    }));
+  FiltrarMovies() {
+    let movieFiltrado = [...this.state.movies];
+    if (this.state.searchText) {     
+      movieFiltrado = movieFiltrado.filter((movie) => movie.title.includes(this.state.searchText)
+        || movie.subtitle.includes(this.state.searchText) || movie.storyline.includes(this.state.searchText));
+    }
+    if (this.state.bookmarkedOnly) {
+      movieFiltrado = movieFiltrado.filter((movie) => movie.bookmarked);
+    }
+    if (this.state.selectedGenre) {
+      movieFiltrado = movieFiltrado.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+  return movieFiltrado;
+  }
+  addMovie(newState) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newState] });
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
-          searchText={this.state.searchText}
+          searchText={searchText}
           onSearchTextChange={this.onSearchTextChange}
-          bookmarkedOnly={this.state.bookmarkedOnly}
+          bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
-          selectedGenre={this.state.selectedGenre}
+          selectedGenre={selectedGenre}
         />
 
-        <MovieList movies={this.filterIt(this.state.movies, this.state.searchText)} />
-        <AddMove />
+        <MovieList movies={this.FiltrarMovies()} />
+        <AddMovie onClick={this.addMovie}/>
       </div>
     );
   }

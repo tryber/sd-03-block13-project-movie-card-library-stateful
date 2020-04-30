@@ -19,6 +19,13 @@ class AddMovie extends React.Component {
     this.alteraRat = this.alteraRat.bind(this);
     this.resetaState = this.resetaState.bind(this);
     this.alteraSelectGenre = this.alteraSelectGenre.bind(this);
+    this.atualizaMovie = this.atualizaMovie.bind(this);
+  }
+
+  atualizaMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.resetaState();
   }
 
   alteraTitulo(event) {
@@ -81,7 +88,7 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={this.resetaState}>Adicionar filme</button>
+        <button onClick={this.atualizaMovie}>Adicionar filme</button>
       </form>
     );
   }
