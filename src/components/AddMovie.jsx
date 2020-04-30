@@ -16,15 +16,15 @@ class AddMovie extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
+  async handleChange(e) {
     const input = e.target;
-    this.setState({ [input.name]: input.value });
+    await this.setState({ [input.name]: input.value });
   }
 
-  handleSubmit() {
+  async handleSubmit() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({
+    await this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
