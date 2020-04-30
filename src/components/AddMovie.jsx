@@ -9,14 +9,18 @@ const initialState = {
   title: '',
 };
 
-const features = {
+const searchBoxes = {
   title: { id: 'title', text: 'Título', type: 'text' },
   subtitle: { id: 'subtitle', text: 'Subtítulo', type: 'text' },
   imagePath: { id: 'image', text: 'Imagem', type: 'text' },
+  storyline: { id: 'storyline', text: 'Sinopse', type: 'textarea' },
   rating: { id: 'rating', text: 'Avaliação', type: 'number' },
+  genre: { id: 'genre', text: 'Gênero', type: 'select' },
 };
 
 const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
+
+const setOptions = (opts) => opts.map(([en, pt]) => <option value={en} key={en}>{pt}</option>);
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -29,50 +33,44 @@ export default class AddMovie extends React.Component {
   handleChange(name) {
     return (({ target: { value } }) => {
       const nextState = {};
+
       if (name === 'rating') nextState[name] = Number(value);
       else nextState[name] = value;
+
       this.setState(nextState);
     });
   }
 
   reset() { this.setState(initialState); }
 
-  createInput({ id, text, type, value, onChange }) {
-    return (
-      <label htmlFor={id}>{text}
-        <input type={type} value={value} id={id} onChange={this.handleChange(onChange)} />
-      </label>
-    );
-  }
-
   handleSubmitClick() {
     this.props.onClick(this.state);
     this.reset();
   }
 
-  createGender(genre) {
+  create(tag, obj) {
     return (
-      <label htmlFor={'genre'}>Gênero
-        <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
-          {genreOptions.map(([en, pt]) => <option value={en} key={en}>{pt}</option>)}
-        </select>
-      </label>
+        tag === 'textarea' ? <textarea {...obj}></textarea> : 
+        tag === 'select' ? <select {...obj}>{setOptions(genreOptions)}</select> :
+        <input {...obj} />
     );
   }
 
   render() {
-    const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     return (
       <form>
-        {this.createInput({ ...features.title, value: title, onChange: 'title' })}
-        {this.createInput({ ...features.subtitle, value: subtitle, onChange: 'subtitle' })}
-        {this.createInput({ ...features.imagePath, value: imagePath, onChange: 'imagePath' })}
-        <label htmlFor="storyline">
-          <textarea value={storyline} id={'storyline'} onChange={this.handleChange('storyline')}>
-          Sinopse</textarea>
-        </label>
-        {this.createInput({ ...features.rating, value: rating, onChange: 'rating' })}
-        {this.createGender(genre)}
+        {
+          Object.entries(searchBoxes).map(([box, features]) => {
+            const prop = Object.assign(
+              features,
+              { value: this.state[box], onChange: this.handleChange(box) });
+            return (
+              <label key={box} htmlFor={features.id}>{features.text}
+                {this.create(features.type, prop)}
+              </label>
+            );
+          })
+        }
         <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
       </form>
     );
