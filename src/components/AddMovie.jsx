@@ -42,10 +42,8 @@ class AddMovie extends Component {
           Título
           <input type="text" name="title" value={this.state.title} onChange={this.hadleChange} />
         </label>
-        <label htmlFor="subtitle">
-          Subtítulo
+        <label htmlFor="subtitle">Subtítulo</label>
           <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.hadleChange} />
-        </label>
         <label htmlFor="imagePath">
           Imagem
           <input type="text" name="imagePath" value={this.state.imagePath} onChange="" />
