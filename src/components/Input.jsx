@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class Input extends Component {
   render() {
-    const { inputName, text, inputType, handler, value } = this.props;
+    const { name, text, input = 'text', handler, value } = this.props;
     return (
-      <label htmlFor={inputName}>
+      <label htmlFor={name}>
         {text}
         <input
-          type={inputType}
-          name={inputName}
-          id={inputName}
+          type={input}
+          name={name}
+          id={name}
           value={value}
           onChange={handler}
         />

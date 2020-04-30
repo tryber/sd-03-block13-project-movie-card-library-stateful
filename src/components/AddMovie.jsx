@@ -14,12 +14,12 @@ export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handleChangeInput = this.handleChangeInput.bind(this);
-    this.createInput = this.createInput.bind(this);
+    this.changeInput = this.changeInput.bind(this);
+    this.createInputs = this.createInputs.bind(this);
     this.selectGenre = this.selectGenre.bind(this);
   }
 
-  handleChangeInput({ target: { name, value } }) {
+  changeInput({ target: { name, value } }) {
     this.setState({ [name]: value });
   }
 
@@ -27,19 +27,42 @@ export default class AddMovie extends React.Component {
     this.setState(initialState);
   }
 
-  createInput(inputName, text, inputType, handler) {
-    const st = this.state;
+  createInputs() {
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
-      <label htmlFor={inputName}>
-        {text}
-        <input
-          type={inputType}
-          name={inputName}
-          id={inputName}
-          value={st[inputName]}
-          onChange={handler}
+      <span>
+        <Input
+          name="title"
+          text="Título"
+          handler={this.changeInput}
+          value={title}
         />
-      </label>
+        <Input
+          name="subtitle"
+          text="Subtítulo"
+          handler={this.changeInput}
+          value={subtitle}
+        />
+        <Input
+          name="imagePath"
+          text="Imagem"
+          handler={this.changeInput}
+          value={imagePath}
+        />
+        <Input
+          name="storyline"
+          text="Sinopse"
+          handler={this.changeInput}
+          value={storyline}
+        />
+        <Input
+          name="rating"
+          text="Avaliação"
+          input="number"
+          handler={this.changeInput}
+          value={rating}
+        />
+      </span>
     );
   }
 
@@ -65,15 +88,10 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form>
-          <Input inputName="title" text="Título" input="text" handler={this.handleChangeInput} value={title} />
-          <Input inputName="subtitle" text="Subtítulo" input="text" handler={this.handleChangeInput} value={subtitle} />
-          <Input inputName="imagePath" text="Imagem" input="text" handler={this.handleChangeInput} value={imagePath} />
-          <Input inputName="storyline" text="Sinopse" input="text" handler={this.handleChangeInput} value={storyline} />
-          <Input inputName="rating" text="Avaliação" input="number" handler={this.handleChangeInput} value={rating} />
+          {this.createInputs()}
           {this.selectGenre()}
           <button
             type="button"
