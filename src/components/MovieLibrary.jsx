@@ -12,7 +12,6 @@ export default class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.handleChangeInput = this.handleChangeInput.bind(this);
     this.filterMovie = this.filterMovie.bind(this);
     this.handleOnBookmarkedChange = this.handleOnBookmarkedChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
@@ -20,11 +19,6 @@ export default class MovieLibrary extends React.Component {
 
   addMovie(movie) {
     this.setState((state) => ({ movies: [...state.movies, movie] }));
-  }
-
-  handleChangeInput(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
   }
 
   handleOnBookmarkedChange() {
@@ -49,24 +43,25 @@ export default class MovieLibrary extends React.Component {
   filterMovie(movies) {
     const { searchText } = this.state;
     return movies.filter(
-      (movie) => (movie.title.toLowerCase().includes(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
+      (movie) => (movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText))
       && this.checkBookmarked(movie)
       && this.checkGenre(movie),
     );
   }
 
   render() {
-    const { searchText, selectedGenre, movies } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.handleChangeInput}
-          onBookmarkedChange={this.handleOnBookmarkedChange}
+          bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.handleChangeInput}
+          onSearchTextChange={(e) => this.setState({ searchText: e.target.value })}
+          onBookmarkedChange={this.handleOnBookmarkedChange}
+          onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
         <MovieList movies={this.filterMovie(movies)} />
         <AddMovie onClick={this.addMovie} />

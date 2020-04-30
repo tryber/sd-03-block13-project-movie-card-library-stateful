@@ -1,5 +1,4 @@
 import React from 'react';
-import Input from './Input';
 
 const initialState = {
   title: '',
@@ -14,35 +13,37 @@ export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.changeInput = this.changeInput.bind(this);
-    this.createInputs = this.createInputs.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.createInput = this.createInput.bind(this);
     this.selectGenre = this.selectGenre.bind(this);
+    this.handleChangeRating = this.handleChangeRating.bind(this);
   }
 
-  changeInput({ target: { name, value } }) {
+  handleChangeInput({ target: { value } }, name) {
     this.setState({ [name]: value });
+  }
+
+  handleChangeRating({ target: { value } }, name) {
+    this.setState({ [name]: +value });
   }
 
   reset() {
     this.setState(initialState);
   }
 
-  createInputs() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+  createInput(inputName, text, inputType = 'text', handler = this.handleChangeInput) {
+    const st = this.state;
     return (
-      <span>
-        <Input name="title" text="Título" handler={this.changeInput} value={title} />
-        <Input name="subtitle" text="Subtítulo" handler={this.changeInput} value={subtitle} />
-        <Input name="imagePath" text="Imagem" handler={this.changeInput} value={imagePath} />
-        <Input name="storyline" text="Sinopse" handler={this.changeInput} value={storyline} />
-        <Input
-          name="rating"
-          text="Avaliação"
-          input="number"
-          handler={this.changeInput}
-          value={rating}
+      <label htmlFor={inputName}>
+        {text}
+        <input
+          type={inputType}
+          name={inputName}
+          id={inputName}
+          value={st[inputName]}
+          onChange={(e) => handler(e, inputName)}
         />
-      </span>
+      </label>
     );
   }
 
@@ -56,7 +57,7 @@ export default class AddMovie extends React.Component {
           id="genre"
           name="genre"
           value={genre}
-          onChange={this.handleChangeInput}
+          onChange={(e) => this.handleChangeInput(e, 'genre')}
         >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -68,10 +69,18 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    const { storyline } = this.state;
     return (
       <div>
         <form>
-          {this.createInputs()}
+          {this.createInput('title', 'Título')}
+          {this.createInput('subtitle', 'Subtítulo')}
+          {this.createInput('imagePath', 'Imagem')}
+          <label htmlFor="input">
+          Sinopse
+            <textarea value={storyline} onChange={(e) => this.handleChangeInput(e, 'storyline')} />
+          </label>
+          {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
           {this.selectGenre()}
           <button
             type="button"
