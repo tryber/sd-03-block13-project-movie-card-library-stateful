@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Input extends Component {
   render() {
     const { innerText, name, value, check, onChange, type } = this.props;

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import Input from './Input';
+// import Select from './Select';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -53,9 +54,7 @@ class AddMovie extends Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="button" onClick={this.addMovie}>
-          Adicionar filme
-        </button>
+        <button type="button" onClick={this.addMovie}>Adicionar filme</button>
       </fieldset>
     );
   }

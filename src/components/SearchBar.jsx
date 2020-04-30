@@ -5,18 +5,14 @@ import Select from './Select';
 
 class SearchBar extends Component {
   render() {
+    const selectArr = [['', 'Todos'], ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     const {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
       <fieldset>
-        <Input
-          name="searchText"
-          innerText="Inclui o texto:"
-          value={searchText}
-          onChange={onSearchTextChange}
-        />
+        <Input name="searchText" innerText="Inclui o texto:" value={searchText} onChange={onSearchTextChange} />
         <Input
           innerText="Mostrar somente favoritos"
           name="bookMarker"
@@ -24,11 +20,7 @@ class SearchBar extends Component {
           check={bookmarkedOnly}
           onChange={onBookmarkedChange}
         />
-        <Select
-          options={[['', 'Todos'], ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']]}
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
-        />
+        <Select options={selectArr} value={selectedGenre} onChange={onSelectedGenreChange} />
       </fieldset>
     );
   }
