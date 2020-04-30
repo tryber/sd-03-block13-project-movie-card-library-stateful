@@ -1,20 +1,16 @@
-import React from "react";
+import React from 'react';
 
 const genreArray = [
-  { text: "Todos", value: "" },
-  { text: "Ação", value: "action" },
-  { text: "Comédia", value: "comedy" },
-  { text: "Suspense", value: "thriller" },
+  { text: 'Todos', value: '' },
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
 ];
 
 class SearchBar extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
-    const {
-      onSearchTextChange,
-      onBookmarkedChange,
-      onSelectedGenreChange,
-    } = this.props;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
       <div>
         <form>
@@ -39,11 +35,7 @@ class SearchBar extends React.Component {
             value={selectedGenre}
             onChange={onSelectedGenreChange}
           >
-            {genreArray.map(({ text, value }) => (
-              <option key={text} value={value}>
-                {text}
-              </option>
-            ))}
+          {genreArray.map(({ text, value }) => (<option key={text} value={value}>{text}</option>))}
           </select>
         </form>
       </div>
