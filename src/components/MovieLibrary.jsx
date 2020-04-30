@@ -8,11 +8,11 @@ import AddMovie from './AddMovie';
 export default class components extends Component {
   render() {
     return (
-      <div>
+      <>
         <SearchBar />
         <MovieList />
         <AddMovie />
-      </div>
+      </>
     );
   }
 }
