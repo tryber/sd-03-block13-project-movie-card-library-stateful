@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
     onSelectedGenreChange
     } = this.props;
     */
-    return(
+    return (
       <form />
     );
   }
