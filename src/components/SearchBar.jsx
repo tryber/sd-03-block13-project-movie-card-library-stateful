@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './Input';
 
 export default class SearchBar extends React.Component {
   render() {
@@ -13,16 +14,9 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <form>
-          <label htmlFor="searchText">
-            Inclui o texto:
-            <input
-              type="text"
-              value={searchText}
-              onChange={onSearchTextChange}
-              id="searchText"
-              name="searchText"
-            />
-          </label>
+          <Input inputName="searchText" text="Inclui o texto:" input="text" handler={onSearchTextChange} value={searchText} />
+
+
           <label htmlFor="bookmarkedOnly">
             Mostrar somente favoritos
             <input
