@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.clicando = this.clicando.bind(this);
   }
   updateState(event) {
     const { value } = event.target;
@@ -26,7 +27,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  clicando = () => {
+  clicando() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -43,24 +44,40 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label htmlFor="title">Título<input onChange={(e) => this.updateState(e)}
-            type="text" id="title" value={this.state.title} /></label>
+          <label htmlFor="title">Título
+          <input onChange={(e) => this.setState({ title: e.target.value })}
+              type="text" id="title" value={this.state.title} />
+          </label>
 
-          <label htmlFor="subtitle">Subtítulo<input onChange={(e) => this.updateState(e)}
-            type="text" id="subtitle" value={this.state.subtitle} /></label>
+          <label htmlFor="subtitle">Subtítulo
+            <input onChange={(e) =>
+              this.setState({ subtitle: e.target.value })}
+              type="text" id="subtitle" value={this.state.subtitle} />
+          </label>
 
-          <label htmlFor="image">Imagem<input onChange={(e) => this.updateState(e)}
-            type="text" id="image" value={this.state.imagePath} /></label>
-          <label>Sinopse<textarea value={this.state.storyline} onChange={(e) => this.updateState(e)}></textarea></label>
+          <label htmlFor="image">Imagem
+            <input onChange={(e) => this.setState({ imagePath: e.target.value })}
+              type="text" id="image" value={this.state.imagePath} />
+          </label>
 
-          <label htmlFor="rating">Avaliação<input type="number" id="rating" value={this.state.rating}
-          onChange={(e) => this.updateState(e)} /></label>
+          <label>Sinopse
+          <textarea value={this.state.storyline} onChange={(e) =>
+              this.setState({ storyline: e.target.value })}></textarea>
+          </label>
 
-          <label htmlFor="gender">Gênero<select id="gender" value={this.state.genre} onChange={(e) => this.updateState(e)}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select></label>
+          <label htmlFor="rating">Avaliação
+            <input type="number" id="rating" value={this.state.rating}
+              onChange={(e) => this.setState({ rating: parseFloat(e.target.value) })} />
+          </label>
+
+          <label htmlFor="gender">Gênero
+            <select id="gender" value={this.state.genre}
+              onChange={(e) => this.setState({ genre: e.target.value })}>
+              <option value="action">Ação</option>
+              <option value="comedy">Comédia</option>
+              <option value="thriller">Suspense</option>
+            </select>
+          </label>
           <button type="button" onClick={this.clicando}>Adicionar filme</button>
         </form>
       </div>

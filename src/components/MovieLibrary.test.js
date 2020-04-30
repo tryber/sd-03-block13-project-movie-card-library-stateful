@@ -50,7 +50,7 @@ describe('<MovieLibrary /> component', () => {
   });
 });
 
-describe.skip('<MovieLibrary /> component initial state', () => {
+describe('<MovieLibrary /> component initial state', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('initializes `searchText` in state with an empty string', () => {
@@ -70,7 +70,7 @@ describe.skip('<MovieLibrary /> component initial state', () => {
   });
 });
 
-describe.skip('<MovieLibrary /> should render <SearchBar />', () => {
+describe('<MovieLibrary /> should render <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('renders a `SearchBar` component', () => {
@@ -161,7 +161,7 @@ describe.skip('<MovieLibrary /> should render <SearchBar />', () => {
   });
 });
 
-describe.skip('<MovieLibrary /> should render <MovieList />', () => {
+describe('<MovieLibrary /> should render <MovieList />', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('renders a `MovieList` component', () => {
@@ -233,7 +233,7 @@ describe.skip('<MovieLibrary /> should render <MovieList />', () => {
   });
 });
 
-describe.skip('<MovieLibrary /> should render <AddMovie />', () => {
+describe('<MovieLibrary /> should render <AddMovie />', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('renders a `AddMovie` component', () => {
