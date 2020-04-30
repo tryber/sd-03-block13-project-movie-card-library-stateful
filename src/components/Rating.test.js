@@ -8,7 +8,7 @@ describe('<Rating /> component', () => {
     shallow(<Rating />);
   });
 
-  it('renders the rating inside an element with the class `rating`', () => {
+  it.skip('renders the rating inside an element with the class `rating`', () => {
     const wrapper = shallow(<Rating rating={3} />);
 
     expect(wrapper.find('.rating').text()).toEqual('3');
