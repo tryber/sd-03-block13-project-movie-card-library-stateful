@@ -21,8 +21,7 @@ class AddMovie extends React.Component {
     this.setState({ [input.name]: input.value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -97,7 +96,7 @@ class AddMovie extends React.Component {
             </label>
           </div>
           <div>
-            <button type="submit" onClick={this.handleSubmit}>Adicionar Filme</button>
+            <button type="button" onClick={this.handleSubmit}>Adicionar Filme</button>
           </div>
         </form>
       </div>
