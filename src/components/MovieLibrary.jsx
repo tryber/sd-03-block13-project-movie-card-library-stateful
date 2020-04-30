@@ -4,21 +4,33 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      searchText:'',
+      bookmarkedOnly: false;
+      selectedGenre: '',
+      movies: props.movie,
+    };
+    this.changeName = this.changeName.bind(this);
+
+
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+         searchText={searchText}
+         bookmarkedOnly={bookmarkedOnly}
+         selectedGenre={selectedGenre}
+         />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>
     );
   }
 }
-
-export default MovieLibrary;
