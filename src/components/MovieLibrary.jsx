@@ -14,16 +14,18 @@ class MovieLibrary extends Component {
       searchText: "",
       bookmarkedOnly: false,
       selectedGenre: "",
-      movies: originalMovies,
+      moviesOriginal: originalMovies,
+      movies: [...originalMovies],
     };
   }
   onSearchTextChange = (event) => {
     const text = event.target.value;
-    const filtered = originalMovies.filter((movie) => {
+    const filtered = this.state.movies.filter((movie) => {
       return Object.values(movie).some((detail) => {
         console.log(detail);
         if (typeof detail === "string")
           return detail.toLowerCase().includes(text.toLowerCase());
+        return "";
       });
     });
     this.setState({
@@ -38,7 +40,7 @@ class MovieLibrary extends Component {
     const filtered = (state) => {
       if (state.bookmarkedOnly) {
         console.log("insideFilter ", state.bookmarkedOnly);
-        console.log(state.movies.filter((movie) => movie.bookmarked === true));
+        // console.log(state.movies.filter((movie) => movie.bookmarked === true));
         return state.movies.filter((movie) => movie.bookmarked === true);
       } else {
         return state.movies;
