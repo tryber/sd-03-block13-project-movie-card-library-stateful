@@ -17,9 +17,9 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
-   }
+  }
 
-   onSearchTextChange(event) {
+  onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
   }
 
@@ -33,9 +33,10 @@ class MovieLibrary extends React.Component {
 
   FiltrarMovies() {
     let movieFiltrado = [...this.state.movies];
-    if (this.state.searchText) {     
+    if (this.state.searchText) {
       movieFiltrado = movieFiltrado.filter((movie) => movie.title.includes(this.state.searchText)
-        || movie.subtitle.includes(this.state.searchText) || movie.storyline.includes(this.state.searchText));
+        || movie.subtitle.includes(this.state.searchText)
+        || movie.storyline.includes(this.state.searchText));
     }
     if (this.state.bookmarkedOnly) {
       movieFiltrado = movieFiltrado.filter((movie) => movie.bookmarked);
@@ -43,7 +44,7 @@ class MovieLibrary extends React.Component {
     if (this.state.selectedGenre) {
       movieFiltrado = movieFiltrado.filter((movie) => movie.genre === this.state.selectedGenre);
     }
-  return movieFiltrado;
+    return movieFiltrado;
   }
   addMovie(newState) {
     const { movies } = this.state;
@@ -64,7 +65,7 @@ class MovieLibrary extends React.Component {
         />
 
         <MovieList movies={this.FiltrarMovies()} />
-        <AddMovie onClick={this.addMovie}/>
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
