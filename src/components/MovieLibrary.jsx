@@ -15,18 +15,17 @@ export default class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props,
-    }
+    };
   }
   render() {
     console.log('estou no movielibrary,  e esse é o this.state: ', this.state);
-    console.log('addmovie.state: ', this.props);
-    
-    
+    console.log('movielibrary this props: ', this);
+
     return (
       <div>
-        <SearchBar searchText={this.state.searchText} bookmarkedOnly={this.state.bookmarkedOnly}
-          selectedGenre={this.state.selectedGenre} />
-        <MovieList movies={movies}/>
+        <SearchBar searchText={this.state.searchText} onSearchTextChange='teste...' bookmarkedOnly={this.state.bookmarkedOnly} onBookedmarkedChange=''
+          onSelectedGenreChange='teste'  selectedGenre={this.state.selectedGenre} />
+        <MovieList movies={movies} />
         <AddMovie onClick={this.props} />
       </div>
     );

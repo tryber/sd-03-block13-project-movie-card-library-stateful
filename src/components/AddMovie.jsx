@@ -42,7 +42,6 @@ export default class AddMovie extends Component {
     return (
       <div className="oi">
         <form className="" action="">
-
           <label htmlFor="title">Título</label>
           <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
           <br/>
@@ -67,14 +66,8 @@ export default class AddMovie extends Component {
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
-
           <button onClick={this.myFunction}>Adicionar filme</button>
-
-
-
-
         </form>
-
       </div>
     );
   }
