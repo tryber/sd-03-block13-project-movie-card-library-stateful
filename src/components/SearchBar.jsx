@@ -44,7 +44,7 @@ function SearchBar(props) {
       {searchTextLabel(searchText, onSearchTextChange)}
       {bookMarkedLabel(bookmarkedOnly, onBookmarkedChange)}
       <label htmlFor={'genreFilter'} className={'flex-label'}>Filtrar por gênero
-        <select 
+        <select
           value={selectedGenre}
           id={'genreFilter'}
           onChange={onSelectedGenreChange}
