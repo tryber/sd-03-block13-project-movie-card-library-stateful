@@ -17,11 +17,9 @@ class AddMovie extends React.Component {
   }
 
   changeHandle(event, stateElem) {
-    if (stateElem === 'rating') {
-      this.setState({ rating: parseFloat(event.target.value) });
-    } else {
-      this.setState({ [stateElem]: event.target.value });
-    }
+    const { value } = event.target;
+
+    this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
   }
 
   submitMovie() {
@@ -39,8 +37,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  firstForm() {
-    const { title, subtitle } = this.state;
+  titleForm() {
+    const { title } = this.state;
 
     return (
       <div>
@@ -53,16 +51,23 @@ class AddMovie extends React.Component {
             onChange={(event) => this.changeHandle(event, 'title')}
           />
         </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input
-            type="text"
-            id="subtitle"
-            value={subtitle}
-            onChange={(event) => this.changeHandle(event, 'subtitle')}
-          />
-        </label>
       </div>
+    );
+  }
+
+  subtitleForm() {
+    const { subtitle } = this.state;
+
+    return (
+      <label htmlFor="subtitle">
+        Subtítulo
+        <input
+          type="text"
+          id="subtitle"
+          value={subtitle}
+          onChange={(event) => this.changeHandle(event, 'subtitle')}
+        />
+      </label>
     );
   }
 
@@ -84,8 +89,8 @@ class AddMovie extends React.Component {
     );
   }
 
-  secondForm() {
-    const { rating, storyline } = this.state;
+  storylineForm() {
+    const { storyline } = this.state;
 
     return (
       <div>
@@ -97,6 +102,15 @@ class AddMovie extends React.Component {
             onChange={(event) => this.changeHandle(event, 'storyline')}
           />
         </label>
+      </div>
+    );
+  }
+
+  ratingForm() {
+    const { rating } = this.state;
+
+    return (
+      <div>
         <label htmlFor="rating">
           Avaliação
           <input
@@ -110,7 +124,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  finalForm() {
+  renderGenre() {
     const { genre } = this.state;
     const genreData = Genre.slice(1, 4);
 
@@ -133,10 +147,12 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form>
-        {this.firstForm()}
+        {this.titleForm()}
+        {this.subtitleForm()}
         {this.imageForm()}
-        {this.secondForm()}
-        {this.finalForm()}
+        {this.storylineForm()}
+        {this.ratingForm()}
+        {this.renderGenre()}
         <button
           type="submit"
           onClick={this.submitMovie}
