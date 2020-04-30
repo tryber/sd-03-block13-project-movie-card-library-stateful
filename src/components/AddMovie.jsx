@@ -11,6 +11,7 @@ class AddMovie extends Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      genre: 'action',
       rating: 0,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,24 +22,27 @@ class AddMovie extends Component {
   }
 
   render() {
-    const arrayImputs = ['Título', 'Subtítulo', 'imagem', 'Sinopse', 'rating'];
+    const { onClick } = this.props;
+    const arrayImputs = ['Título', 'Subtítulo', 'Imagem', 'Sinopse', 'Avaliação'];
     const types = ['text', 'text', 'text', 'textarea', 'number'];
     const detructuring = this.state;
     return (
       <div>
-        {arrayImputs.map((texts, index) => (
-          <label htmlFor={texts}>
-            {texts}
-            <input
-              type={types[index]}
-              name={texts}
-              value={detructuring.texts}
-              onChange={this.handleChange}
-              text={texts}
-            />
-          </label>
-        ))}
-        <AddLabelOption />
+        <form>
+          {arrayImputs.map((texts, index) => (
+            <label htmlFor={texts}>
+              {texts}
+              <input
+                type={types[index]}
+                name={texts}
+                value={detructuring.texts}
+                onChange={this.handleChange}
+                text={texts}
+              />
+            </label>
+          ))}
+          <AddLabelOption action={detructuring.genre} handleChange={this.handleChange} />
+        </form>
       </div>
     );
   }
