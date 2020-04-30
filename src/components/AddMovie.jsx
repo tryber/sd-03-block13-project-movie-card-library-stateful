@@ -40,17 +40,30 @@ class AddMovie extends React.Component {
     console.log(this)
   }
 
+  someForms() {
+    const { title, subtitle, imagePath } = this.state;
+    return (
+      <div>
+        <label htmlFor="input">
+          Título
+          <input type="text" onChange={this.changeHandler} value={title} name="title" />
+        </label>
+        <label htmlFor="input">
+          Subtítulo
+          <input type="text" value={subtitle} name="subtitle" onChange={this.changeHandler} />
+        </label>
+        <label htmlFor="input">
+          Imagem
+          <input type="text" value={imagePath} name="imagePath" onChange={this.changeHandler} />
+        </label>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <form>
-        <label htmlFor="title">Título</label>
-        <input type="text" name="title" value={this.state.title} onChange={this.changeHandler} />
-        <label htmlFor="subtitle">Subtítulo</label>
-        <input type="text" name="subtitle"
-          value={this.state.subtitle} onChange={this.changeHandler} />
-        <label htmlFor="imagePath">Imagem</label>
-        <input type="text" name="imagePath"
-          value={this.state.imagePath} onChange={this.changeHandler} />
+      <form onSubmit={this.passaState}>
+        {this.someForms()}
         <label htmlFor="storyLine">Sinopse</label>
         <textarea name="storyLine"
           value={this.state.storyLine} onChange={this.changeHandler} />
