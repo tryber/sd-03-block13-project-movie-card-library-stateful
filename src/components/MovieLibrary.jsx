@@ -4,15 +4,12 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-function byMatching(searchText, film) {
-  film.title.includes(searchText) ||
-  film.subtitle.includes(searchText) ||
-  film.storyline.includes(searchText)
+function by(text, selectedGenre, saved, film) {
+  const { title, subtitle, storyline, genre, bookmarked } = film;
+  return (title.includes(text) || subtitle.includes(text) || storyline.includes(text)) &&
+  (selectedGenre === '' ? true : genre === selectedGenre) &&
+  (saved ? bookmarked : true);
 }
-
-function byGenre(genre, film) { return genre === '' ? true : film.genre === genre }
-
-function bySaved(saved, film) { return saved ? film.bookmarked : true } 
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -48,10 +45,7 @@ export default class MovieLibrary extends React.Component {
           bookmarkedOnly={saved} onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={genre} onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={movies.filter((film) =>
-            byMatching(searchText, film) && byGenre(genre, film) && bySaved(saved, film))
-          }
-        />
+        <MovieList movies={movies.filter((film) => by(searchText, genre, saved, film))} />
         <AddMovie onClick={this.handleAddMovieClick} />
       </div>
     );
