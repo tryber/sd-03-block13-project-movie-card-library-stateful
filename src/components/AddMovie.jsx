@@ -31,30 +31,10 @@ export default class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <span>
-        <Input
-          name="title"
-          text="Título"
-          handler={this.changeInput}
-          value={title}
-        />
-        <Input
-          name="subtitle"
-          text="Subtítulo"
-          handler={this.changeInput}
-          value={subtitle}
-        />
-        <Input
-          name="imagePath"
-          text="Imagem"
-          handler={this.changeInput}
-          value={imagePath}
-        />
-        <Input
-          name="storyline"
-          text="Sinopse"
-          handler={this.changeInput}
-          value={storyline}
-        />
+        <Input name="title" text="Título" handler={this.changeInput} value={title} />
+        <Input name="subtitle" text="Subtítulo" handler={this.changeInput} value={subtitle} />
+        <Input name="imagePath" text="Imagem" handler={this.changeInput} value={imagePath} />
+        <Input name="storyline" text="Sinopse" handler={this.changeInput} value={storyline} />
         <Input
           name="rating"
           text="Avaliação"
