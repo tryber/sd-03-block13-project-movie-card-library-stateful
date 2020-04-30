@@ -12,15 +12,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
   };
 
-  handleChange = (event) => {
+  handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     this.setState((state) => ({
       [name]: value
     }));
-  };
+  }
 
   render() {
     return (
