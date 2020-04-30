@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './Input';
 
 const initialState = {
   title: '',
@@ -64,14 +65,15 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form>
-          {this.createInput('title', 'Título', 'text', this.handleChangeInput)}
-          {this.createInput('subtitle', 'Subtítulo', 'text', this.handleChangeInput)}
-          {this.createInput('imagePath', 'Imagem', 'text', this.handleChangeInput)}
-          {this.createInput('storyline', 'Sinopse', 'text', this.handleChangeInput)}
-          {this.createInput('rating', 'Avaliação', 'number', this.handleChangeInput)}
+          <Input inputName="title" text="Título" input="text" handler={this.handleChangeInput} value={title} />
+          <Input inputName="subtitle" text="Subtítulo" input="text" handler={this.handleChangeInput} value={subtitle} />
+          <Input inputName="imagePath" text="Imagem" input="text" handler={this.handleChangeInput} value={imagePath} />
+          <Input inputName="storyline" text="Sinopse" input="text" handler={this.handleChangeInput} value={storyline} />
+          <Input inputName="rating" text="Avaliação" input="number" handler={this.handleChangeInput} value={rating} />
           {this.selectGenre()}
           <button
             type="button"
