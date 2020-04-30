@@ -25,19 +25,12 @@ export default class SearchBar extends React.Component {
       selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <div>
         <form>
-          {/* <fieldset> */}
-          {/* <legend>Searching</legend> */}
           <label htmlFor="input">
             Inclui o texto:
-            <input
-              type="text"
-              value={searchText}
-              onChange={onSearchTextChange}
-            />
+            <input type="text" value={searchText} onChange={onSearchTextChange} />
           </label>
-          <label htmlFor="input"> 
+          <label htmlFor="input">
             Mostrar somente favoritos
             <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           </label>
@@ -50,9 +43,7 @@ export default class SearchBar extends React.Component {
               <option value="thrilles">Suspense</option>
             </select>
           </label>
-          {/* </fieldset> */}
         </form>
-      </div>
     );
   }
 }

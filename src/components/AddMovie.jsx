@@ -12,7 +12,7 @@ export default class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    console.log('The constructor is being called by the object?:', this)
+    console.log('The constructor is being called by the object?:', this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
@@ -31,12 +31,12 @@ export default class AddMovie extends React.Component {
             <div>
               Título:
               <input
-              type="text"
-              name="name"
-              maxLength="40"
-              required
-              value={this.state.name}
-              onChange={this.changeName}
+                type="text"
+                name="name"
+                maxLength="40"
+                required
+                value={this.state.name}
+                onChange={this.changeName}
               />
             </div>
           </fieldset>

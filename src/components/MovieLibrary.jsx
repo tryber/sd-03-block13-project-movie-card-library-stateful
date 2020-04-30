@@ -25,7 +25,7 @@ export default class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-         />
+        />
         <MovieList movies={this.filter(movies)} />
         <AddMovie />
       </div>
