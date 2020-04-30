@@ -87,7 +87,7 @@ class AddMovie extends React.Component {
           {this.morelabels()}
           <div>
             <label htmlFor="rating">
-              Avaliação
+              Gênero
               <select name="genre" value={genre} onChange={this.handleChange}>
                 <option value="action">Ação</option>
                 <option value="comedy">Comédia</option>
@@ -96,7 +96,7 @@ class AddMovie extends React.Component {
             </label>
           </div>
           <div>
-            <button type="button" onClick={this.handleSubmit}>Adicionar Filme</button>
+            <button type="button" onClick={this.handleSubmit}>Adicionar filme</button>
           </div>
         </form>
       </div>

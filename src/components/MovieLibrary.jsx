@@ -60,7 +60,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, selectedGenre, movies } = this.state;
+    const { searchText, selectedGenre, movies, bookmarkedOnly } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -70,6 +70,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.handleOnBookmarkedChange}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.handleChangeInput}
+          bookmarkedOnly={bookmarkedOnly}
         />
         <MovieList movies={this.filterMovie(movies)} />
         <AddMovie onClick={this.addMovie} />

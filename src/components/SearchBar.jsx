@@ -1,38 +1,35 @@
 import React from 'react';
-import Input from './Input';
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '' };
-
-    this.handleChange = this.handleChange.bind(this);
     this.firstInputs = this.firstInputs.bind(this);
   }
 
-  handleChange(e) {
-    const input = e.target;
-    this.setState({ name: input.value });
-    console.log(this.state);
-  }
-
   firstInputs() {
-    const { searchText, onSearchTextChange, onBookmarkedChange } = this.props;
+    const { searchText, onSearchTextChange, onBookmarkedChange, bookmarkedOnly } = this.props;
 
     return (
       <div>
-        <Input
-          name="searchText"
-          text="Inclui o texto:"
-          value={searchText}
-          handler={onSearchTextChange}
-        />
-        <Input
-          name="bookmarkedOnly"
-          input="checkbox"
-          text="Mostrar somente favoritos"
-          handler={onBookmarkedChange}
-        />
+        <label htmlFor="searchText">
+          Inclui o texto
+          <input
+            name="searchText"
+            type="text"
+            value={searchText}
+            onChange={onSearchTextChange}
+          />
+        </label>
+
+        <label htmlFor="bookmark">
+          Mostrar somente favoritos
+          <input
+            name="bookmark"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
+        </label>
       </div>
     );
   }
@@ -46,7 +43,7 @@ class SearchBar extends React.Component {
             <legend>Search Movie</legend>
             {this.firstInputs()}
             <label htmlFor="selectedGenre">
-            Filtrar por gênero
+              Filtrar por gênero
               <select
                 name="selectedGenre"
                 id="selectedGenre"
