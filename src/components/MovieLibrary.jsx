@@ -17,12 +17,18 @@ class MovieLibrary extends React.Component {
     this.addMovie = this.addMovie.bind(this);
     this.handleOnBookmarkedChange = this.handleOnBookmarkedChange.bind(this);
     this.filterMovie = this.filterMovie.bind(this);
+    this.handleGenreInput = this.handleGenreInput.bind(this);
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
   async handleChangeInput(event) {
-    const { name, value } = event.target;
-    await this.setState({ [name]: value });
+    const { value } = event.target;
+    await this.setState({ searchText: value });
+  }
+
+  async handleGenreInput(event) {
+    const { value } = event.target;
+    await this.setState({ selectedGenre: value });
   }
 
   async handleOnBookmarkedChange() {
@@ -69,7 +75,7 @@ class MovieLibrary extends React.Component {
           onSearchTextChange={this.handleChangeInput}
           onBookmarkedChange={this.handleOnBookmarkedChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.handleChangeInput}
+          onSelectedGenreChange={this.handleGenreInput}
           bookmarkedOnly={bookmarkedOnly}
         />
         <MovieList movies={this.filterMovie(movies)} />
