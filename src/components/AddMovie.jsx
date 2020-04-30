@@ -42,15 +42,6 @@ class AddMovie extends Component {
           Avaliação
           <input type="Number" name="rating" value={this.state.rating} onChange="" />
         </label>
-        <label htmlFor="genre">
-          Gênero
-          <select name="genre" value={this.state.genre} onChange="">
-            <option valor="action">Ação</option>
-            <option valor="comedy">Comédia</option>
-            <option valor="thriller">Suspense</option>
-          </select>
-        </label>
-        <button onClick="" >Adicionar filme</button>
       </form>
     );
   }
