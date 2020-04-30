@@ -73,7 +73,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { genre } = this.state;
     return (
       <div>
         <form>
@@ -83,12 +82,12 @@ class AddMovie extends React.Component {
             <select
               name="genre"
               id="genre"
-              value={genre}
+              value={this.state.genre}
               onChange={this.stateUpdateHandler}
             >
-              {Genre.map((genre) => (
-                <option key={genre.label} value={genre.value}>
-                  {genre.label}
+              {Genre.map((genreGenerator) => (
+                <option key={genreGenerator.label} value={genreGenerator.value}>
+                  {genreGenerator.label}
                 </option>
               ))}
             </select>
