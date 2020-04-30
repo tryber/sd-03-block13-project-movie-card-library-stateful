@@ -26,10 +26,11 @@ const setOptions = (opts) => opts.map(([en, pt]) => <option value={en} key={en}>
 
 const create = (tag, props) => {
   if (tag === 'textarea') {
-   return <textarea {...props} />;
+    return <textarea {...props} />;
   } else if (tag === 'select') {
     return <select {...props} >{setOptions(genreOptions)}</select>;
   }
+
   return <input {...props} />;
 };
 
