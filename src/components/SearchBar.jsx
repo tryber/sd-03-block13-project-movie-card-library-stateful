@@ -8,22 +8,15 @@ class SearchBar extends React.Component {
   }
 
   formInputs() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-    } = this.props;
-
     return (
       <div>
         <label htmlFor="search-text">
           Inclui o texto:
           <input
             type="text"
-            value={searchText}
+            value={this.props.searchText}
             id="search-text"
-            onChange={onSearchTextChange}
+            onChange={this.props.onSearchTextChange}
           />
         </label>
         <label htmlFor="search-checkbox">
@@ -32,8 +25,8 @@ class SearchBar extends React.Component {
             type="checkbox"
             name="favorite-books"
             id="search-checkbox"
-            onChange={onBookmarkedChange}
-            checked={bookmarkedOnly}
+            onChange={this.props.onBookmarkedChange}
+            checked={this.props.bookmarkedOnly}
           />
         </label>
       </div>
@@ -41,7 +34,6 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form>
         {this.formInputs()}
@@ -50,8 +42,8 @@ class SearchBar extends React.Component {
           <select
             name="genre-select"
             id="genre-select"
-            onChange={onSelectedGenreChange}
-            value={selectedGenre}
+            onChange={this.props.onSelectedGenreChange}
+            value={this.props.selectedGenre}
           >
             <option value="">Todos</option>
             <option value="action">Ação</option>

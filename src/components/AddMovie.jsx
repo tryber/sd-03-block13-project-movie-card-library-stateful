@@ -14,7 +14,8 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.stateUpdateHandler = this.stateUpdateHandler.bind(this);
-    this.formsInputs = this.formsInputs.bind(this);
+    this.firstFormsInputs = this.firstFormsInputs.bind(this);
+    this.secondFormsInputs = this.secondInputs.bind(this);
   }
 
   stateUpdateHandler(event) {
@@ -22,8 +23,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  formsInputs() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+  firstFormsInputs() {
     return (
       <div>
         <label htmlFor="title">
@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             id="title"
-            value={title}
+            value={this.state.title}
             onChange={this.stateUpdateHandler}
           />
         </label>
@@ -42,10 +42,18 @@ class AddMovie extends React.Component {
             type="text"
             name="subtitle"
             id="subtitle"
-            value={subtitle}
+            value={this.state.subtitle}
             onChange={this.stateUpdateHandler}
           />
         </label>
+      </div>
+    );
+  }
+
+  secondFormsInputs() {
+    const { imagePath, storyline, rating } = this.state;
+    return (
+      <div>
         <label htmlFor="movie-image">
           <input
             type="file"
@@ -86,7 +94,8 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.formsInputs()}
+          {this.firstFormsInputs()}
+          {this.secondFormsInputs()}
           <label htmlFor="genre">
             <select
               name="genre"
