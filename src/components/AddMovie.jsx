@@ -12,11 +12,27 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.hadleChange = this.hadleChange.bind(this);
+    this.clickMe = this.clickMe.bind(this);
   }
 
-  hadleChange(evento) {
-    const { name, value } = evento.target;
-    this.setState = (() => ({ [name]: value }));
+  hadleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  clickMe() {
+    this.setState(() => {
+      alert('Movie Added with sucess');
+    });
+  }
+  addGenre = () => {
+    return (
+      <select name="genre" value={this.state.genre} onChange={this.hadleChange}>
+        <option valor="action">Ação</option>
+        <option valor="comedy">Comédia</option>
+        <option valor="thriller">Suspense</option>
+      </select>
+    )
   }
 
   render() {
@@ -28,7 +44,7 @@ class AddMovie extends Component {
         </label>
         <label htmlFor="subtitle">
           Subtítulo
-          <input type="text" name="subtitle" value={this.state.subtitle} onChange={this} />
+          <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.hadleChange} />
         </label>
         <label htmlFor="imagePath">
           Imagem
@@ -36,12 +52,14 @@ class AddMovie extends Component {
         </label>
         <label htmlFor="storyline">
           Sinopse
-          <textarea name="storyline" value={this.state.storyline} onChange="" />
+          <textarea name="storyline" value={this.state.storyline} onChange={this.hadleChange} />
         </label>
         <label htmlFor="rating">
           Avaliação
-          <input type="Number" name="rating" value={this.state.rating} onChange="" />
+          <input type="number" name="rating" value={this.state.rating} onChange={this.hadleChange} />
         </label>
+        <label htmlFor="genre">Gênero{this.addGenre()}</label>
+        <button onClick={this.clickMe} value="">Adicionar filme</button>
       </form>
     );
   }
