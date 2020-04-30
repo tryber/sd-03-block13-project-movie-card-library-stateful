@@ -19,6 +19,12 @@ body {
   text-align: center;
 }
 
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .movie-list {
   display: flex;
   flex-flow: row wrap;
