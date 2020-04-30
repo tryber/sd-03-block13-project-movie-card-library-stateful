@@ -16,15 +16,16 @@ class AddMovie extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleChange(e) {
+  handleChange(e, type) {
     const input = e.target;
-    await this.setState({ [input.name]: input.value });
+    if (type === 'rating') { this.setState({ [type]: +input.value }); } else this.setState({ [type]: input.value });
+    console.log(this.state);
   }
 
-  async handleSubmit() {
+  handleSubmit() {
     const { onClick } = this.props;
     onClick(this.state);
-    await this.setState({
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -40,15 +41,15 @@ class AddMovie extends React.Component {
       <div>
         <label htmlFor="input">
           Título
-          <input type="text" value={title} name="title" onChange={this.handleChange} />
+          <input type="text" onChange={(e) => this.handleChange(e, 'title')} value={title} name="title" />
         </label>
         <label htmlFor="input">
           Subtítulo
-          <input type="text" value={subtitle} name="subtitle" onChange={this.handleChange} />
+          <input type="text" value={subtitle} name="subtitle" onChange={(e) => this.handleChange(e, 'subtitle')} />
         </label>
         <label htmlFor="input">
           Imagem
-          <input type="text" value={imagePath} name="imagePath" onChange={this.handleChange} />
+          <input type="text" value={imagePath} name="imagePath" onChange={(e) => this.handleChange(e, 'imagePath')} />
         </label>
       </div>
     );
@@ -60,7 +61,7 @@ class AddMovie extends React.Component {
       <div>
         <label htmlFor="input">
           Sinopse
-          <textarea value={storyline} name="storyline" onChange={this.handleChange} />
+          <textarea value={storyline} name="storyline" onChange={(e) => this.handleChange(e, 'storyline')} />
         </label>
         <div>
           <label htmlFor="rating">
@@ -70,7 +71,7 @@ class AddMovie extends React.Component {
               name="rating"
               value={rating}
               placeholder="Avaliação"
-              onChange={this.handleChange}
+              onChange={(e) => this.handleChange(e, 'rating')}
             />
           </label>
         </div>
@@ -82,13 +83,13 @@ class AddMovie extends React.Component {
     const { genre } = this.state;
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           {this.firstlabels()}
           {this.morelabels()}
           <div>
-            <label htmlFor="rating">
+            <label htmlFor="genre">
               Gênero
-              <select name="genre" value={genre} onChange={this.handleChange}>
+              <select name="genre" value={genre} onChange={(e) => this.handleChange(e, 'genre')}>
                 <option value="action">Ação</option>
                 <option value="comedy">Comédia</option>
                 <option value="thriller">Suspense</option>
