@@ -37,7 +37,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    console.log(this)
   }
 
   someForms() {
@@ -65,8 +64,7 @@ class AddMovie extends React.Component {
       <form onSubmit={this.passaState}>
         {this.someForms()}
         <label htmlFor="storyLine">Sinopse</label>
-        <textarea name="storyLine"
-          value={this.state.storyLine} onChange={this.changeHandler} />
+        <textarea name="storyLine" value={this.state.storyLine} onChange={this.changeHandler} />
         <label htmlFor="rating">Avaliação</label>
         <input type="number" value={this.state.rating} name="rating" onChange={this.alteraAvaliacao} />
         <label htmlFor="genre">Gênero</label>

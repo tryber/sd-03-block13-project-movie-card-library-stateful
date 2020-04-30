@@ -19,11 +19,6 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  addMovie(obj) {
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, obj] });
-  }
-
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = [...movies];
@@ -51,6 +46,11 @@ class MovieLibrary extends React.Component {
 
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  addMovie(obj) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, obj] });
   }
 
   render() {
