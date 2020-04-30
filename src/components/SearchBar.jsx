@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
             value={selectedGenre}
             onChange={onSelectedGenreChange}
           >
-          {genreArray.map(({ text, value }) => (<option key={text} value={value}>{text}</option>))}
+            {genreArray.map(({ text, value }) => (<option key={text} value={value}>{text}</option>))}
           </select>
         </form>
       </div>
