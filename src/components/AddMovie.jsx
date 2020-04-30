@@ -1,6 +1,6 @@
-import React from "react";
+// import React from 'react';
 
-class AddMovie extends React.Component {
+// class AddMovie extends React.Component {
   // createInput(text, id, type, value, callback) {
   //   return (
   //     <div>
@@ -15,9 +15,9 @@ class AddMovie extends React.Component {
   //   );
   // }
 
-  render() {
-    return;
-  }
-}
+//   render() {
+//     return;
+//   }
+// }
 
-export default AddMovie;
+// export default AddMovie;
