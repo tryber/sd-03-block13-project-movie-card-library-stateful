@@ -30,8 +30,8 @@ export default class SearchBar extends React.Component {
   render() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <forms>
-        this.createInputs();
+      <form>
+        {this.createInputs()}
         <label htmlFor="selectedGenre">
           Filtrar por gênero
           <select
@@ -46,7 +46,7 @@ export default class SearchBar extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-      </forms>
+      </form>
     );
   }
 }
