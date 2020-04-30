@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const genreArray = [
-  { text: "Todos", value: "" },
-  { text: "Ação", value: "action" },
-  { text: "Comédia", value: "comedy" },
-  { text: "Suspense", value: "thriller" },
+  { text: 'Todos', value: '' },
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
 ];
 
 class SearchBar extends React.Component {
