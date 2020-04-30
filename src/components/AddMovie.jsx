@@ -16,9 +16,9 @@ export default class AddMovie extends Component {
     this.SubmitMovie = this.SubmitMovie.bind(this);
   }
 
-  onChangeHandler(event) {
-    const { id, value } = event.target;
-    this.setState({ [id]: value });
+  onChangeHandler(event, type) {
+    const { value } = event.target;
+    if (type === 'rating') { this.setState({ [type]: +value }); } else this.setState({ [type]: value });
   }
 
   SubmitMovie() {
@@ -40,7 +40,7 @@ export default class AddMovie extends Component {
 
       <label htmlFor="input">
         Título
-        <input type="text" value={title} id="title" onChange={this.onChangeHandler} />
+        <input type="text" value={title} id="title" onChange={(e) => this.onChangeHandler(e, 'title')} />
       </label>
 
 
@@ -52,7 +52,7 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="input">
         Subtítulo
-        <input type="text" value={subtitle} id="subtitle" onChange={this.onChangeHandler} />
+        <input type="text" value={subtitle} id="subtitle" onChange={(e) => this.onChangeHandler(e, 'subtitle')} />
       </label>
     );
   }
@@ -62,7 +62,7 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="input">
         Imagem
-        <input type="text" value={imagePath} id="imagePath" onChange={this.onChangeHandler} />
+        <input type="text" value={imagePath} id="imagePath" onChange={(e) => this.onChangeHandler(e, 'imagePath')} />
       </label>
     );
   }
@@ -77,15 +77,15 @@ export default class AddMovie extends Component {
         {this.imagemLabel()}
         <label htmlFor="input">
           Sinopse
-          <textarea value={storyline} id="storyline" onChange={this.onChangeHandler} />
+          <textarea value={storyline} id="storyline" onChange={(e) => this.onChangeHandler(e, 'storyline')} />
         </label>
         <label htmlFor="input">
           Avaliação
-          <input type="number" value={rating} id="rating" onChange={this.onChangeHandler} />
+          <input type="number" value={rating} id="rating" onChange={(e) => this.onChangeHandler(e, 'rating')} />
         </label>
         <label htmlFor="input">
           Gênero
-          <select value={genre} id="genre" onChange={this.onChangeHandler}>
+          <select value={genre} id="genre" onChange={(e) => this.onChangeHandler(e, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
