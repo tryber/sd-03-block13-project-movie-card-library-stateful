@@ -8,15 +8,9 @@ export default class SearchBar extends React.Component {
   }
 
   createInputs() {
-    const {
-      searchText,
-      onSearchTextChange,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, onBookmarkedChange } = this.props;
     return (
-      <form>
+      <div>
         <Input
           name="searchText"
           text="Inclui o texto:"
@@ -29,6 +23,15 @@ export default class SearchBar extends React.Component {
           text="Mostrar somente favoritos"
           handler={onBookmarkedChange}
         />
+      </div>
+    );
+  }
+
+  render() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <forms>
+        this.createInputs();
         <label htmlFor="selectedGenre">
           Filtrar por gênero
           <select
@@ -43,11 +46,7 @@ export default class SearchBar extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-      </form>
+      </forms>
     );
-  }
-
-  render() {
-    return this.createInputs();
   }
 }
