@@ -12,6 +12,8 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.clicando = this.clicando.bind(this);
+    this.inputs = this.inputs.bind(this);
+    this.inputArea = this.inputArea.bind(this);
   }
   updateState(event) {
     const { value } = event.target;
@@ -39,35 +41,38 @@ class AddMovie extends React.Component {
     });
   }
 
+  inputs(texto, id, valor, tipo, nome) {
+    return (
+      <label htmlFor={id}>{texto}
+        <input
+          id={id}
+          type={tipo}
+          value={valor}
+          onChange={(e) => this.setState({ [nome]: e.target.value })}
+        />
+      </label>
+    );
+  }
+
+  inputArea(texto, id, valor, nome) {
+    return (
+      <label htmlFor={id}>{texto}
+        <textarea
+          id={id}
+          value={valor}
+          onChange={(e) => this.setState({ [nome]: e.target.value })}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
-      <div><form><label htmlFor="title">Título</label>
-        <input
-          onChange={(e) => this.setState({ title: e.target.value })}
-          type="text"
-          id="title"
-          value={this.state.title}
-        />
-        <label htmlFor="subtitle">Subtítulo</label>
-        <input
-          onChange={(e) => this.setState({ subtitle: e.target.value })}
-          type="text"
-          id="subtitle"
-          value={this.state.subtitle}
-        />
-        <label htmlFor="image">Imagem</label>
-        <input
-          onChange={(e) => this.setState({ imagePath: e.target.value })}
-          type="text"
-          id="image"
-          value={this.state.imagePath}
-        />
-        <label htmlFor="sin">Sinopse</label>
-        <textarea
-          id="sin"
-          value={this.state.storyline}
-          onChange={(e) => this.setState({ storyline: e.target.value })}
-        />
+      <div><form>
+        {this.inputs('Título', 'title', this.state.title, 'text', 'title')}
+        {this.inputs('Subtítulo', 'subtitle', this.state.subtitle, 'text', 'subtitle')}
+        {this.inputs('Imagem', 'image', this.state.imagePath, 'text', 'imagePath')}
+        {this.inputArea('Sinopse', 'sin', this.state.storyline, 'storyline')}
         <label htmlFor="rating">Avaliação</label>
         <input
           type="number"

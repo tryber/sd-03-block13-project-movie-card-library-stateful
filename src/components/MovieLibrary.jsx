@@ -3,6 +3,13 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
+const filtroMovies = (text, selectedGenre, saved, film) => {
+  const { title, subtitle, storyline, genre, bookmarked } = film;
+  return (title.includes(text) || subtitle.includes(text) || storyline.includes(text)) &&
+    (selectedGenre === '' ? true : genre === selectedGenre) &&
+    (saved ? bookmarked : true);
+};
+
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
@@ -24,13 +31,6 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  filtroMovies = (text, selectedGenre, saved, film) => {
-    const { title, subtitle, storyline, genre, bookmarked } = film;
-    return (title.includes(text) || subtitle.includes(text) || storyline.includes(text)) &&
-      (selectedGenre === '' ? true : genre === selectedGenre) &&
-      (saved ? bookmarked : true);
-  }
-
   addFilme(novoFilme) {
     this.setState((filme) => ({ movies: [...filme.movies, novoFilme] }));
   }
@@ -45,7 +45,7 @@ class MovieLibrary extends React.Component {
         />
         <MovieList
           movies={movies.filter((film) =>
-            this.filtroMovies(searchText, selectedGenre, bookmarkedOnly, film))}
+            filtroMovies(searchText, selectedGenre, bookmarkedOnly, film))}
         />
         <AddMovie onClick={this.addFilme} />
       </div>
