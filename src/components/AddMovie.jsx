@@ -29,21 +29,15 @@ class AddMovie extends React.Component {
         <label htmlFor="title">
           Título
           <input
-            type="text"
-            name="title"
-            id="title"
-            value={this.state.title}
+            type="text" name="title" id="title" value={this.state.title}
             onChange={this.stateUpdateHandler}
           />
         </label>
         <label htmlFor="subtitle">
           Subtítulo
           <input
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            value={this.state.subtitle}
-            onChange={this.stateUpdateHandler}
+            type="text" name="subtitle" id="subtitle"
+            value={this.state.subtitle} onChange={this.stateUpdateHandler}
           />
         </label>
       </div>
@@ -51,37 +45,25 @@ class AddMovie extends React.Component {
   }
 
   secondFormsInputs() {
-    const { imagePath, storyline, rating } = this.state;
     return (
       <div>
         <label htmlFor="movie-image">
           <input
-            type="file"
-            name="movie-image"
-            id="movie-image"
-            value={imagePath}
+            type="file" name="movie-image" id="movie-image" value={this.state.imagePath}
             onChange={this.stateUpdateHandler}
           />
         </label>
         <label htmlFor="storyline">
           Sinopse
           <textarea
-            type="text"
-            id="storyline"
-            name="storyline"
-            rows="4"
-            cols="50"
-            value={storyline}
-            onChange={this.stateUpdateHandler}
+            type="text" id="storyline" name="storyline" rows="4" cols="50"
+            value={this.state.storyline} onChange={this.stateUpdateHandler}
           />
         </label>
         <label htmlFor="rating">
           Avaliação
           <input
-            type="number"
-            name="rating"
-            id="rating"
-            value={rating}
+            type="number" name="rating" id="rating" value={this.state.rating}
             onChange={this.stateUpdateHandler}
           />
         </label>
