@@ -71,29 +71,27 @@ export default class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { storyline } = this.state;
     return (
-      <div>
-        <form>
-          {this.createInput('title', 'Título')}
-          {this.createInput('subtitle', 'Subtítulo')}
-          {this.createInput('imagePath', 'Imagem')}
-          <label htmlFor="input">
+      <form>
+        {this.createInput('title', 'Título')}
+        {this.createInput('subtitle', 'Subtítulo')}
+        {this.createInput('imagePath', 'Imagem')}
+        <label htmlFor="input">
           Sinopse
-            <textarea value={storyline} onChange={(e) => this.handleChangeInput(e, 'storyline')} />
-          </label>
-          {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
-          {this.selectGenre()}
-          <button
-            type="button"
-            value="Adicionar filme"
-            onClick={() => {
-              onClick(this.state);
-              this.reset();
-            }}
-          >
-            Adicionar filme
-          </button>
-        </form>
-      </div>
+          <textarea value={storyline} onChange={(e) => this.handleChangeInput(e, 'storyline')} />
+        </label>
+        {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
+        {this.selectGenre()}
+        <button
+          type="button"
+          value="Adicionar filme"
+          onClick={() => {
+            onClick(this.state);
+            this.reset();
+          }}
+        >
+        Adicionar filme
+        </button>
+      </form>
     );
   }
 }
