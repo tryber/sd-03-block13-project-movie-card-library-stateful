@@ -1,19 +1,19 @@
 const genre = [
   {
-    pt: 'Todos',
-    en: '',
+    text: 'Todos',
+    value: '',
   },
   {
-    pt: 'Ação',
-    en: 'action',
+    text: 'Ação',
+    value: 'action',
   },
   {
-    pt: 'Comédia',
-    en: 'comedy',
+    text: 'Comédia',
+    value: 'comedy',
   },
   {
-    pt: 'Suspense',
-    en: 'thriller',
+    text: 'Suspense',
+    value: 'thriller',
   },
 ];
 

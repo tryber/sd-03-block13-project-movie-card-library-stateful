@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form action="">
+      <form>
         <label htmlFor="searchText">
           Inclui o texto:
           <input id="searchText" type="text" value={searchText} onChange={onSearchTextChange} />
@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
         <label htmlFor="genreSelect">
           Filtrar por gênero:
           <select id="genreSelect" value={selectedGenre} onChange={onSelectedGenreChange}>
-            {Genre.map((genre) => <option key={genre.pt} value={genre.en}>{genre.pt}</option>)}
+            {Genre.map((genre) => <option key={genre.text} value={genre.value}>{genre.text}</option>)}
           </select>
         </label>
       </form>
