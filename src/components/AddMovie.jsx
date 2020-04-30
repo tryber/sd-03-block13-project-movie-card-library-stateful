@@ -1,7 +1,7 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       subtitle: '',
@@ -23,9 +23,9 @@ class AddMovie extends React.Component {
         storyline: value,
         rating: parseFloat(value),
         genre: value,
-      }
+      },
     );
-  };
+  }
 
   clicando() {
     this.props.onClick(this.state);
@@ -37,21 +37,25 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-  };
+  }
 
   render() {
     return (
       <div><form><label htmlFor="title">Título
-          <input onChange={(e) => this.setState({ title: e.target.value })}
-          type="text" id="title" value={this.state.title} />
+          <input
+            onChange={(e) => this.setState({ title: e.target.value })}
+            type="text" id="title" value={this.state.title}
+        />
       </label>
         <label htmlFor="subtitle">Subtítulo
-            <input onChange={(e) => this.setState({ subtitle: e.target.value })}
-            type="text" id="subtitle" value={this.state.subtitle} />
+            <input
+              onChange={(e) => this.setState({ subtitle: e.target.value })}
+              type="text" id="subtitle" value={this.state.subtitle} />
         </label>
         <label htmlFor="image">Imagem
-            <input onChange={(e) => this.setState({ imagePath: e.target.value })}
-            type="text" id="image" value={this.state.imagePath} />
+            <input
+              onChange={(e) => this.setState({ imagePath: e.target.value })}
+              type="text" id="image" value={this.state.imagePath} />
         </label>
         <label>Sinopse
           <textarea value={this.state.storyline} onChange={(e) =>
