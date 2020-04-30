@@ -20,10 +20,10 @@ class SearchBar extends React.Component {
         </label>
         <label htmlFor>
           <select value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option value=''>Todos</option>
-            <option value='Action'>Ação</option>
-            <option value='comedy' >Comédia</option>
-            <option value='thriller'>Suspense</option>
+            <option value="">Todos</option>
+            <option value="Action">Ação</option>
+            <option value="comedy" >Comédia</option>
+            <option value="thriller">Suspense</option>
           </select>
         </label>
       </fieldset>
