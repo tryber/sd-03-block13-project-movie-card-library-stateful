@@ -17,10 +17,12 @@ class AddMovie extends React.Component {
   }
 
   stateUpdateHandler(event) {
-    event.target.value;
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
@@ -31,7 +33,7 @@ class AddMovie extends React.Component {
               type="text"
               name="title"
               id="title"
-              value={this.state.title}
+              value={title}
               onChange={this.stateUpdateHandler}
             />
           </label>
@@ -41,7 +43,7 @@ class AddMovie extends React.Component {
               type="text"
               name="subtitle"
               id="subtitle"
-              value={this.state.subtitle}
+              value={subtitle}
               onChange={this.stateUpdateHandler}
             />
           </label>
@@ -50,7 +52,7 @@ class AddMovie extends React.Component {
               type="file"
               name="movie-image"
               id="movie-image"
-              value={this.state.imagePath}
+              value={imagePath}
               onChange={this.stateUpdateHandler}
             />
           </label>
@@ -62,7 +64,7 @@ class AddMovie extends React.Component {
               name="storyline"
               rows="4"
               cols="50"
-              value={this.state.storyline}
+              value={storyline}
               onChange={this.stateUpdateHandler}
             />
           </label>
@@ -72,7 +74,7 @@ class AddMovie extends React.Component {
               type="number"
               name="rating"
               id="rating"
-              value={this.state.rating}
+              value={rating}
               onChange={this.stateUpdateHandler}
             />
           </label>
@@ -80,7 +82,7 @@ class AddMovie extends React.Component {
             <select
               name="genre"
               id="genre"
-              value={this.state.genre}
+              value={genre}
               onChange={this.stateUpdateHandler}
             >
               <option value="action">Ação</option>
