@@ -16,7 +16,7 @@ const features = {
   rating: { id: 'rating', text: 'Avaliação', type: 'number' },
 };
 
-const options = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
+const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -28,11 +28,12 @@ export default class AddMovie extends React.Component {
 
   handleChange(name) {
     return (({ target: { value } }) => {
-      (name === 'rating') ?
-      this.setState({ [name]: Number(value) }) :
-      this.setState({ [name]: value });
+      let nextState = {}
+      if (name === 'rating') nextState[name] = Number(value);
+      else nextState[name] = value;
+      this.setState(nextState)
     });
-  };
+  }
 
   reset() { this.setState(initialState); }
 
@@ -53,7 +54,7 @@ export default class AddMovie extends React.Component {
     return (
       <label htmlFor={'genre'}>Gênero
         <select onChange={this.handleChange('genre')} id={'genre'} value={genre}>
-          {options.map(([en, pt]) => <option key={en} value={en}>{pt}</option>)}
+          {genreOptions.map(([en, pt]) => <option value={en} key={en}>{pt}</option>)}
         </select>
       </label>
     );
