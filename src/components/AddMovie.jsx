@@ -40,47 +40,36 @@ class AddMovie extends React.Component {
   };
 
   render() {
-    // const {onClick} = this.props;
     return (
-      <div>
-        <form>
-          <label htmlFor="title">Título
+      <div><form><label htmlFor="title">Título
           <input onChange={(e) => this.setState({ title: e.target.value })}
-              type="text" id="title" value={this.state.title} />
-          </label>
-
-          <label htmlFor="subtitle">Subtítulo
-            <input onChange={(e) =>
-              this.setState({ subtitle: e.target.value })}
-              type="text" id="subtitle" value={this.state.subtitle} />
-          </label>
-
-          <label htmlFor="image">Imagem
+          type="text" id="title" value={this.state.title} />
+      </label>
+        <label htmlFor="subtitle">Subtítulo
+            <input onChange={(e) => this.setState({ subtitle: e.target.value })}
+            type="text" id="subtitle" value={this.state.subtitle} />
+        </label>
+        <label htmlFor="image">Imagem
             <input onChange={(e) => this.setState({ imagePath: e.target.value })}
-              type="text" id="image" value={this.state.imagePath} />
-          </label>
-
-          <label>Sinopse
+            type="text" id="image" value={this.state.imagePath} />
+        </label>
+        <label>Sinopse
           <textarea value={this.state.storyline} onChange={(e) =>
-              this.setState({ storyline: e.target.value })}></textarea>
-          </label>
-
-          <label htmlFor="rating">Avaliação
+            this.setState({ storyline: e.target.value })}></textarea>
+        </label>
+        <label htmlFor="rating">Avaliação
             <input type="number" id="rating" value={this.state.rating}
-              onChange={(e) => this.setState({ rating: parseFloat(e.target.value) })} />
-          </label>
-
-          <label htmlFor="gender">Gênero
+            onChange={(e) => this.setState({ rating: parseFloat(e.target.value) })} />
+        </label>
+        <label htmlFor="gender">Gênero
             <select id="gender" value={this.state.genre}
-              onChange={(e) => this.setState({ genre: e.target.value })}>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-            </select>
-          </label>
-          <button type="button" onClick={this.clicando}>Adicionar filme</button>
-        </form>
-      </div>
+            onChange={(e) => this.setState({ genre: e.target.value })}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
+        <button type="button" onClick={this.clicando}>Adicionar filme</button></form></div>
     );
   }
 }
