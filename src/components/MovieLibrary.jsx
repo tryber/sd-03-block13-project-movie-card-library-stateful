@@ -18,13 +18,15 @@ export default class MovieLibrary extends React.Component {
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
   }
 
-  handleAddMovieClick(newMovie) { this.setState((s) => ({ movies: [...s.movies, newMovie] })); };
-
   onSearchTextChange({ target }) { this.setState({ searchText: target.value }); }
 
   onBookmarkedChange({ target }) { this.setState({ bookmarkedOnly: target.checked }); }
-
+  
   onSelectedGenreChange({ target }) { this.setState({ selectedGenre: target.value }); }
+
+  handleAddMovieClick(newMovie) { 
+    this.setState((s) => ({ movies: [...s.movies, newMovie] }));
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
