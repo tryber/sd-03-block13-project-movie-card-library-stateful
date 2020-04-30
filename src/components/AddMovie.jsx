@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
     };
     this.stateUpdateHandler = this.stateUpdateHandler.bind(this);
     this.firstFormsInputs = this.firstFormsInputs.bind(this);
-    this.secondFormsInputs = this.secondInputs.bind(this);
+    this.secondFormsInputs = this.secondFormsInputs.bind(this);
   }
 
   stateUpdateHandler(event) {
