@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from './SearchBar';
 
 class AddMovie extends React.Component {
   constructor(props) {
