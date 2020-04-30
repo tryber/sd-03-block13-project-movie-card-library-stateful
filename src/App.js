@@ -7,8 +7,9 @@ import Header from './components/Header';
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Header />
+      <div>Aqui deverá ficar a barra de pesquisa</div>
       <MovieList movies={MovieData} />
     </div>
   );
