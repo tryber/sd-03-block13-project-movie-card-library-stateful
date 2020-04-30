@@ -9,10 +9,10 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
-    }
+      movies,
+    };
   }
-    render() { 
+  render() {
     return (
       <div>
         <MovieList movies={movies} />
