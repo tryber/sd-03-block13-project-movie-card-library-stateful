@@ -15,13 +15,28 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.stateUpdateHandler = this.stateUpdateHandler.bind(this);
+    this.AddMovieButton = this.AddMovieButton.bind(this);
     this.firstFormsInputs = this.firstFormsInputs.bind(this);
     this.secondFormsInputs = this.secondFormsInputs.bind(this);
   }
 
-  stateUpdateHandler(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  stateUpdateHandler(event, name) {
+    return name === 'rating'
+      ? this.setState({ [name]: parseFloat(event.target.value) })
+      : this.setState({ [name]: event.target.value });
+  }
+
+  AddMovieButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   firstFormsInputs() {
@@ -30,15 +45,21 @@ class AddMovie extends React.Component {
         <label htmlFor="title">
           Título
           <input
-            type="text" name="title" id="title" value={this.state.title}
-            onChange={this.stateUpdateHandler}
+            type="text"
+            name="title"
+            id="title"
+            value={this.state.title}
+            onChange={(event) => this.stateUpdateHandler(event, 'title')}
           />
         </label>
         <label htmlFor="subtitle">
           Subtítulo
           <input
-            type="text" name="subtitle" id="subtitle"
-            value={this.state.subtitle} onChange={this.stateUpdateHandler}
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            value={this.state.subtitle}
+            onChange={(event) => this.stateUpdateHandler(event, 'subtitle')}
           />
         </label>
       </div>
@@ -49,23 +70,35 @@ class AddMovie extends React.Component {
     return (
       <div>
         <label htmlFor="movie-image">
+          Imagem
           <input
-            type="file" name="movie-image" id="movie-image" value={this.state.imagePath}
-            onChange={this.stateUpdateHandler}
+            type="text"
+            name="movie-image"
+            id="movie-image"
+            value={this.state.imagePath}
+            onChange={(event) => this.stateUpdateHandler(event, 'imagePath')}
           />
         </label>
         <label htmlFor="storyline">
           Sinopse
           <textarea
-            type="text" id="storyline" name="storyline" rows="4" cols="50"
-            value={this.state.storyline} onChange={this.stateUpdateHandler}
+            type="text"
+            id="storyline"
+            name="storyline"
+            rows="4"
+            cols="50"
+            value={this.state.storyline}
+            onChange={(event) => this.stateUpdateHandler(event, 'storyline')}
           />
         </label>
         <label htmlFor="rating">
           Avaliação
           <input
-            type="number" name="rating" id="rating" value={this.state.rating}
-            onChange={this.stateUpdateHandler}
+            type="number"
+            name="rating"
+            id="rating"
+            value={this.state.rating}
+            onChange={(event) => this.stateUpdateHandler(event, 'rating')}
           />
         </label>
       </div>
@@ -79,20 +112,21 @@ class AddMovie extends React.Component {
           {this.firstFormsInputs()}
           {this.secondFormsInputs()}
           <label htmlFor="genre">
+            Gênero
             <select
               name="genre"
               id="genre"
               value={this.state.genre}
-              onChange={this.stateUpdateHandler}
+              onChange={(event) => this.stateUpdateHandler(event, 'genre')}
             >
-              {Genre.map((genreGenerator) => (
+              {Genre.slice(1, 4).map((genreGenerator) => (
                 <option key={genreGenerator.label} value={genreGenerator.value}>
                   {genreGenerator.label}
                 </option>
               ))}
             </select>
           </label>
-          <button type="button" onClick={this.stateUpdateHandler}>
+          <button type="button" onClick={this.AddMovieButton}>
             Adicionar filme
           </button>
         </form>
