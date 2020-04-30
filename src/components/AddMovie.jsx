@@ -40,7 +40,7 @@ class AddMovie extends React.Component {
   }
 
   firstForm() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle } = this.state;
 
     return (
       <div>
@@ -62,6 +62,15 @@ class AddMovie extends React.Component {
             onChange={(event) => this.changeHandle(event, 'subtitle')}
           />
         </label>
+      </div>
+    );
+  }
+
+  imageForm() {
+    const { imagePath } = this.state;
+
+    return (
+      <div>
         <label htmlFor="imagePath">
           Imagem
           <input
@@ -125,6 +134,7 @@ class AddMovie extends React.Component {
     return (
       <form>
         {this.firstForm()}
+        {this.imageForm()}
         {this.secondForm()}
         {this.finalForm()}
         <button
