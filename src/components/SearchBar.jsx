@@ -10,11 +10,7 @@ const genreArray = [
 class SearchBar extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
-    const {
-      onSearchTextChange,
-      onBookmarkedChange,
-      onSelectedGenreChange,
-    } = this.props;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
       <div>
         <form>
