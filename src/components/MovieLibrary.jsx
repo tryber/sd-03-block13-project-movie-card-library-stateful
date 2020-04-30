@@ -3,7 +3,7 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-export default class MovieLibrary extends Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ export default class MovieLibrary extends Component {
     return movies.filter(
       (movie) => (movie.title.includes(searchText) || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText))
-      && this.checkBookmarked(movie) && this.vGenre(movie),
+      && this.cMarked(movie) && this.vGenre(movie),
     );
   }
 
@@ -38,6 +38,14 @@ export default class MovieLibrary extends Component {
   vGenre(movie) {
     const { selectedGenre } = this.state;
     if ((selectedGenre && movie.genre === selectedGenre) || !selectedGenre) return movie;
+    return false;
+  }
+
+  cMarked(movie) {
+    const { bookmarkedOnly } = this.state;
+    if (!bookmarkedOnly || (bookmarkedOnly && movie.bookmarked === true)) {
+      return movie;
+    }
     return false;
   }
 
@@ -57,3 +65,5 @@ export default class MovieLibrary extends Component {
     );
   }
 }
+
+export default MovieLibrary;
