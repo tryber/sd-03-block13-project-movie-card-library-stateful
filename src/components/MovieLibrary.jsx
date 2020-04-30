@@ -12,7 +12,33 @@ export default class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movie,
     };
-    this.filter = this.filter.bind(this);
+    this.fMovie = this.fMovie.bind(this);
+    this.hBookChange = this.hBookChange.bind(this);
+    this.iMovie = this.iMovie.bind(this);
+  }
+
+  fMovie(movies) {
+    const { searchText } = this.state;
+    return movies.filter(
+      (movie) => (movie.title.includes(searchText) || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText))
+      && this.checkBookmarked(movie) && this.vGenre(movie),
+    );
+  }
+
+  hBookChange() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly });
+  }
+
+  iMovie(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
+  }
+
+  vGenre(movie) {
+    const { selectedGenre } = this.state;
+    if ((selectedGenre && movie.genre === selectedGenre) || !selectedGenre) return movie;
+    return false;
   }
 
   render() {
@@ -25,8 +51,8 @@ export default class MovieLibrary extends Component {
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
-        <MovieList movies={this.filter(movies)} />
-        <AddMovie />
+        <MovieList movies={this.fMovie(movies)} />
+        <AddMovie onClick={this.iMovie} />
       </div>
     );
   }
