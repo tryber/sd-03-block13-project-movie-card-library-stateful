@@ -40,39 +40,14 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <fieldset>
-        <Input
-          innerText="Título"
-          name="title"
-          value={title}
-          onChange={this.onChange}
-        />
-        <Input
-          innerText="Subtítulo"
-          name="subtitle"
-          value={subtitle}
-          onChange={this.onChange}
-        />
-        <Input
-          innerText="Imagem"
-          name="imagePath"
-          value={imagePath}
-          onChange={this.onChange}
-        />
+        <Input innerText="Título" name="title" value={title} onChange={this.onChange} />
+        <Input innerText="Subtítulo" name="subtitle" value={subtitle} onChange={this.onChange} />
+        <Input innerText="Imagem" name="imagePath" value={imagePath} onChange={this.onChange} />
         <label htmlFor="storyline">
           Sinopse
-          <textarea
-            name="storyline"
-            value={storyline}
-            onChange={this.onChange}
-          />
+          <textarea name="storyline" value={storyline} onChange={this.onChange} />
         </label>
-        <Input
-          innerText="Avaliação"
-          name="rating"
-          value={rating}
-          onChange={this.onChange}
-          type="number"
-        />
+        <Input innerText="Avaliação" name="rating" value={rating} onChange={this.onChange} type="number" />
         <select value={genre} name="genre" onChange={this.onChange}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
