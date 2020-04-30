@@ -1,0 +1,17 @@
+.forms-search-bar {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.568);
+  font-size: 1.3em;
+  padding-bottom: 15%;
+  margin-bottom: 15%
+}
+
+.flex-label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.check {
+  transform: scale(2);
+  margin: 4px 10px 4px;
+}

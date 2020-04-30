@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './AddMovie.css';
+
 const initialState = {
   genre: 'action',
   imagePath: '',
@@ -22,10 +24,10 @@ const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller',
 
 const setOptions = (opts) => opts.map(([en, pt]) => <option value={en} key={en}>{pt}</option>);
 
-const create = (tag, obj) => {
-  if (tag === 'textarea') return <textarea {...obj} />;
-  if (tag === 'select') return <select {...obj}>{setOptions(genreOptions)}</select>;
-  return <input {...obj} />;
+const create = (tag, props) => {
+  if (tag === 'textarea') return <textarea {...props} />;
+  if (tag === 'select') return <select {...props} className={'select'}>{setOptions(genreOptions)}</select>;
+  return <input {...props} />;
 };
 
 export default class AddMovie extends React.Component {
@@ -56,20 +58,22 @@ export default class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className={'forms-add'}><h3>Adicione um filme</h3>
         {
           Object.entries(searchBoxes).map(([box, features]) => {
-            const prop = Object.assign(
+            const props = Object.assign(
               features,
               { value: this.state[box], onChange: this.handleChange(box) });
             return (
-              <label key={box} htmlFor={features.id}>{features.text}
-                {create(features.type, prop)}
+              <label key={box} htmlFor={features.id} className={'flex-label'}>{features.text}
+                {create(features.type, props)}
               </label>
             );
           })
         }
-        <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
+        <button type={'submit'} onClick={this.handleSubmitClick} className={'submit-add-buttom'}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
