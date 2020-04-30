@@ -25,8 +25,8 @@ const setOptions = (opts) => opts.map(([en, pt]) => <option value={en} key={en}>
 const create = (tag, obj) => {
   if (tag === 'textarea') return <textarea {...obj} />;
   if (tag === 'select') return <select {...obj}>{setOptions(genreOptions)}</select>;
-  else return <input {...obj} />;
-}
+  return <input {...obj} />;
+};
 
 export default class AddMovie extends React.Component {
   constructor(props) {
