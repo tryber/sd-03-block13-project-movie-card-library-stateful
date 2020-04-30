@@ -12,7 +12,7 @@ function SearchBar(props) {
         <input id="IncluiOtexto" onChange={onSearchTextChange} type="text" value={searchText} />
       </label>
       <label htmlFor="MostrarSomenteFavoritos">
-        <input checked={bookmarkedOnly} id="MostrarSomenteFavoritos" name="bookmarkedOnly" onChange={onBookmarkedChange} type="checkbox" />
+        <input checked={bookmarkedOnly} id="MostrarSomenteFavoritos" onChange={onBookmarkedChange} type="checkbox" />
         <span>&nbsp;Mostrar somente favoritos</span>
       </label>
       <label htmlFor="FiltrarPorGenero">
