@@ -14,7 +14,6 @@ class AddMovie extends Component {
     this.hadleChange = this.hadleChange.bind(this);
   }
 
-
   hadleChange(evento) {
     const { name, value } = evento.target;
     this.setState = (() => ({ [name]: value }));
@@ -27,7 +26,6 @@ class AddMovie extends Component {
           Título
           <input type="text" name="title" value={this.state.title} onChange={this.hadleChange} />
         </label>
-
         <label htmlFor="subtitle">
           Subtítulo
           <input type="text" name="subtitle" value={this.state.subtitle} onChange={this} />
@@ -36,20 +34,22 @@ class AddMovie extends Component {
           Imagem
           <input type="text" name="imagePath" value={this.state.imagePath} onChange="" />
         </label>
-        <label htmlFor="storyline">Sinopse</label>
-        <textarea name="storyline" value={this.state.storyline} onChange="" />
-
-
-        <label htmlFor="rating">Avaliação</label>
-        <input type="Number" name="rating" value={this.state.rating} onChange="" />
-
-        <label>Gênero</label>
-
-        <select value={this.state.genre} onChange="">
-          <option valor="action">Ação</option>
-          <option valor="comedy">Comédia</option>
-          <option valor="thriller">Suspense</option>
-        </select>
+        <label htmlFor="storyline">
+          Sinopse
+          <textarea name="storyline" value={this.state.storyline} onChange="" />
+        </label>
+        <label htmlFor="rating">
+          Avaliação
+          <input type="Number" name="rating" value={this.state.rating} onChange="" />
+        </label>
+        <label htmlFor="genre">
+          Gênero
+          <select name="genre" value={this.state.genre} onChange="">
+            <option valor="action">Ação</option>
+            <option valor="comedy">Comédia</option>
+            <option valor="thriller">Suspense</option>
+          </select>
+        </label>
         <button onClick="" >Adicionar filme</button>
       </form>
     );
