@@ -43,7 +43,7 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <h2> Movie library </h2>
-        <SearchBar 
+        <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
