@@ -8,27 +8,25 @@ export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText:'',
-      bookmarkedOnly: false;
+      searchText: '',
+      bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movie,
     };
-    this.changeName = this.changeName.bind(this);
-
-
+    this.filter = this.filter.bind(this);
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-         searchText={searchText}
-         bookmarkedOnly={bookmarkedOnly}
-         selectedGenre={selectedGenre}
+          searchText={searchText}
+          bookmarkedOnly={bookmarkedOnly}
+          selectedGenre={selectedGenre}
          />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.filter(movies)} />
         <AddMovie />
       </div>
     );

@@ -19,19 +19,9 @@ export default class AddMovie extends React.Component {
 
   handleChangeInput(event) {
     const input = event.target;
-    this.setState({
-      name: input.value.toUpperCase(),
-    });
+    this.setState({ name: input.value.toUpperCase() });
   }
 
-  handleChangeRating = (event) => {
-    const { name, value } = event.target;
-    
-    this.setState({
-      [name]: value,
-    });
-  }
-  
   render() {
     return (
       <div>
