@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import Genre from '../genreData';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -85,9 +86,11 @@ class AddMovie extends React.Component {
               value={genre}
               onChange={this.stateUpdateHandler}
             >
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
+              {Genre.map((genre) => (
+                <option key={genre.label} value={genre.value}>
+                  {genre.label}
+                </option>
+              ))}
             </select>
           </label>
           <button type="button" onClick={this.stateUpdateHandler}>
