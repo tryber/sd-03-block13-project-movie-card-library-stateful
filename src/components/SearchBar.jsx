@@ -4,13 +4,10 @@ import Genre from '../genreData';
 class SearchBar extends React.Component {
   render() {
     const {
-      bookmarkedOnly,
-      onBookmarkedChange,
-      onSearchTextChange,
-      onSelectedGenreChange,
-      searchText,
-      selectedGenre,
+      bookmarkedOnly, onBookmarkedChange, onSearchTextChange, onSelectedGenreChange,
+      searchText, selectedGenre,
     } = this.props;
+
     return (
       <form action="">
         <label htmlFor="searchText">
