@@ -20,14 +20,14 @@ class MovieLibrary extends React.Component {
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
-  handleChangeInput(event) {
+  async handleChangeInput(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    await this.setState({ [name]: value });
   }
 
-  handleOnBookmarkedChange() {
+  async handleOnBookmarkedChange() {
     const { bookmarkedOnly } = this.state;
-    this.setState({ bookmarkedOnly: !bookmarkedOnly });
+    await this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
   checkBookmarked(movie) {
@@ -55,8 +55,8 @@ class MovieLibrary extends React.Component {
     );
   }
 
-  addMovie(movie) {
-    this.setState((state) => ({ movies: [...state.movies, movie] }));
+  async addMovie(movie) {
+    await this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   render() {
