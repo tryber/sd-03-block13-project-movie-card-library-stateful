@@ -58,6 +58,9 @@ class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.onSearchChange}
+          onBookmarkedChange={this.onSearchChange}
+          onSearchTextChange={this.onSearchChange}
         />
         <MovieList movies={this.fMovie(movies)} />
         <AddMovie onClick={this.iMovie} />
