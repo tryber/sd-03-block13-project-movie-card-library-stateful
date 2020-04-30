@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.stateUpdateHandler = this.stateUpdateHandler.bind(this);
+    this.formsInputs = this.formsInputs.bind(this);
   }
 
   stateUpdateHandler(event) {
@@ -21,63 +22,71 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  formsInputs() {
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    return (
+      <div>
+        <label htmlFor="title">
+          Título
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={title}
+            onChange={this.stateUpdateHandler}
+          />
+        </label>
+        <label htmlFor="subtitle">
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            value={subtitle}
+            onChange={this.stateUpdateHandler}
+          />
+        </label>
+        <label htmlFor="movie-image">
+          <input
+            type="file"
+            name="movie-image"
+            id="movie-image"
+            value={imagePath}
+            onChange={this.stateUpdateHandler}
+          />
+        </label>
+        <label htmlFor="storyline">
+          Sinopse
+          <textarea
+            type="text"
+            id="storyline"
+            name="storyline"
+            rows="4"
+            cols="50"
+            value={storyline}
+            onChange={this.stateUpdateHandler}
+          />
+        </label>
+        <label htmlFor="rating">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            value={rating}
+            onChange={this.stateUpdateHandler}
+          />
+        </label>
+      </div>
+    );
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { genre } = this.state;
     return (
       <div>
         <form>
-          <p>Form</p>
-          <label htmlFor="title">
-            Título
-            <input
-              type="text"
-              name="title"
-              id="title"
-              value={title}
-              onChange={this.stateUpdateHandler}
-            />
-          </label>
-          <label htmlFor="subtitle">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              id="subtitle"
-              value={subtitle}
-              onChange={this.stateUpdateHandler}
-            />
-          </label>
-          <label htmlFor="movie-image">
-            <input
-              type="file"
-              name="movie-image"
-              id="movie-image"
-              value={imagePath}
-              onChange={this.stateUpdateHandler}
-            />
-          </label>
-          <label htmlFor="storyline">
-            Sinopse
-            <textarea
-              type="text"
-              id="storyline"
-              name="storyline"
-              rows="4"
-              cols="50"
-              value={storyline}
-              onChange={this.stateUpdateHandler}
-            />
-          </label>
-          <label htmlFor="rating">
-            Avaliação
-            <input
-              type="number"
-              name="rating"
-              id="rating"
-              value={rating}
-              onChange={this.stateUpdateHandler}
-            />
-          </label>
+          {this.formsInputs()}
           <label htmlFor="genre">
             <select
               name="genre"

@@ -1,6 +1,6 @@
 // implement SearchBar component here
 import React from 'react';
-// Refatorar componente para até 25 linhas, testes
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
