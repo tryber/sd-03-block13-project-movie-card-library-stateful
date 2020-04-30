@@ -21,7 +21,9 @@ class SearchBar extends React.Component {
         <label htmlFor="genreSelect">
           Filtrar por gênero:
           <select id="genreSelect" value={selectedGenre} onChange={onSelectedGenreChange}>
-            {Genre.map((genre) => <option key={genre.text} value={genre.value}>{genre.text}</option>)}
+            {Genre.map((genre) => (
+              <option key={genre.text} value={genre.value}>{genre.text}</option>
+            ))}
           </select>
         </label>
       </form>
