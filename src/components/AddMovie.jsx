@@ -4,10 +4,10 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: "action",
     };
@@ -17,58 +17,46 @@ class AddMovie extends React.Component {
     this.changeStateStoryline = this.changeStateStoryline.bind(this);
     this.changeStateRate = this.changeStateRate.bind(this);
     this.changeStateGenre = this.changeStateGenre.bind(this);
-    this.resetSt = this.resetSt.bind(this)
+    this.resetSt = this.resetSt.bind(this);
   }
   changeStateTitle(event) {
     const titleInput = event.target;
-    this.setState({
-      title: titleInput.value,
-    });
+    this.setState({ title: titleInput.value });
   }
   changeStateSubt(event) {
     const subtInput = event.target;
-    this.setState({
-      subtitle: subtInput.value,
-    });
+    this.setState({ subtitle: subtInput.value });
   }
   changeStateImg(event) {
     const imageInput = event.target;
-    this.setState({
-      imagePath: imageInput.value,
-    });
+    this.setState({ imagePath: imageInput.value });
   }
   changeStateStoryline(event) {
     const storylineInput = event.target;
-    this.setState({
-      storyline: storylineInput.value,
-    });
+    this.setState({ storyline: storylineInput.value });
   }
   changeStateRate(event) {
     const ratingInput = event.target;
-    this.setState({
-      rating: Number(ratingInput.value),
-    });
+    this.setState({ rating: Number(ratingInput.value) });
   }
   changeStateGenre(event) {
     const genreInput = event.target;
-    this.setState({
-      genre: genreInput.value,
-    });
+    this.setState({ genre: genreInput.value });
   }
   resetSt() {
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     });
   }
   render() {
-    const {onClick} = this.props;
+    const { onClick } = this.props;
     return (
-     <form>
+      <form>
         <label htmlFor="Titulo">Título</label>
         <input id="Titulo" type="text" value={this.state.title} onChange={this.changeStateTitle} />
         <label htmlFor="Subt">Subtítulo</label>
