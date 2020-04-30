@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyline: '',
+      storyLine: '',
       rating: 0,
       genre: 'action',
     });
@@ -46,11 +46,14 @@ class AddMovie extends React.Component {
         <label htmlFor="title">Título</label>
         <input type="text" name="title" value={this.state.title} onChange={this.changeHandler} />
         <label htmlFor="subtitle">Subtítulo</label>
-        <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.changeHandler} />
+        <input type="text" name="subtitle"
+        value={this.state.subtitle} onChange={this.changeHandler} />
         <label htmlFor="imagePath">Imagem</label>
-        <input type="text" name="imagePath" value={this.state.imagePath} onChange={this.changeHandler} />
+        <input type="text" name="imagePath"
+        value={this.state.imagePath} onChange={this.changeHandler} />
         <label htmlFor="storyLine">Sinopse</label>
-        <textarea value={this.state.storyLine} name="storyline" onChange={this.changeHandler} />
+        <textarea name="storyLine"
+        value={this.state.storyLine} onChange={this.changeHandler} />
         <label htmlFor="rating">Avaliação</label>
         <input type="number" value={this.state.rating} name="rating" onChange={this.alteraAvaliacao} />
         <label htmlFor="genre">Gênero</label>
