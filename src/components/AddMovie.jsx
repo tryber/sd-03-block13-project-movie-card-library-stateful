@@ -1,54 +1,64 @@
 // implement AddMovie component here
-import React, { Component } from "react";
+import React, { Component } from 'react';
+
+import Input from './Input';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      subtitle: "",
-      imagePath: "",
-      storyline: "",
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
+    this.onChange = this.onChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
-  onChange = (event) => {
+
+  onChange(event) {
     const { name, value } = event.target;
-    console.log(name, value);
-    this.setState({
-      [name]: value,
-    });
-  };
-  render() {
+    this.setState({ [name]: value });
+  }
+
+  addMovie() {
     const { onClick } = this.props;
-    const addMovie = () => {
-      onClick(this.state);
-      this.setState({
-        title: "",
-        subtitle: "",
-        imagePath: "",
-        storyline: "",
-        rating: 0,
-        genre: "action",
-      });
-    };
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <fieldset>
-        <label>
-          Título
-          <input name="title" value={title} onChange={this.onChange} />
-        </label>
-        <label>
-          Subtítulo
-          <input name="subtitle" value={subtitle} onChange={this.onChange} />
-        </label>
-        <label>
-          Imagem
-          <input name="imagePath" value={imagePath} onChange={this.onChange} />
-        </label>
-        <label>
+        <Input
+          innerText="Título"
+          name="title"
+          value={title}
+          onChange={this.onChange}
+        />
+        <Input
+          innerText="Subtítulo"
+          name="subtitle"
+          value={subtitle}
+          onChange={this.onChange}
+        />
+        <Input
+          innerText="Imagem"
+          name="imagePath"
+          value={imagePath}
+          onChange={this.onChange}
+        />
+        <label htmlFor="storyline">
           Sinopse
           <textarea
             name="storyline"
@@ -56,21 +66,21 @@ class AddMovie extends Component {
             onChange={this.onChange}
           />
         </label>
-        <label>
-          Avaliação
-          <input
-            name="rating"
-            value={rating}
-            onChange={this.onChange}
-            type="number"
-          />
-        </label>
-        <select name={genre} onChange={this.onChange}>
+        <Input
+          innerText="Avaliação"
+          name="rating"
+          value={rating}
+          onChange={this.onChange}
+          type="number"
+        />
+        <select value={genre} name="genre" onChange={this.onChange}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={addMovie}>Adicionar filme</button>
+        <button type="button" onClick={this.addMovie}>
+          Adicionar filme
+        </button>
       </fieldset>
     );
   }

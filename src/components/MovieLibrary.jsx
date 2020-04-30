@@ -1,68 +1,71 @@
 // implement MovieLibrary component here
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import originalMovies from "../data";
+import originalMovies from '../data';
 
-import MovieList from "./MovieList";
-import SearchBar from "./SearchBar";
-import AddMovie from "./AddMovie";
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
-      moviesOriginal: originalMovies,
+      selectedGenre: '',
+      // moviesOriginal: originalMovies,
       movies: [...originalMovies],
     };
+    // onBookmarkedOnly
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedOnly = this.onBookmarkedOnly.bind(this);
+    this.onSelectedGenre = this.onSelectedGenre.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
-  onSearchTextChange = (event) => {
+
+  onSearchTextChange(event) {
     const text = event.target.value;
-    const filtered = this.state.movies.filter((movie) => {
-      return Object.values(movie).some((detail) => {
-        console.log(detail);
-        if (typeof detail === "string")
-          return detail.toLowerCase().includes(text.toLowerCase());
-        return "";
-      });
-    });
+    // const filtered = this.state.movies.filter((movie) => Object.values(movie).some((detail) => {
+    //   console.log(detail);
+    //   if (typeof detail === 'string') return detail.toLowerCase().includes(text.toLowerCase());
+    //   return '';
+    // }));
     this.setState({
       searchText: text,
-      movies: filtered,
+      movies: 'filtered',
     });
-  };
-  onBookmarkedOnly = () => {
-    this.setState((state) => ({
-      bookmarkedOnly: !state.bookmarkedOnly,
-    }));
+  }
+
+  onBookmarkedOnly() {
+    this.setState((state) => ({ bookmarkedOnly: !state.bookmarkedOnly }));
     const filtered = (state) => {
       if (state.bookmarkedOnly) {
-        console.log("insideFilter ", state.bookmarkedOnly);
+        console.log('insideFilter ', state.bookmarkedOnly);
         // console.log(state.movies.filter((movie) => movie.bookmarked === true));
         return state.movies.filter((movie) => movie.bookmarked === true);
-      } else {
-        return state.movies;
       }
+      return state.movies;
     };
 
-    console.log("prevState", this.state.bookmarkedOnly);
+    //   console.log('prevState', this.state.bookmarkedOnly);
     return this.setState((state) => {
-      movies: filtered(state);
+      filtered(state);
     });
-  };
-  onSelectedGenre = (event) => {
-    const value = event.target.value;
+  }
+
+  onSelectedGenre(event) {
+    const { value } = event.target;
     this.setState((state) => ({
       selectedGenre: value,
       movies: state.movies.filter((movie) => movie.genre === value),
     }));
     return value;
-  };
-  onClick = (callback) => {
-    alert(Object.values(callback));
-  };
+  }
+
+  onClick(callback) {
+    this.alert(Object.values(callback));
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
