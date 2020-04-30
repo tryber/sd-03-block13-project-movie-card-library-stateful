@@ -25,15 +25,15 @@ class AddMovie extends Component {
       alert('Movie Added with sucess');
     });
   }
-  addGenre = () => {
-    return (
-      <select name="genre" value={this.state.genre} onChange={this.hadleChange}>
-        <option valor="action">Ação</option>
-        <option valor="comedy">Comédia</option>
-        <option valor="thriller">Suspense</option>
-      </select>
-    )
-  }
+  // addGenre = () => {
+  //   return (
+  //     <select name="genre" value={this.state.genre} onChange={this.hadleChange}>
+  //       <option valor="action">Ação</option>
+  //       <option valor="comedy">Comédia</option>
+  //       <option valor="thriller">Suspense</option>
+  //     </select>
+  //   )
+  // }
 
   render() {
     return (
@@ -56,7 +56,7 @@ class AddMovie extends Component {
           Avaliação
           <input type="number" name="rating" value={this.state.rating} onChange={this.hadleChange} />
         </label>
-        <label htmlFor="genre">Gênero{this.addGenre()}</label>
+        <label htmlFor="genre">Gênero</label>
         <button onClick={this.clickMe} value="">Adicionar filme</button>
       </form>
     );
