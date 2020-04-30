@@ -22,6 +22,12 @@ const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller',
 
 const setOptions = (opts) => opts.map(([en, pt]) => <option value={en} key={en}>{pt}</option>);
 
+const create = (tag, obj) => {
+  if (tag === 'textarea') return <textarea {...obj} />;
+  if (tag === 'select') return <select {...obj}>{setOptions(genreOptions)}</select>;
+  else return <input {...obj} />;
+}
+
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -48,14 +54,6 @@ export default class AddMovie extends React.Component {
     this.reset();
   }
 
-  create(tag, obj) {
-    return (
-        tag === 'textarea' ? <textarea {...obj}></textarea> : 
-        tag === 'select' ? <select {...obj}>{setOptions(genreOptions)}</select> :
-        <input {...obj} />
-    );
-  }
-
   render() {
     return (
       <form>
@@ -66,7 +64,7 @@ export default class AddMovie extends React.Component {
               { value: this.state[box], onChange: this.handleChange(box) });
             return (
               <label key={box} htmlFor={features.id}>{features.text}
-                {this.create(features.type, prop)}
+                {create(features.type, prop)}
               </label>
             );
           })
