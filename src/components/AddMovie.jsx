@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.changeStateTitle = this.changeStateTitle.bind(this);
     this.changeStateSubt = this.changeStateSubt.bind(this);
@@ -73,7 +73,7 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="submit" onClick={onClick(this.state), this.resetSt}>Adicionar filme</button>
+        <button type="submit" onClick={(onClick(this.state), this.resetSt)}>Adicionar filme</button>
       </form>
     );
   }
