@@ -22,7 +22,7 @@ const movies = [
     subtitle: 'Ghost In The Shell',
     storyline: 'A hacker known as the Puppet Master is hunted by a female cyborg cop and her partner. This film is a revised version of Ghost in the Shell (1995).',
     rating: 5,
-    imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
+    imagePath: 'images/Ghost_In_The_Shell_2_0.jpg',
     bookmarked: false,
     genre: 'comedy',
   },
@@ -43,6 +43,13 @@ const movies = [
     imagePath: 'images/Resident_Evil_Vendetta.jpg',
     bookmarked: true,
     genre: 'fantasy',
+  },
+  {
+    title: 'The Towering Inferno',
+    subtitle: 'Inferno na Torre',
+    storyline: 'At the opening party of a colossal, but poorly constructed, office building, a massive fire breaks out that threatens to destroy the tower and everyone in it.',
+    rating: 7.0,
+    imagePath: 'images/ToweringInferno.jpg',
   },
 ];
 
