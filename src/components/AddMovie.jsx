@@ -79,7 +79,8 @@ class AddMovie extends React.Component {
         <select
           id="gender"
           value={this.state.genre}
-          onChange={(e) => this.setState({ genre: e.target.value })}>
+          onChange={(e) => this.setState({ genre: e.target.value })}
+        >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
