@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 export default class SearchBar extends Component {
   render() {
     return (
-      <div>
+      <form>
         <label htmlFor="incluiText">
           Inclui o texto:
           <input
@@ -22,7 +22,9 @@ export default class SearchBar extends Component {
             onChange={this.props.onBookmarkedChange}
           />
         </label>
-      </div>
+
+        <select name="select" />
+      </form>
     );
   }
 }
