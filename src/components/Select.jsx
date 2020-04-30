@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class Select extends Component {
   render() {
-    const { options, value, onChange } = this.props;
+    const { options, value, onChange, name } = this.props;
     console.log(options);
     return (
-      <select value={value} onChange={onChange}>
+      <select name={name} value={value} onChange={onChange}>
         {options.map(
           (option) => (
             <option

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import Input from './Input';
-// import Select from './Select';
+import Select from './Select';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -39,6 +39,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const optionsArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     return (
       <fieldset>
         <Input innerText="Título" name="title" value={title} onChange={this.onChange} />
@@ -48,12 +49,14 @@ class AddMovie extends Component {
           Sinopse
           <textarea name="storyline" value={storyline} onChange={this.onChange} />
         </label>
-        <Input innerText="Avaliação" name="rating" value={rating} onChange={this.onChange} type="number" />
-        <select value={genre} name="genre" onChange={this.onChange}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+        <Input
+          innerText="Avaliação"
+          name="rating"
+          value={rating}
+          onChange={this.onChange}
+          type="number"
+        />
+        <Select value={genre} onChange={this.onChange} options={optionsArr} name="genre" />
         <button type="button" onClick={this.addMovie}>Adicionar filme</button>
       </fieldset>
     );

@@ -12,7 +12,12 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <fieldset>
-        <Input name="searchText" innerText="Inclui o texto:" value={searchText} onChange={onSearchTextChange} />
+        <Input
+          name="searchText"
+          innerText="Inclui o texto:"
+          value={searchText}
+          onChange={onSearchTextChange}
+        />
         <Input
           innerText="Mostrar somente favoritos"
           name="bookMarker"
