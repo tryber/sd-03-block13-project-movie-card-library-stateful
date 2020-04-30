@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    // const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+  // const { searchText, onSearchTextChange, bookmarkedOnly,
+  // onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form>
-        <label>Inclui o texto:</label>
-        <input type="text" name="" value="" onChange="" />
+        <label htmlFor="a">Inclui o texto:</label>
+        <input type="text" name="a" value="" onChange="" />
 
-        <label>Mostrar Somente os Favoritos</label>
-        <input type="checkbox" checked="" value="" onChange="" />
+        <label htmlFor="checkbox">Mostrar Somente os Favoritos</label>
+        <input type="checkbox" name="checkbox" checked="" value="" onChange="" />
 
         <label>Filtar por gênero</label>
         <select value="" onChange="">
@@ -18,8 +19,6 @@ class SearchBar extends Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-
-
       </form>
     );
   }
