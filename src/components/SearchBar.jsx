@@ -6,6 +6,7 @@ export default class SearchBar extends Component {
     super(props);
 
     
+  
   }
 
 
@@ -13,8 +14,8 @@ export default class SearchBar extends Component {
     return (
       <form action="">
         <h3>Search movie</h3>
-        <label htmlFor="Inclui o texto">Inclui o texto: </label>
-        <input name="Inclui o texto" type="text" onChange value={this.props.searchText} />
+        <label htmlFor="Inclui-o-texto">Inclui o texto: </label>
+        <input name="Inclui-o-texto" type="text" />
 
         <br /><br />
 
@@ -23,7 +24,7 @@ export default class SearchBar extends Component {
 
         <br /><br />
 
-        <label htmlFor="">Filtrar por gênero</label>
+        <label htmlFor="gender">Filtrar por gênero</label>
         <select value="selectedGenre" name="gender" id="gender" onChange>
           <option value="">Todos</option>
           <option value="action">Ação</option>
@@ -31,8 +32,7 @@ export default class SearchBar extends Component {
           <option value="thriller">Suspense</option>
         </select>
 
-
       </form>
-    )
+    );
   }
 }
