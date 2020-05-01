@@ -6,13 +6,13 @@ export class SearchBarCheckbox extends Component {
     return (
       <div>
         <form>
-          <label className='searchForm' htmlFor="checkbox">
-            <input style={{marginRight:"10px"}} type="checkBox" name="" id="checkbox"/>
+          <label className="searchForm" htmlFor="checkbox">
+            <input style={{ marginRight: "10px" }} type="checkBox" name="" id="checkbox" />
             Mostrar somente favoritos
           </label>
         </form>
       </div>
-    )
+    );
   }
 }
 
