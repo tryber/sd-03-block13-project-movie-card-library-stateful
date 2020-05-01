@@ -23,7 +23,6 @@ class MovieLibrary extends React.Component {
     const { movies } = this.state;
     movies.push(filme);
     this.setState({ movies });
-    console.log(movies)
   }
 
   onSelectedGenreChange(event) {
@@ -55,13 +54,11 @@ class MovieLibrary extends React.Component {
   }
 
   onBookmarkedChange(event) {
-    console.log(this.state.bookmarkedOnly)
     const { bookmarkedOnly } = this.state;
     if (bookmarkedOnly === true) {
-      event.target.value = !event.target.value;
+      event.target.value = false;
     }
     this.setState({ bookmarkedOnly: !!event.target.value }, () => {
-      
       const { movies } = this.props;
       if (bookmarkedOnly === true) {
         const movieFilterMarked = movies.filter((item) => item.bookmarked === true);
