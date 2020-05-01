@@ -7,14 +7,14 @@ export class SearchBarCheckbox extends Component {
     return (
       <div>
         <form>
-          <label className='searchForm' htmlFor='checkbox'>
+          <label className="searchForm" htmlFor="checkbox">
             <input
               onChange={onBookmarkedChange}
               checked={bookmarkedOnly}
-              style={{ marginRight: "10px" }}
-              type='checkBox'
-              name=''
-              id='checkbox'
+              style={{ marginRight: '10px' }}
+              type="checkBox"
+              name=""
+              id="checkbox"
             />
             Mostrar somente favoritos
           </label>
