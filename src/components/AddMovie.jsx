@@ -39,6 +39,12 @@ class AddMovie extends React.Component {
         <textarea type="textarea" name="storyline" value={this.state.storyline} onChange={(e) => { this.handleChange(e.target.value, 'storyline'); }} /> <br />
         <label htmlFor="rating"><span>Avaliação</span></label>
         <input type="number" name="rating" value={this.state.rating} onChange={(e) => { this.handleRating(e.target.value, 'rating'); }} /> <br />
+        <label htmlFor="genre"><span>Gênero</span></label>
+        <select value={this.state.genre} name="genre" onChange={(e) => { this.handleChange(e.target.value, 'genre'); }}>
+          <option key="action" value="action">Ação</option>
+          <option key="comedy" value="comedy">Comédia</option>
+          <option key="thriller" value="thriller">Suspense</option>
+        </select>
       </form>
     );
   }
