@@ -29,10 +29,12 @@ export class SearchBar extends Component {
     return (
       <div>
           <form style={{ marginLeft: '33px', padding: '8px 3px' }}>
-            <label htmlFor="">
+            <form a></form>
+            <label htmlFor="Inclui_o_texto">
               Inclui o texto:
               <br />
               <input
+                id="Inclui_o_texto"
                 value={searchText}
                 onChange={onSearchTextChange}
                 style={{ width: '600px', borderRadius: '5px' }}
