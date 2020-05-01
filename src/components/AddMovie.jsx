@@ -14,19 +14,18 @@ class AddMovie extends Component {
     super(props);
 
     this.state = initialState;
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange = (event, name) => {
-    let { value } = event.target;
+  handleChange(name) {
+    return ( ({ target: { value } }) => {
+      const nextState = {};
+      if (name === 'rating') nextState[name] = Number(value);
+      else nextState[name] = value;
 
-    if(name === 'rating') {
-      this.setState({
-        [name]: parseFloat(value)
-      })
-    } this.setState({
-      [name]: value,
-    })    
-  };
+      this.setState(nextState);
+    });
+  }
 
 
   render() {
@@ -35,13 +34,13 @@ class AddMovie extends Component {
       <div>
         <form action=''>
           <label htmlFor="title" >Título</label>
-          <input type="text" name="title" id="title" onChange={(event) => this.handleChange(event, 'title')} value={this.state.title}/>
+          <input type="text" name="title" id="title" onChange={this.handleChange('title')} value={this.state.title}/>
           <label htmlFor="sub" >Subtítulo</label>
-          <input type="text" name="subtitle" id="sub" onChange={(event) => this.handleChange(event, 'subtitle')} value={this.state.subtitle}/>
+          <input type="text" name="subtitle" id="sub" onChange={this.handleChange('subtitle')} value={this.state.subtitle}/>
           <label htmlFor="img" >Imagem</label>
-          <input type="text" alt="teste" name="image" id="img" onChange={(event) => this.handleChange(event, 'imagePath')} value={this.state.imagePath}/>
+          <input type="text" alt="teste" name="image" id="img" onChange={this.handleChange('imagePath')} value={this.state.imagePath}/>
           <label htmlFor="sin" >Sinopse</label>
-          <textarea type="text" name="storyline" id="sin" onChange={(event) => this.handleChange(event, 'storyline')} value={this.state.storyline}/>
+          <textarea type="textarea" name="storyline" id="sin" onChange={this.handleChange('storyline')} value={this.state.storyline}/>
         </form>
       </div>
     );
