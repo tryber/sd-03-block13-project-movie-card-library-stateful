@@ -16,17 +16,7 @@ class AddMovie extends React.Component {
     this.submitMovie = this.submitMovie.bind(this);
   }
 
-  changeHandle(event, stateElem) {
-    const { value } = event.target;
-
-    this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
-  }
-
-  submitMovie(event) {
-    const { onClick } = this.props;
-
-    onClick(this.state);
-
+  reset() {
     this.setState({
       genre: 'action',
       imagePath: '',
@@ -35,8 +25,19 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
     });
+  }
 
-    event.preventDefault();
+  changeHandle(event, stateElem) {
+    const { value } = event.target;
+
+    this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
+  }
+
+  submitMovie() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+    this.reset();
   }
 
   titleForm() {
