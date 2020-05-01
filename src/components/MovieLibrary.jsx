@@ -2,7 +2,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import moviesData from '../data';
+//import moviesData from '../data';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
@@ -21,38 +21,38 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange(event) {
+    const { movies } = this.props;
     this.setState({ searchText: event.target.value });
-    const filter = moviesData.filter((el) => el.title.includes(event.target.value)
+    const filter = movies.filter((el) => el.title.includes(event.target.value)
     || el.subtitle.includes(event.target.value)
     || el.storyline.includes(event.target.value));
-    if (filter.length > 0) {
-      this.setState({ movies: filter });
-    } else {
-      this.setState({ movies: this.props.movies });
-    }
+    if (filter.length > 0) { this.setState({ movies: filter }); }
+    else { this.setState({ movies: this.props.movies }); }
   }
 
   onBookmarkedChange(event) {
+    const { movies } = this.props;
     const value = event.target.checked;
     this.setState({ bookmarkedOnly: value });
     if (value === true) {
-      const filter = moviesData.filter((el) => el.bookmarked === value);
+      const filter = movies.filter((el) => el.bookmarked === value);
       this.setState({ movies: filter });
-    } else { this.setState({ movies: this.props.movies }); }
+    } else { this.setState({ movies: this.props.movies });}
   }
 
   onSelectedGenreChange(event) {
+    const { movies } = this.props;
     this.setState({ selectedGenre: event.target.value });
-    const filter = moviesData.filter((el) => el.genre === event.target.value);
+    const filter = movies.filter((el) => el.genre === event.target.value);
     if (filter.length > 0) { this.setState({ movies: filter }); }
-    if (filter.length === 0) { this.setState({ movies: [] }); }
-    if (event.target.value === '') { this.setState({ movies: this.props.movies }); }
+    if (event.target.value === '') { this.setState({ movies: this.props.movies })}
   }
 
   addMovie(movie) {
+    const { movies } = this.props;
     console.log(this);
-    moviesData.push(movie);
-    this.setState({ movies: moviesData });
+    movies.push(movie);
+    this.setState({ movies });
   }
 
   render() {
@@ -68,7 +68,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={() => this.addMovie} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }

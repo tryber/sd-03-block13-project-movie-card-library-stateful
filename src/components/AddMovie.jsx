@@ -12,6 +12,7 @@ class AddMovie extends React.Component {
     super(props);
     this.changeInput = this.changeInput.bind(this);
     this.renderTitle = this.renderTitle.bind(this);
+    this.renderButton = this.renderButton.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -38,9 +39,21 @@ class AddMovie extends React.Component {
     );
   }
 
+  renderButton() {
+    const { onClick } = this.props;
+    return (
+      <button
+        type="button"
+        value="Adicionar filme"
+        onClick={() => { onClick(this.state); this.setState(this.baseState); }}
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <div>
         <form>
@@ -58,9 +71,7 @@ class AddMovie extends React.Component {
               {Object.keys(genres).map((e) => <option value={e} key={e}>{genres[e]}</option>)}
             </select>
           </label>
-          <button type="submit" onClick={() => { onClick(this.state); this.setState(this.baseState); }}>
-          Adicionar filme
-          </button>
+          {this.renderButton()}
         </form>
       </div>
     );
