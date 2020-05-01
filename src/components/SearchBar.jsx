@@ -24,6 +24,7 @@ class SearchBar extends React.Component {
     );
   }
 
+
   render() {
     const {
       searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
