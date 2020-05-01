@@ -75,15 +75,15 @@ class AddMovie extends React.Component {
           {this.createInput('Imagem', 'imagePath', 'text', this.state.imagePath)}
           {this.createTextarea('Sinopse', 'storyline', this.state.storyline)}
           {this.createInput('Avaliação', 'rating', 'number', this.state.rating)}
-          <label htmlFor='genre'>Gênero</label>
-          <select id='genre' value={this.state.genre} onChange={(event) => this.changeState(event, 'genre')}>
+          <label htmlFor="genre">Gênero</label>
+          <select id="genre" value={this.state.genre} onChange={(event) => this.changeState(event, "genre")}>
             {genreArray.map(({ text, value }) => (
               <option key={text} value={value}>
                 {text}
               </option>
             ))}
           </select>
-          <button type='button' onClick={this.buttonClick}>Adicionar filme</button>
+          <button type="button" onClick={this.buttonClick}>Adicionar filme</button>
         </form>
       </div>
     );
