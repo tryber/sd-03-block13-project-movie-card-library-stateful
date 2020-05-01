@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
     this.AddMovieButton = this.AddMovieButton.bind(this);
     this.firstFormsInputs = this.firstFormsInputs.bind(this);
     this.secondFormsInputs = this.secondFormsInputs.bind(this);
+    this.thirdFormsInputs = this.thirdFormsInputs.bind(this);
   }
 
   stateUpdateHandler(event, name) {
@@ -91,6 +92,13 @@ class AddMovie extends React.Component {
             onChange={(event) => this.stateUpdateHandler(event, 'storyline')}
           />
         </label>
+      </div>
+    );
+  }
+
+  thirdFormsInputs() {
+    return (
+      <div>
         <label htmlFor="rating">
           Avaliação
           <input
@@ -111,6 +119,7 @@ class AddMovie extends React.Component {
         <form>
           {this.firstFormsInputs()}
           {this.secondFormsInputs()}
+          {this.thirdFormsInputs()}
           <label htmlFor="genre">
             Gênero
             <select
