@@ -27,6 +27,10 @@ class AddMovie extends React.Component {
         <input type="text" name="title" value={this.state.title} onChange={(e) => { this.handleChange(e.target.value, 'title'); }} /> <br />
         <label htmlFor="subtitle"><span>Subtítulo</span></label>
         <input type="text" name="subtitle" value={this.state.subtitle} onChange={(e) => { this.handleChange(e.target.value, 'subtitle'); }} /> <br />
+        <label htmlFor="imagePath"><span>Imagem</span></label>
+        <input type="text" name="imagePath" value={this.state.imagePath} onChange={(e) => { this.handleChange(e.target.value, 'imagePath'); }} /> <br />
+        <label htmlFor="storyline"><span>Sinopse</span></label>
+        <input type="textarea" name="storyline" value={this.state.storyline} onChange={(e) => { this.handleChange(e.target.value, 'storyline'); }} /> <br />
       </form>
     );
   }
