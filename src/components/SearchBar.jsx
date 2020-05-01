@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
           <label htmlFor="book">Mostrar somente favoritos</label>
           <input id="book" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           <label htmlFor="genre">Filtrar por gênero</label>
-          <select id="genre" type="text" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <select id="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
             {genreArray.map(({ text, value }) => (
               <option key={text} value={value}>
                 {text}
