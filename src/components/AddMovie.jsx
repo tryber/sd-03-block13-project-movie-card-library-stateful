@@ -58,8 +58,10 @@ class AddMovie extends React.Component {
               {Object.keys(genres).map((e) => <option value={e} key={e}>{genres[e]}</option>)}
             </select>
           </label>
+          <button type="submit" onClick={() => { onClick(this.state); this.setState(this.baseState); }}>
+          Adicionar filme
+          </button>
         </form>
-        <input type="button" value="Adicionar filme" onClick={() => { onClick(this.state); this.setState(this.baseState); }} />
       </div>
     );
   }

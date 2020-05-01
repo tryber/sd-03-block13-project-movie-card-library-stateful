@@ -25,8 +25,11 @@ class MovieLibrary extends React.Component {
     const filter = moviesData.filter((el) => el.title.includes(event.target.value)
     || el.subtitle.includes(event.target.value)
     || el.storyline.includes(event.target.value));
-    if (filter.length > 0) { this.setState({ movies: filter }); }
-    else { this.setState({ movies: this.props.movies }); }
+    if (filter.length > 0) {
+      this.setState({ movies: filter });
+    } else {
+      this.setState({ movies: this.props.movies });
+    }
   }
 
   onBookmarkedChange(event) {
