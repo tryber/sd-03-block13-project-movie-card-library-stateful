@@ -74,7 +74,7 @@ class AddMovie extends Component {
   render() {
     return (
       <form>
-        {this.creatInput('title', 'Título', 'text', this.state.title,)}
+        {this.creatInput('title', 'Título', 'text', this.state.title)}
         {this.creatInput('subtitle', 'Subtítulo', 'text', this.state.subtitle)}
         {this.creatInput('imagePath', 'Imagem', 'text', this.state.imagePath)}
         {this.creatTextarea('storyline', 'Sinopse', 'text', this.state.storyline)}
@@ -87,7 +87,7 @@ class AddMovie extends Component {
             <option valor="thriller">Suspense</option>
           </select>
         </label>
-      <button onClick={this.clickMe} value="">Adicionar filme</button>
+        <button onClick={this.clickMe} value="">Adicionar filme</button>
       </form>
     );
   }
