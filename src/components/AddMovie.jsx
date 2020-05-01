@@ -55,7 +55,8 @@ export default class AddMovie extends React.Component {
 
   reset() { this.setState(initialState); }
 
-  handleSubmitClick() {
+  handleSubmitClick(event) {
+    if (event && event.preventDefault) event.preventDefault();
     this.props.onClick(this.state);
     this.reset();
   }

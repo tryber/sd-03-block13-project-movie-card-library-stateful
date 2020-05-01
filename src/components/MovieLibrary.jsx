@@ -8,7 +8,9 @@ import './MovieLibrary.css';
 
 function by(text, selectedGenre, saved, film) {
   const { title, subtitle, storyline, genre, bookmarked } = film;
-  return (title.includes(text) || subtitle.includes(text) || storyline.includes(text)) &&
+  const insideOf = (string) => string.toLowerCase().includes(text);
+
+  return (insideOf(title) || insideOf(subtitle) || insideOf(storyline)) &&
   (selectedGenre === '' ? true : genre === selectedGenre) &&
   (saved ? bookmarked : true);
 }
