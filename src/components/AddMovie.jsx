@@ -121,7 +121,13 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="avaliacao">
         Avaliação
-        <input type="number" id="avaliacao" name="rating" onChange={this.handleChangeRating} value={rating} />
+        <input
+          type="number"
+          id="avaliacao"
+          name="rating"
+          onChange={this.handleChangeRating}
+          value={rating}
+        />
       </label>
     );
   }
@@ -156,7 +162,13 @@ class AddMovie extends React.Component {
           {this.storyline()}
           {this.rating()}
           {this.genre()}
-          <button type="button" value="Adicionar filme" onClick={this.handleClick}>Adicionar filme</button>
+          <button
+            type="button"
+            value="Adicionar filme"
+            onClick={this.handleClick}
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
