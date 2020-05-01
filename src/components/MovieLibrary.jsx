@@ -5,7 +5,7 @@ import AddMovie from './AddMovie';
 import movies from '../data';
 
 
-export default class MovieLibrary extends Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ export default class MovieLibrary extends Component {
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -26,7 +26,7 @@ export default class MovieLibrary extends Component {
   // onBookmarkedChange(event, stateInitial) {
   //   const { bookmarkedOnly } = this.state;
   //   const { value } = event.target;
-  //   this.setState({ bookmarkedOnly:  });
+  //   this.setState({ stateInitial ? 'bookmarkedOnly' :  });
   // }
 
 
@@ -54,3 +54,5 @@ export default class MovieLibrary extends Component {
     );
   }
 }
+
+export default MovieLibrary;
