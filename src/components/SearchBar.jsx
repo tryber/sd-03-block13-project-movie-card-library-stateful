@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
-import SearchbarInput from './searchbarInput';
+import SearchbarInput from './SearchBarInput';
+import SearchBarCheckbox from './SearchBarCheckbox';
 
 export class SearchBar extends Component {
   // constructor(props){
@@ -30,6 +31,7 @@ export class SearchBar extends Component {
     return (
       <div>
         <SearchbarInput />
+        <SearchBarCheckbox />
       </div>
     );
   }
