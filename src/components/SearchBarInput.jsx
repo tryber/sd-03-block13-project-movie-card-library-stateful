@@ -6,20 +6,18 @@ export class searchbarInput extends Component {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
-        <form className="searchForm">
-          <label htmlFor="labelText">
-            Inclui o texto:
-            <br />
-            <input
-              id="labelText"
-              value={searchText}
-              onChange={onSearchTextChange}
-              style={{ width: '600px', borderRadius: '5px' }}
-              type="text"
-              name="search"
-            />
-          </label>
-        </form>
+        <label htmlFor="labelText">
+          Inclui o texto:
+          <br />
+          <input
+            id="labelText"
+            value={searchText}
+            onChange={onSearchTextChange}
+            style={{ width: '600px', borderRadius: '5px' }}
+            type="text"
+            name="search"
+          />
+        </label>
       </div>
     );
   }

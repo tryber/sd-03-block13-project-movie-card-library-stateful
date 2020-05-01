@@ -30,8 +30,10 @@ export class SearchBar extends Component {
 
     return (
       <div>
-        <SearchbarInput />
-        <SearchBarCheckbox />
+        <form className='searchForm'>
+          <SearchbarInput />
+          <SearchBarCheckbox />
+        </form>
       </div>
     );
   }
