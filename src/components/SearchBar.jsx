@@ -29,7 +29,6 @@ export class SearchBar extends Component {
     return (
       <div>
         <form style={{ marginLeft: '33px', padding: '8px 3px' }}>
-          <form a></form>
           <label htmlFor="Inclui_o_texto">
             Inclui o texto:
             <br />
