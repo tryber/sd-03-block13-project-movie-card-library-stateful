@@ -50,7 +50,6 @@ class MovieLibrary extends React.Component {
 
   addMovie(movie) {
     const { movies } = this.props;
-    console.log(this);
     movies.push(movie);
     this.setState({ movies });
   }
