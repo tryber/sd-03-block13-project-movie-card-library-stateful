@@ -73,9 +73,7 @@ class AddMovie extends React.Component {
         <label htmlFor="movie-image">
           Imagem
           <input
-            type="text"
-            name="movie-image"
-            id="movie-image"
+            type="text" name="movie-image" id="movie-image"
             value={this.state.imagePath}
             onChange={(event) => this.stateUpdateHandler(event, 'imagePath')}
           />
@@ -83,12 +81,8 @@ class AddMovie extends React.Component {
         <label htmlFor="storyline">
           Sinopse
           <textarea
-            type="text"
-            id="storyline"
-            name="storyline"
-            rows="4"
-            cols="50"
-            value={this.state.storyline}
+            type="text" id="storyline" name="storyline"
+            rows="4" cols="50" value={this.state.storyline}
             onChange={(event) => this.stateUpdateHandler(event, 'storyline')}
           />
         </label>
@@ -123,9 +117,7 @@ class AddMovie extends React.Component {
           <label htmlFor="genre">
             Gênero
             <select
-              name="genre"
-              id="genre"
-              value={this.state.genre}
+              name="genre" id="genre" value={this.state.genre}
               onChange={(event) => this.stateUpdateHandler(event, 'genre')}
             >
               {Genre.slice(1, 4).map((genreGenerator) => (
