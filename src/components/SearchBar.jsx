@@ -2,12 +2,6 @@
 import React from 'react';
 import '../form.css';
 
-const genres = {
-  '': 'Todos',
-  action: 'Ação',
-  comedy: 'Comédia',
-  thriller: 'Suspense',
-};
 class SearchBar extends React.Component {
 
   constructor(props) {
@@ -23,7 +17,6 @@ class SearchBar extends React.Component {
       </label>
     );
   }
-
 
   render() {
     const {
