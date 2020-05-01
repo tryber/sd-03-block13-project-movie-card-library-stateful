@@ -12,7 +12,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
@@ -21,12 +21,12 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value }, () => {
       const { selectedGenre } = this.state;
       const { movies } = this.props;
-      this.setState({ movies: movies }, () => {
+      this.setState({ movies }, () => {
         if (selectedGenre !== '') {
-          const moviesFilter = movies.filter(item => item.genre === selectedGenre);
+          const moviesFilter = movies.filter((item) => item.genre === selectedGenre);
           this.setState({ movies: moviesFilter });
         } else {
-          this.setState({ movies: movies });
+          this.setState({ movies });
         }
       });
     });
@@ -36,14 +36,14 @@ class MovieLibrary extends React.Component {
     this.setState({ searchText: event.target.value }, () => {
       const { searchText } = this.state;
       const { movies } = this.props;
-      this.setState( { movies: movies }, () => {
+      this.setState({ movies }, () => {
         if (searchText !== '') {
-          const moviesFilter = movies.filter(item => 
+          const moviesFilter = movies.filter((item) =>
           item.title.includes(searchText) || item.subtitle.includes(searchText) ||
           item.storyline.includes(searchText));
           this.setState({ movies: moviesFilter });
         } else {
-          this.setState({ movies: movies });
+          this.setState({ movies });
         }
       });
     });
@@ -64,7 +64,7 @@ class MovieLibrary extends React.Component {
         <AddMovie />
 
       </div>
-    )
+    );
   }
 }
 

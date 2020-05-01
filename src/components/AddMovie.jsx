@@ -41,18 +41,18 @@ class AddMovie extends React.Component {
   addFilme(onClick) {
     let filme = this.state;
     onClick(filme);
-    filme ={
+    filme = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   genreSelectOptions() {
-    return(
+    return (
       <select value={this.state.genre} onChange={this.onChangeGenre}>
         <option value={'action'}>Ação</option>
         <option value={'comedy'}>Comédia</option>
@@ -61,7 +61,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
+  formAddMovie() {
     return (
       <form>
         <label htmlFor="title">
@@ -91,6 +91,10 @@ class AddMovie extends React.Component {
         <button onClick={() => this.addFilme(this.props.onClick)}>Adicionar filme</button>
       </form>
     );
+  }
+
+  render() {
+    return this.formAddMovie();
   }
 }
 
