@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
         </label>
         <label htmlFor="selectedGenre">
           Filtrar por gênero
-          {this.selectGenreOptions}
+          {this.selectGenreOptions()}
         </label>
       </form>
     );
