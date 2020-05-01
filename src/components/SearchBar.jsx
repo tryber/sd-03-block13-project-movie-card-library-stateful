@@ -22,9 +22,9 @@ const SearchBar = (props) => {
         />Mostrar somente favoritos:</label>
       <label className="genreLabel" htmlFor="g.s">Filtrar por gênero:</label>
       <select
-          className="genreSel" id="g.s"
-          value={selectedGenre} onChange={onSelectedGenreChange}
-        >{Data.map((e) => <option key={e.text} value={e.value}>{e.text}</option>)}
+        className="genreSel" id="g.s"
+        value={selectedGenre} onChange={onSelectedGenreChange}
+      >{Data.map((e) => <option key={e.text} value={e.value}>{e.text}</option>)}
       </select>
     </form>
   );
