@@ -25,7 +25,7 @@
   width: 100%;
 }
 
-.genreSelect {
+.genreSel {
   background-color: white;
   border: 1px solid rgb(120, 120, 218);
   border-radius: 7px;
@@ -33,6 +33,6 @@
   width: 100%;
 }
 
-.genreSelect:hover {
+.genreSel:hover {
   background-color: rgba(189, 187, 187, 0.863);
 }

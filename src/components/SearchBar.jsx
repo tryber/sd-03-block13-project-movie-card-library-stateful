@@ -1,6 +1,6 @@
 import React from 'react';
 import '../JSX_Styles/searchbarStyle.css';
-import Data from './genreData'
+import Data from './genreData.js';
 
 class SearchBar extends React.Component {
   render() {
@@ -11,20 +11,20 @@ class SearchBar extends React.Component {
 
     return (
       <form className="searchForm">
-        <label className="searchLabel" htmlFor="searchText">
+        <label className="searchLabel" htmlFor="s.t">
           Inclui o texto:<br />
-          <input className="searchInput" id="searchText" type="text" 
-          value={searchText} onChange={onSearchTextChange} />
+          <input value={searchText} onChange={onSearchTextChange} 
+        className="searchInput" id="s.t" type="text" />
         </label><br />
-        <label htmlFor="box">
-          <input className="checkbox_Input" id="box" type="checkbox" 
-          checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <label htmlFor="c.b">
+          <input  checked={bookmarkedOnly} onChange={onBookmarkedChange} 
+        className="checkbox_Input" id="c.b" type="checkbox" />
           Mostrar somente favoritos:
         </label><br />
-        <label className="genreLabel" htmlFor="genreSelect">
+        <label className="genreLabel" htmlFor="g.s">
           Filtrar por gênero:<br />
-          <select className="genreSelect" id="genreSelect" value={selectedGenre} onChange={onSelectedGenreChange}>
-            {Data.map(info => <option key={Math.random() * 1000} value={info.value}>{info.genre}</option>)}
+          <select className="genreSel" id="g.s" value={selectedGenre} onChange={onSelectedGenreChange}>
+            {Data.map((e) => <option key={Math.random() * 10} value={e.value}>{e.text}</option>)}
           </select>
         </label>
       </form>
