@@ -33,41 +33,17 @@ class AddMovie extends Component {
       <div>
         <form action="">
           <label htmlFor="title">Título</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            onChange={this.handleChange("title")}
-            value={this.state.title}
+          <input type="text" name="title" id="title" onChange={this.handleChange('title')} value={this.state.title}
           />
           <br />
           <label htmlFor="sub">Subtítulo</label>
-          <input
-            type="text"
-            name="subtitle"
-            id="sub"
-            onChange={this.handleChange("subtitle")}
-            value={this.state.subtitle}
-          />
+          <input type="text" name="subtitle" id="sub" onChange={this.handleChange('subtitle')} value={this.state.subtitle} />
           <br />
           <label htmlFor="img">Imagem</label>
-          <input
-            type="text"
-            alt="teste"
-            name="image"
-            id="img"
-            onChange={this.handleChange("imagePath")}
-            value={this.state.imagePath}
-          />
+          <input type="text" alt="teste" name="image" id="img" onChange={this.handleChange('imagePath')} value={this.state.imagePath} />
           <br />
           <label htmlFor="sin">Sinopse</label>
-          <textarea
-            type="textarea"
-            name="storyline"
-            id="sin"
-            onChange={this.handleChange("storyline")}
-            value={this.state.storyline}
-          />
+          <textarea type="textarea" name="storyline" id="sin" onChange={this.handleChange('storyline')} value={this.state.storyline} />
           <br />
         </form>
       </div>
