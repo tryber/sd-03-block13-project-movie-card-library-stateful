@@ -21,28 +21,26 @@ export class SearchBar extends Component {
     const {
       searchText,
       onSearchTextChange,
-      bookmarkedOnly,
-      selectedGenre,
-      onSelectedGenreChange,
+      // bookmarkedOnly,
+      // selectedGenre,
+      // onSelectedGenreChange,
     } = this.props;
+
     return (
       <div>
-        <fieldset>
           <form style={{ marginLeft: '33px', padding: '8px 3px' }}>
             <label htmlFor="">
               Inclui o texto:
               <br />
               <input
-                value={this.props.searchText}
+                value={searchText}
                 onChange={onSearchTextChange}
                 style={{ width: '600px', borderRadius: '5px' }}
                 type="text"
                 name=""
-                id=""
               />
             </label>
           </form>
-        </fieldset>
       </div>
     );
   }
