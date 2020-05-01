@@ -61,40 +61,78 @@ class AddMovie extends React.Component {
     );
   }
 
-  formAddMovie() {
+  labelTitle() {
     return (
-      <form>
-        <label htmlFor="title">
-          Título
-          <input type="text" value={this.state.title} onChange={this.onChangeTitle} />
-        </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input type="text" value={this.state.subtitle} onChange={this.onChangeSubtitle} />
-        </label>
-        <label htmlFor="imagePath">
-          Imagem
-          <input type="text" value={this.state.imagePath} onChange={this.onChangeImagePath} />
-        </label>
-        <label htmlFor="storyline">
-          Sinopse
-          <textarea value={this.state.storyline} onChange={this.onChangeStoryline} />
-        </label>
-        <label htmlFor="rating">
-          Avaliação
-          <input type="number" value={this.state.rating} onChange={this.onChangeRating} />
-        </label>
-        <label htmlFor="genre">
-          Gênero
-          {this.genreSelectOptions()}
-        </label>
-        <button onClick={() => this.addFilme(this.props.onClick)}>Adicionar filme</button>
-      </form>
+      <label htmlFor="title">
+        Título
+        <input type="text" value={this.state.title} onChange={this.onChangeTitle} />
+      </label>
+    );
+  }
+
+  labelSubtitle() {
+    return (
+      <label htmlFor="subtitle">
+        Subtítulo
+        <input type="text" value={this.state.subtitle} onChange={this.onChangeSubtitle} />
+      </label>
+    );
+  }
+
+  labelImagePath() {
+    return (
+      <label htmlFor="imagePath">
+        Imagem
+        <input type="text" value={this.state.imagePath} onChange={this.onChangeImagePath} />
+      </label>
+    );
+  }
+
+  labelStoryline() {
+    return (
+      <label htmlFor="storyline">
+        Sinopse
+        <textarea value={this.state.storyline} onChange={this.onChangeStoryline} />
+      </label>
+    );
+  }
+
+  labelRating() {
+    return (
+      <label htmlFor="rating">
+        Avaliação
+        <input type="number" value={this.state.rating} onChange={this.onChangeRating} />
+      </label>
+    );
+  }
+
+  labelGenre() {
+    return (
+      <label htmlFor="genre">
+        Gênero
+        {this.genreSelectOptions()}
+      </label>
+    );
+  }
+
+  buttonAdd() {
+    return (
+      <button onClick={() => this.addFilme(this.props.onClick)}>Adicionar filme</button>
     );
   }
 
   render() {
-    return this.formAddMovie();
+    return (
+      <form>
+        {this.labelTitle()}
+        {this.labelSubtitle()}
+        {this.labelImagePath()}
+        {this.labelStoryline()}
+        {this.labelStoryline()}
+        {this.labelGenre()}
+        {this.buttonAdd()}
+      </form>
+    );
   }
 }
 
