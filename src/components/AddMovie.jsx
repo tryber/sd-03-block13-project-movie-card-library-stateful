@@ -21,43 +21,73 @@ class AddMovie extends Component {
   }
 
   clickMe() {
-    this.setState(() => {
-      alert('Movie Added with sucess');
+    this.props.onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
-  // addGenre = () => {
+
+
+  // createSelect(text) {
   //   return (
-  //     <select name="genre" value={this.state.genre} onChange={this.hadleChange}>
-  //       <option valor="action">Ação</option>
-  //       <option valor="comedy">Comédia</option>
-  //       <option valor="thriller">Suspense</option>
+  //     <select name={text}>
+  //       <option></option>
+  //       <option></option>
+  //       <option></option>
   //     </select>
-  //   )
+  //   );
   // }
+
+  creatInput(name, text, type, value) {
+    return (
+      <label htmlFor={text}>
+        {text}
+        <input
+          type={type}
+          value={value}
+          onChange={this.hadleChange}
+          name={name}
+        />
+      </label>
+    );
+  }
+
+  creatTextarea(name, text, type, value) {
+    return (
+      <label htmlFor={text}>
+        {text}
+        <textarea
+          type={type}
+          value={value}
+          onChange={this.hadleChange}
+          name={name}
+        />
+      </label>
+    );
+  }
 
   render() {
     return (
       <form>
-        <label htmlFor="title">
-          Título
-          <input type="text" name="title" value={this.state.title} onChange={this.hadleChange} />
+        {this.creatInput('title', 'Título', 'text', this.state.title,)}
+        {this.creatInput('subtitle', 'Subtítulo', 'text', this.state.subtitle)}
+        {this.creatInput('imagePath', 'Imagem', 'text', this.state.imagePath)}
+        {this.creatTextarea('storyline', 'Sinopse', 'text', this.state.storyline)}
+        {this.creatInput('rating', 'Avaliação', 'number', this.state.rating)}
+        <label htmlFor="genre">
+          Gênero
+          <select name="genre" text="" value={this.state.genre} onChange={this.hadleChange}>
+            <option valor="action">Ação</option>
+            <option valor="comedy">Comédia</option>
+            <option valor="thriller">Suspense</option>
+          </select>
         </label>
-        <label htmlFor="subtitle">Subtítulo</label>
-          <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.hadleChange} />
-        <label htmlFor="imagePath">
-          Imagem
-          <input type="text" name="imagePath" value={this.state.imagePath} onChange="" />
-        </label>
-        <label htmlFor="storyline">
-          Sinopse
-          <textarea name="storyline" value={this.state.storyline} onChange={this.hadleChange} />
-        </label>
-        <label htmlFor="rating">
-          Avaliação
-          <input type="number" name="rating" value={this.state.rating} onChange={this.hadleChange} />
-        </label>
-        <label htmlFor="genre">Gênero</label>
-        <button onClick={this.clickMe} value="">Adicionar filme</button>
+      <button onClick={this.clickMe} value="">Adicionar filme</button>
       </form>
     );
   }
