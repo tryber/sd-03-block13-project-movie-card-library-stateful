@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Genre from './genreData'
+import Genre from './genreData';
 
 const initialState = {
   genre: 'action',
@@ -22,7 +22,8 @@ class AddMovie extends Component {
   handleChange(name) {
     return ({ target: { value } }) => {
       const nextState = {};
-      name === 'rating' ? (nextState[name] = Number(value)) : (nextState[name] = value);
+      if (name === 'rating') nextState[name] = Number(value)
+      else nextState[name] = value;
       this.setState(nextState);
     };
   }
@@ -41,8 +42,7 @@ class AddMovie extends Component {
       <div>
         <form action="">
           <label htmlFor="title">Título</label>
-          <input type="text" name="title" id="title" onChange={this.handleChange('title')} value={this.state.title} />
-          <br />
+          <input type="text" name="title" id="title" onChange={this.handleChange('title')} value={this.state.title} /><br />
           <label htmlFor="sub">Subtítulo</label>
           <input type="text" name="subtitle" id="sub" onChange={this.handleChange('subtitle')} value={this.state.subtitle} />
           <br />
@@ -57,7 +57,7 @@ class AddMovie extends Component {
           <br />
           <label htmlFor="gen">Gênero</label>
           <select id="gen" onChange={this.handleChange('genre')} value={this.state.genre}>
-            {Genre.slice(1,4).map(e => <option key={e.text} value={e.value}>{e.text}</option>)}
+            {Genre.slice(1, 4).map((e) => <option key={e.text} value={e.value}>{e.text}</option>)}
           </select>
           <button type={'submit'} onClick={this.handleSubmitClick}>Adicionar filme</button>
         </form>

@@ -24,7 +24,7 @@ const SearchBar = (props) => {
       <select
         className="genreSel" id="g.s"
         value={selectedGenre} onChange={onSelectedGenreChange}
-      >{Data.map((e) => <option key={e.text} value={e.value}>{e.text}</option>)}
+      >{Data.map((el) => <option key={el.text} value={el.value}>{el.text}</option>)}
       </select>
     </form>
   );
