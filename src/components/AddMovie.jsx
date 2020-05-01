@@ -10,12 +10,12 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.createInput = this.createInput.bind(this);
     this.createTextarea = this.createTextarea.bind(this);
@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
 
   changeState(event, chave) {
     const { value } = event.target;
-    this.setState({ [chave]: (chave === "rating" ? parseFloat(value) : value) });
+    this.setState({ [chave]: (chave === 'rating' ? parseFloat(value) : value) });
   }
 
   createInput(text, name, type, value) {
@@ -57,12 +57,12 @@ class AddMovie extends React.Component {
   buttonClick() {
     this.props.onClick(this.state);
     this.setState({
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     });
   }
 
@@ -70,20 +70,20 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.createInput("Título", "title", "text", this.state.title)}
-          {this.createInput("Subtítulo", "subtitle", "text", this.state.subtitle)}
-          {this.createInput("Imagem", "imagePath", "text", this.state.imagePath)}
-          {this.createTextarea("Sinopse", "storyline", this.state.storyline)}
-          {this.createInput("Avaliação", "rating", "number", this.state.rating)}
-          <label htmlFor="genre">Gênero</label>
-          <select id="genre" value={this.state.genre} onChange={(event) => this.changeState(event, "genre")}>
+          {this.createInput('Título', 'title', 'text', this.state.title)}
+          {this.createInput('Subtítulo', 'subtitle', 'text', this.state.subtitle)}
+          {this.createInput('Imagem', 'imagePath', 'text', this.state.imagePath)}
+          {this.createTextarea('Sinopse', 'storyline', this.state.storyline)}
+          {this.createInput('Avaliação', 'rating', 'number', this.state.rating)}
+          <label htmlFor='genre'>Gênero</label>
+          <select id='genre' value={this.state.genre} onChange={(event) => this.changeState(event, 'genre')}>
             {genreArray.map(({ text, value }) => (
               <option key={text} value={value}>
                 {text}
               </option>
             ))}
           </select>
-          <button type="button" onClick={this.buttonClick}>Adicionar filme</button>
+          <button type='button' onClick={this.buttonClick}>Adicionar filme</button>
         </form>
       </div>
     );
