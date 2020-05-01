@@ -1,6 +1,6 @@
 const movies = [
   {
-    title: 'Kingsglaive',
+    title: 'Kingslaive',
     subtitle: 'Final Fantasy XV',
     storyline: "King Regis, who oversees the land of Lucis, commands his army of soldiers to protect the kingdom from the Niflheim empire's plans to steal the sacred crystal.",
     rating: 4.5,
@@ -24,7 +24,7 @@ const movies = [
     rating: 5,
     imagePath: 'images/Ghost_In_The_Shell_2_0.jpg',
     bookmarked: false,
-    genre: 'comedy',
+    genre: 'fantasy',
   },
   {
     title: 'Appleseed Alpha',

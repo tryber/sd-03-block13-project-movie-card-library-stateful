@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
     this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
   }
 
-  submitMovie() {
+  submitMovie(event) {
     const { onClick } = this.props;
 
     onClick(this.state);
@@ -35,6 +35,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
     });
+
+    event.preventDefault();
   }
 
   titleForm() {
