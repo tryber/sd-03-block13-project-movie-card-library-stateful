@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleRating = this.handleRating.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(value, name) {
@@ -24,6 +25,21 @@ class AddMovie extends React.Component {
   handleRating(value, name) {
     const change = { [name]: Number(value) };
     this.setState(() => (change));
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    const reset = {
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      imagePath: '',
+      genre: 'action',
+    };
+
+    onClick(this.state);
+    this.setState(() => (reset));
   }
 
   render() {
@@ -45,6 +61,7 @@ class AddMovie extends React.Component {
           <option key="comedy" value="comedy">Comédia</option>
           <option key="thriller" value="thriller">Suspense</option>
         </select>
+        <button name='button' onClick={this.handleClick}>Adicionar filme</button>
       </form>
     );
   }
