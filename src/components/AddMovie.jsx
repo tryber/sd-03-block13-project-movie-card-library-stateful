@@ -13,10 +13,16 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleRating = this.handleRating.bind(this);
   }
 
   handleChange(value, name) {
     const change = { [name]: value };
+    this.setState(() => (change));
+  }
+
+  handleRating(value, name) {
+    const change = { [name]: Number(value) };
     this.setState(() => (change));
   }
 
@@ -31,6 +37,8 @@ class AddMovie extends React.Component {
         <input type="text" name="imagePath" value={this.state.imagePath} onChange={(e) => { this.handleChange(e.target.value, 'imagePath'); }} /> <br />
         <label htmlFor="storyline"><span>Sinopse</span></label>
         <textarea type="textarea" name="storyline" value={this.state.storyline} onChange={(e) => { this.handleChange(e.target.value, 'storyline'); }} /> <br />
+        <label htmlFor="rating"><span>Avaliação</span></label>
+        <input type="number" name="rating" value={this.state.rating} onChange={(e) => { this.handleRating(e.target.value, 'rating'); }} /> <br />
       </form>
     );
   }
