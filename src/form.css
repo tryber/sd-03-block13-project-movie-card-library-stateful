@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  align-self: flex-start;
+}
+
+input {
+ text-align: right;
+}
