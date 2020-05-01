@@ -35,9 +35,12 @@ class SearchBar extends React.Component {
         {this.searchBarItens('search', 'Inclui o texto', 'text', searchText, false, onSearchTextChange)}
         {this.searchBarItens('bookmarkedOnly', 'Mostrar somente favoritos', 'checkbox', '', bookmarkedOnly, onBookmarkedChange)}
         <label htmlFor="selectedGenre">
-          Filtrar por Gênero
+          Filtrar por gênero
           <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
-            {Object.keys(genres).map((el) => <option value={el} key={el}>{genres[el]}</option>)}
+            <option value="">Todos</option>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
           </select>
         </label>
       </form>
