@@ -22,7 +22,7 @@ class AddMovie extends Component {
   handleChange(name) {
     return ({ target: { value } }) => {
       const nextState = {};
-      if (name === 'rating') nextState[name] = Number(value)
+      if (name === 'rating') nextState[name] = Number(value);
       else nextState[name] = value;
       this.setState(nextState);
     };
