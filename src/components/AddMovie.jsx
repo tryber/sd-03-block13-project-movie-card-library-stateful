@@ -52,34 +52,105 @@ class AddMovie extends React.Component {
     this.setState(initialState);
   }
 
+  title() {
+    const { title } = this.state;
+    return (
+      <label htmlFor="titulo">
+        Título
+        <input
+          type="text"
+          id="titulo"
+          name="title"
+          onChange={this.handleChangeTitle}
+          value={title}
+        />
+      </label>
+    );
+  }
+
+  subtitle() {
+    const { subtitle } = this.state;
+    return (
+      <label htmlFor="subtitulo">
+        Subtítulo
+        <input
+          type="text"
+          id="subtitulo"
+          name="subtitle"
+          onChange={this.handleChangeSubitle}
+          value={subtitle}
+        />
+      </label>
+    );
+  }
+
+  imagePath() {
+    const { imagePath } = this.state;
+    return (
+      <label htmlFor="imagem">
+        Imagem
+        <input
+          type="text"
+          id="imagem"
+          name="imagePath"
+          onChange={this.handleChangeImagePath}
+          value={imagePath}
+        />
+      </label>
+    );
+  }
+
+  storyline() {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="sinopse">
+        Sinopse
+        <textarea
+          type="textarea"
+          id="sinopse"
+          name="storyline"
+          onChange={this.handleChangeStoryline}
+          value={storyline}
+        />
+      </label>
+    );
+  }
+
+  rating() {
+    const { rating } = this.state;
+    return (
+      <label htmlFor="avaliacao">
+        Avaliação
+        <input
+          type="number"
+          id="avaliacao"
+          name="rating"
+          onChange={this.handleChangeRating}
+          value={rating}
+        />
+      </label>
+    );
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { genre } = this.state;
     return (
       <div>
         <form>
-          <label htmlFor="titulo">
-            Título
-            <input type="text" id="titulo" name="title" onChange={this.handleChangeTitle} value={title} />
-          </label>
-          <label htmlFor="subtitulo">
-            Subtítulo
-            <input type="text" id="subtitulo" name="subtitle" onChange={this.handleChangeSubitle} value={subtitle} />
-          </label>
-          <label htmlFor="imagem">
-            Imagem
-            <input type="text" id="imagem" name="imagePath" onChange={this.handleChangeImagePath} value={imagePath} />
-          </label>
-          <label htmlFor="sinopse">
-            Sinopse
-            <textarea type="textarea" id="sinopse" name="storyline" onChange={this.handleChangeStoryline} value={storyline} />
-          </label>
-          <label htmlFor="avaliacao">
-            Avaliação
-            <input type="number" id="avaliacao" name="rating" onChange={this.handleChangeRating} value={rating} />
-          </label>
+          {this.title()}
+          {this.subtitle()}
+          {this.imagePath()}
+          {this.storyline()}
+          {this.rating()}
           <label htmlFor="genero">
             Gênero
-            <select type="text" id="genero" name="genre" onChange={this.handleChangeGenre} value={genre}>
+            <select
+              type="text"
+              id="genero"
+              name="genre"
+              onChange={this.handleChangeGenre}
+              value={genre}
+            >
               <option text="Ação" value="action">Ação</option>
               <option text="Comédia" value="comedy">Comédia</option>
               <option text="Suspense" value="thriller">Suspense</option>
