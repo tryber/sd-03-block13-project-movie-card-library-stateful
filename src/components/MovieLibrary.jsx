@@ -5,7 +5,7 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     const { movies } = this.props;
 
@@ -18,8 +18,6 @@ class MovieLibrary extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleBookMark = this.handleBookMark.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
-    // clonado   
     this.changeMovies = this.changeMovies.bind(this);
   }
 
@@ -30,14 +28,12 @@ class MovieLibrary extends React.Component {
 
   handleBookMark(event) {
     const value = event.target.checked;
-    this.setState(() => ({ bookmarkedOnly: value}));
+    this.setState(() => ({ bookmarkedOnly: value }));
   }
 
   handleClick(form) {
     this.setState((state) => ({ movies: [...state.movies, form] }));
   }
-
-  // clonado
 
   changeMovies() {
     const { movies } = this.state;
@@ -74,12 +70,12 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-        searchText={this.state.searchText}
-        bookmarkedOnly={this.state.bookmarkedOnly}
-        selectedGenre={this.state.selectedGenre}
-        onSearchTextChange={(e) => { this.handleChange(e.target.value, 'searchText'); }}
-        onSelectedGenreChange={(e) => { this.handleChange(e.target.value, 'selectedGenre'); }}
-        onBookmarkedChange={this.handleBookMark}
+          searchText={this.state.searchText}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          selectedGenre={this.state.selectedGenre}
+          onSearchTextChange={(e) => { this.handleChange(e.target.value, 'searchText'); }}
+          onSelectedGenreChange={(e) => { this.handleChange(e.target.value, 'selectedGenre'); }}
+          onBookmarkedChange={this.handleBookMark}
         />
         <MovieList movies={this.changeMovies()} />
         <AddMovie onClick={this.handleClick} />
