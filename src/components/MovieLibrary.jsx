@@ -44,7 +44,7 @@ class MovieLibrary extends React.Component {
 
   checkGenre(elem) {
     const { selectedGenre } = this.state;
-    if ((selectedGenre && elem.genre === selectedGenre) || !selectedGenre) return elem;
+    if ((elem.genre === selectedGenre) || !selectedGenre) return true;
     return false;
   }
 
@@ -68,9 +68,9 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.bookmarkedChange}
           searchText={searchText}
-          onSearchTextChange={(elem) => this.textOrGenreChange(elem, 'searchText')}
+          onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={(elem) => this.textOrGenreChange(elem, 'selectedGenre')}
+          onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}
         />
         <MovieList movies={this.findMovies(movies)} />
         <AddMovie onClick={this.implementMovie} />

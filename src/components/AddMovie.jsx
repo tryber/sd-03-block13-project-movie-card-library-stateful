@@ -23,7 +23,6 @@ class AddMovie extends React.Component {
     this.creatLabelStory = this.creatLabelStory.bind(this);
     this.creatLabelRating = this.creatLabelRating.bind(this);
     this.creatLabelGenre = this.creatLabelGenre.bind(this);
-    // this.teste = this.teste.bind(this);
   }
 
   handleChange(event, name) {
