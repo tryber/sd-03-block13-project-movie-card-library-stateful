@@ -5,13 +5,19 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
+    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeSubtitle = this.onChangeSubtitle.bind(this);
+    this.onChangeImagePath = this.onChangeImagePath.bind(this);
+    this.onChangeStoryline = this.onChangeStoryline.bind(this);
+    this.onChangeRating = this.onChangeRating.bind(this);
+    this.onChangeGenre = this.onChangeGenre.bind(this);
   }
 
   onChangeTitle(event) {
@@ -39,16 +45,17 @@ class AddMovie extends React.Component {
   }
 
   addFilme(onClick) {
-    let filme = this.state;
-    onClick(filme);
-    filme = {
+
+    onClick(this.state);
+
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
-    };
+      genre: 'action'
+    });
   }
 
   genreSelectOptions() {
@@ -117,7 +124,7 @@ class AddMovie extends React.Component {
 
   buttonAdd() {
     return (
-      <button onClick={() => this.addFilme(this.props.onClick)}>Adicionar filme</button>
+      <button type="button" onClick={() => this.addFilme(this.props.onClick)}>Adicionar filme</button>
     );
   }
 
@@ -128,7 +135,7 @@ class AddMovie extends React.Component {
         {this.labelSubtitle()}
         {this.labelImagePath()}
         {this.labelStoryline()}
-        {this.labelStoryline()}
+        {this.labelRating()}
         {this.labelGenre()}
         {this.buttonAdd()}
       </form>
