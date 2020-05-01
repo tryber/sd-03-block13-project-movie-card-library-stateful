@@ -42,7 +42,7 @@ class MovieLibrary extends Component {
   changeGenre(mov) {
     const { selectedGenre } = this.state;
     if (selectedGenre !== '') {
-      return mov.filter(e => e.genre === selectedGenre);
+      return mov.filter((e) => e.genre === selectedGenre);
     }
     return mov;
   }
@@ -50,7 +50,7 @@ class MovieLibrary extends Component {
   changeFav(mov) {
     const { bookmarkedOnly } = this.state;
     if (bookmarkedOnly !== false) {
-      return mov.filter(e => e.bookmarked === true);
+      return mov.filter((e) => e.bookmarked === true);
     }
     return mov;
   }
@@ -58,7 +58,7 @@ class MovieLibrary extends Component {
   changeSearchText(mov) {
     const { searchText } = this.state;
     if (searchText !== '') {
-      return mov.filter(e => e.title.toLowerCase().includes(searchText.toLowerCase())
+      return mov.filter((e) => e.title.toLowerCase().includes(searchText.toLowerCase())
       || e.subtitle.toLowerCase().includes(searchText.toLowerCase())
       || e.storyline.toLowerCase().includes(searchText.toLowerCase()));
     }
