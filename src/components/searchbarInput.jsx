@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import '../JSX_Styles/searchbarStyle.css'
+import React, { Component } from 'react';
+import '../JSX_Styles/searchbarStyle.css';
 
 export class searchbarInput extends Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
         <form className="searchForm">
@@ -21,8 +21,8 @@ export class searchbarInput extends Component {
           </label>
         </form>
       </div>
-    )
+    );
   }
-};
+}
 
-export default searchbarInput
+export default searchbarInput;
