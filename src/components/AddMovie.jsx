@@ -104,6 +104,8 @@ class AddMovie extends React.Component {
     );
   }
 
+  // nunca por o button type as submit.
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -115,7 +117,7 @@ class AddMovie extends React.Component {
           {this.creatLabelStory('storyline', storyline, 'Sinopse')}
           {this.creatLabelRating('rating', rating, 'Avaliação')}
           {this.creatLabelGenre('genre', genre, 'Gênero')}
-          <button type="submit" name="button" onClick={(this.passMovie)}>Adicionar filme</button>
+          <button type="button" name="button" onClick={(this.passMovie)}>Adicionar filme</button>
         </form>
       </div>
     );

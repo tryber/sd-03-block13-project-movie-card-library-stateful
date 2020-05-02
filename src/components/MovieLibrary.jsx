@@ -31,7 +31,8 @@ class MovieLibrary extends React.Component {
   }
 
   implementMovie(newMovie) {
-    this.setState((elem) => ({ movies: [...elem.movies, newMovie] }));
+    const { movies } = this.state;
+    this.setState(({ movies: [...movies, newMovie] }));
   }
 
   checkBookmarked(elem) {
@@ -73,7 +74,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}
         />
         <MovieList movies={this.findMovies(movies)} />
-        <AddMovie onClick={this.implementMovie} />
+        <AddMovie onClick={((obj) => this.implementMovie(obj))} />
       </div>
     );
   }
