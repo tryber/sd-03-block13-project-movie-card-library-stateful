@@ -21,7 +21,8 @@ class AddMovie extends Component {
   }
 
   clickMe() {
-    this.props.onClick(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -31,17 +32,6 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
-
-
-  // createSelect(text) {
-  //   return (
-  //     <select name={text}>
-  //       <option></option>
-  //       <option></option>
-  //       <option></option>
-  //     </select>
-  //   );
-  // }
 
   creatInput(name, text, type, value) {
     return (
