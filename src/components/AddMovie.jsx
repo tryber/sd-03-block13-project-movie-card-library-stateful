@@ -1,47 +1,83 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import AddLabelOption from './AddLabelOption';
+
+const initialState = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      genre: 'action',
-      rating: 0,
-    };
-    this.handleChange = this.handleChange.bind(this);
+    this.state = initialState;
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  onChangeHandler(event, type) {
+    const { value } = event.target;
+    if (type === 'rating') { this.setState({ [type]: +value }); } else this.setState({ [type]: value });
+  }
+
+  reset() {
+    this.setState(initialState);
+  }
+
+  createInput(inputName, text, inputType = 'text') {
+    const st = this.state;
+    return (
+      <label htmlFor={inputName}>
+        {text}
+        <input
+          type={inputType}
+          name={inputName}
+          id={inputName}
+          value={st[inputName]}
+          onChange={(e) => this.onChangeHandler(e, inputName)}
+        />
+      </label>
+    );
   }
 
   render() {
-    const { onClick } = this.props;
-    const arrayImputs = ['Título', 'Subtítulo', 'Imagem', 'Sinopse', 'Avaliação'];
-    const types = ['text', 'text', 'text', 'textarea', 'number'];
+    const arraySelect = ['Ação', 'Comédia', 'Suspense'];
+    const arrayVal = ['action', 'comedy', 'thriller'];
     const detructuring = this.state;
+    const { onClick } = this.props;
     return (
       <div>
-        <form>
-          {arrayImputs.map((texts, index) => (
-            <label htmlFor={texts}>
-              {texts}
-              <input
-                type={types[index]}
-                name={texts}
-                value={detructuring.texts}
-                onChange={this.handleChange}
-                text={texts}
-              />
-            </label>
-          ))}
-          <AddLabelOption action={detructuring.genre} handleChange={this.handleChange} />
+        <form id="form1">
+          {this.createInput('title', 'Título')}
+          {this.createInput('subtitle', 'Subtítulo')}
+          {this.createInput('imagePath', 'Imagem')}
+          <label htmlFor="input">
+          Sinopse
+            <textarea value={detructuring.storyline} onChange={(e) => this.onChangeHandler(e, 'storyline')} />
+          </label>
+          {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
+          <label htmlFor="Gênero">
+          Gênero
+            <select value={detructuring.genre} onChange={(e) => this.onChangeHandler(e, 'genre')}>
+              {arraySelect.map((el, index) => (
+                <option value={arrayVal[index]}>
+                  {el}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            value="Adicionar filme"
+            onClick={() => {
+              onClick(this.state);
+              this.reset();
+            }}
+          >
+        Adicionar filme
+          </button>
         </form>
       </div>
     );

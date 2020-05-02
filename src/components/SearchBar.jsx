@@ -3,15 +3,9 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    const arraySelect = ['Todos', 'Ação', 'Comédia', 'Suspense'];
-    const arrayVal = ['', 'action', 'comedy', 'thriller'];
     const {
       searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
+      onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
       <div>
@@ -20,6 +14,7 @@ class SearchBar extends Component {
           Inclui o texto:
             <input
               type="text"
+              name="searchText"
               value={searchText}
               onChange={onSearchTextChange}
               id="IncluiOTexto"
@@ -29,26 +24,19 @@ class SearchBar extends Component {
           Mostrar somente favoritos
             <input
               type="checkbox"
-              value={bookmarkedOnly}
+              name="bookmarkedOnly"
+              checked={bookmarkedOnly}
               onChange={onBookmarkedChange}
               id="MostrarSomenteFavoritos"
             />
           </label>
-          <label htmlFor="FiltrarPorGen">
+          <label htmlFor="input">
           Filtrar por gênero
-            <select
-              value={selectedGenre}
-              onChange={onSelectedGenreChange}
-              id="FiltrarPorGen"
-            >
-              {arraySelect.map((el, index) => (
-                <option value={
-                arrayVal[index]
-              }
-                >
-                  {el}
-                </option>
-              ))}
+            <select value={selectedGenre} onChange={onSelectedGenreChange}>
+              <option value="">Todos</option>
+              <option value="action">Ação</option>
+              <option value="comedy">Comédia</option>
+              <option value="thriller">Suspense</option>
             </select>
           </label>
         </form>
