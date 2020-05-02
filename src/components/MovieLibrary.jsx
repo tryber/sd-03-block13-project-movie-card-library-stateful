@@ -13,9 +13,9 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: [...movies],
     };
+    this.handleChangeInput = this.handleChangeInput.bind(this);
     this.addMovie = this.addMovie.bind(this);
     this.filterMovie = this.filterMovie.bind(this);
-    this.handleChangeInput = this.handleChangeInput.bind(this);
   }
 
   handleChangeInput(event, stateElemet) {
@@ -28,14 +28,14 @@ class MovieLibrary extends React.Component {
   filterBookmark(movie) {
     const { bookmarkedOnly } = this.state;
 
-    if (movie.bookmarkedOnly === true || !bookmarkedOnly) return movie;
+    if (movie.bookmarked === true || !bookmarkedOnly) return movie;
     return false;
   }
 
   filterGenre(movie) {
     const { selectedGenre } = this.state;
 
-    if (selectedGenre === movie.selectedGenre || !selectedGenre) return movie;
+    if (selectedGenre === movie.genre || !selectedGenre) return movie;
     return false;
   }
 

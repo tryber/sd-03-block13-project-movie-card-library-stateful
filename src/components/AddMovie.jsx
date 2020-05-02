@@ -33,6 +33,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    // event.preventDefault();
   }
 
   title() {
@@ -149,7 +150,7 @@ class AddMovie extends React.Component {
         {this.storyline()}
         {this.rating()}
         {this.genre()}
-        <button type="submit" onClick={this.addMovie}>Adicionar filme</button>
+        <button type="button" onClick={this.addMovie}>Adicionar filme</button>
       </form>
     );
   }
