@@ -18,7 +18,7 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmitClick = this.handleSubmitClick.bind(this);
   }
-  
+
   handleChange(name) {
     return ({ target: { value } }) => {
       const nextState = {};
