@@ -27,7 +27,7 @@ class AddMovie extends Component {
   }
 
   createInput(inputName, text, inputType = 'text') {
-    const st = this.state;
+    const stat = this.state;
     return (
       <label htmlFor={inputName}>
         {text}
@@ -35,7 +35,7 @@ class AddMovie extends Component {
           type={inputType}
           name={inputName}
           id={inputName}
-          value={st[inputName]}
+          value={stat[inputName]}
           onChange={(e) => this.onChangeHandler(e, inputName)}
         />
       </label>
@@ -68,14 +68,7 @@ class AddMovie extends Component {
               ))}
             </select>
           </label>
-          <button
-            type="button"
-            value="Adicionar filme"
-            onClick={() => {
-              onClick(this.state);
-              this.reset();
-            }}
-          >
+          <button type="button" value="Adicionar filme" onClick={() => { onClick(this.state); this.reset(); }}>
         Adicionar filme
           </button>
         </form>
