@@ -12,12 +12,12 @@ class AddMovie extends Component {
     super(props);
 
     this.state = {
-      title: "",
-      subtitle: "",
-      imagePath: "",
-      storyline: "",
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.generateInput = this.generateInput.bind(this);
   }
@@ -71,25 +71,10 @@ class AddMovie extends Component {
       <div>
         <form>
           {this.generateInput('Título', 'title', 'text', this.state.title)}
-          {this.generateInput(
-            'Subtítulo',
-            'subtitle',
-            'text',
-            this.state.subtitle
-          )}
-          {this.generateInput(
-            'Imagem',
-            'imagePath',
-            'text',
-            this.state.imagePath
-          )}
+          {this.generateInput('Subtítulo', 'subtitle', 'text', this.state.subtitle)}
+          {this.generateInput('Imagem', 'imagePath', 'text', this.state.imagePath)}
           {this.generateTextArea('Sinopse', 'storyline', this.state.storyline)}
-          {this.generateInput(
-            'Avaliação',
-            'rating',
-            'number',
-            this.state.rating
-          )}
+          {this.generateInput('Avaliação', 'rating', 'number', this.state.rating)}
           <label htmlFor="genre">
             Gênero
             <select value={this.state.genre} onChange={(event) => this.changeState(event, 'genre')}>
