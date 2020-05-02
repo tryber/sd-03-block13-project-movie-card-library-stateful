@@ -22,9 +22,11 @@ class AddMovie extends React.Component {
     this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
   }
 
-  submitMovie() {
+  submitMovie(event) {
     const { onClick } = this.props;
+
     onClick(this.state);
+
     this.setState({
       genre: 'action',
       imagePath: '',
@@ -33,6 +35,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
     });
+    console.log(event);
+    // event.preventDefault();
   }
 
   titleForm() {
@@ -152,8 +156,8 @@ class AddMovie extends React.Component {
         {this.ratingForm()}
         {this.renderGenre()}
         <button
-          type="submit"
-          onClick={this.submitMovie}
+          type="button"
+          onClick={(event) => this.submitMovie(event)}
         >
           Adicionar filme
         </button>
