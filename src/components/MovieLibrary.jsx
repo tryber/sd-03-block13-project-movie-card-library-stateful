@@ -36,10 +36,10 @@ class MovieLibrary extends React.Component {
       );
     }
     if (bookmarkedOnly) {
-      filtredMovies = filtredMovies.filter(movie => movie.bookmarked === true);
+      filtredMovies = filtredMovies.filter((movie) => movie.bookmarked === true);
     }
     if (selectedGenre) {
-      filtredMovies = filtredMovies.filter(movie => movie.genre === selectedGenre);
+      filtredMovies = filtredMovies.filter((movie) => movie.genre === selectedGenre);
     }
     return filtredMovies;
   }
