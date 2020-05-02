@@ -25,10 +25,6 @@ class MovieLibrary extends React.Component {
     this.setState({ [stateElemet]: (stateElemet === 'bookmarkedOnly' ? !bookmarkedOnly : value) });
   }
 
-  addMovie(movie) {
-    this.setState((state) => ({ movies: [...state.movies, movie] }));
-  }
-
   filterBookmark(movie) {
     const { bookmarkedOnly } = this.state;
 
@@ -55,6 +51,9 @@ class MovieLibrary extends React.Component {
     );
   }
 
+  addMovie(newMovie) {
+    this.setState((state) => ({ movies: [...state.movies, newMovie] }));
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
