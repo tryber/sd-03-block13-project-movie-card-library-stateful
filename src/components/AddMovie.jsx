@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  addMovie(event) {
+  addMovie() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -46,7 +46,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    event.preventDefault();
   }
 
   title() {
@@ -141,6 +140,7 @@ class AddMovie extends React.Component {
         {this.subtitle()}
         {this.imagePath()}
         {this.storyline()}
+        {this.rating()}
         <label htmlFor="genre">
           Gênero
           {this.addSelect()}
