@@ -16,7 +16,7 @@ class MovieLibrary extends React.Component {
   }
 
   onChange(event, chave) {
-    this.setState({ [chave]: (chave === 'bookmarkedOnly' ? true : event.target.value) });
+    this.setState({ [chave]: (chave === 'bookmarkedOnly' ? event.target.checked : event.target.value) });
   }
 
   onClick(newMovie) {
