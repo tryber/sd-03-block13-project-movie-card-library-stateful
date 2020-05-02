@@ -85,9 +85,7 @@ class AddMovie extends Component {
               ))}
             </select>
           </label>
-          <button type="button" onClick={this.btnClick}>
-            Adicionar filme
-          </button>
+          <button type="button" onClick={this.btnClick}>Adicionar filme</button>
         </form>
       </div>
     );
