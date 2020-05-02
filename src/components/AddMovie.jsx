@@ -15,9 +15,9 @@ class AddMovie extends Component {
     this.clickMe = this.clickMe.bind(this);
   }
 
-  hadleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  hadleChange(event, state) {
+    const { value } = event.target;
+    this.setState({ [state]: (state === 'rating' ? Number(value) : value) });
   }
 
   clickMe() {
@@ -40,7 +40,7 @@ class AddMovie extends Component {
         <input
           type={type}
           value={value}
-          onChange={this.hadleChange}
+          onChange={(event) => this.hadleChange(event, name)}
           name={name}
         />
       </label>
@@ -54,30 +54,33 @@ class AddMovie extends Component {
         <textarea
           type={type}
           value={value}
-          onChange={this.hadleChange}
+          onChange={(event) => this.hadleChange(event, name)}
           name={name}
         />
       </label>
     );
   }
+  // ((event) => this.setState({ name: event.target.value }))
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
-        {this.creatInput('title', 'Título', 'text', this.state.title)}
-        {this.creatInput('subtitle', 'Subtítulo', 'text', this.state.subtitle)}
-        {this.creatInput('imagePath', 'Imagem', 'text', this.state.imagePath)}
-        {this.creatTextarea('storyline', 'Sinopse', 'text', this.state.storyline)}
-        {this.creatInput('rating', 'Avaliação', 'number', this.state.rating)}
+        {this.creatInput('title', 'Título', 'text', title)}
+        {this.creatInput('subtitle', 'Subtítulo', 'text', subtitle)}
+        {this.creatInput('imagePath', 'Imagem', 'text', imagePath)}
+        {this.creatTextarea('storyline', 'Sinopse', 'text', storyline)}
+        {this.creatInput('rating', 'Avaliação', 'number', rating)}
         <label htmlFor="genre">
           Gênero
-          <select name="genre" text="" value={this.state.genre} onChange={this.hadleChange}>
-            <option valor="action">Ação</option>
-            <option valor="comedy">Comédia</option>
-            <option valor="thriller">Suspense</option>
+          <select name="genre" value={genre} onChange={(event) => this.hadleChange(event, 'genre')}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+            {/* <option valor="romance">Romance</option> */}
           </select>
         </label>
-        <button onClick={this.clickMe} value="">Adicionar filme</button>
+        <button onClick={this.clickMe} type="button">Adicionar filme</button>
       </form>
     );
   }

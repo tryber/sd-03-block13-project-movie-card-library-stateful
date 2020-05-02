@@ -23,6 +23,7 @@ class SearchBar extends Component {
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
+            {/* <option value="romance">Romance</option> */}
           </select>
         </label>
       </form>

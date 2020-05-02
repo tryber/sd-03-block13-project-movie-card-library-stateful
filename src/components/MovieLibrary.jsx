@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.newMovies = this.newMovies.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -31,23 +32,37 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  onFilterMovies(movie) {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    return movie.filter(({ genre }) =>
-      selectedGenre === '' ? true : genre === selectedGenre)
-      .filter((favorite) => bookmarkedOnly === true ? favorite.bookmarked : true)
-      .filter((text) => text.title.includes(searchText)
-        || text.subtitle.includes(searchText) || text.storyline.includes(searchText));
+  onFilterMoviesMarked(movie) {
+    const { bookmarkedOnly } = this.state;
+    if (movie.bookmarked === true || !bookmarkedOnly) return movie;
+    return false;
   }
 
-  newMovies() {
+  onFilterMovieGenre(movie) {
+    const { selectedGenre } = this.state;
+    if (selectedGenre === movie.genre || !selectedGenre) return movie;
+    return false;
+  }
 
+  onFilterMovieText(movies) {
+    const { searchText } = this.state;
+    return movies.filter(
+      (el) => ((el.title.toLowerCase().includes(searchText.toLocaleLowerCase()))
+        || (el.subtitle.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
+        || (el.storyline.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())))
+        && this.onFilterMovieGenre(el)
+        && this.onFilterMoviesMarked(el),
+    );
+  }
+
+  newMovies(newCard) {
+    this.setState((state) => ({ movies: [...state.movies, newCard] }));
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
-    const resultMovies = this.onFilterMovies(this.state.movies);
+    const resultMovies = this.onFilterMovieText(movies);
     return (
       <div>
         <SearchBar
@@ -59,7 +74,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={onSelectedGenreChange}
         />
         <MovieList movies={resultMovies} />
-        <AddMovie />
+        <AddMovie onClick={this.newMovies} />
       </div>
     );
   }

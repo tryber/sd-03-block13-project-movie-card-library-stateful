@@ -44,6 +44,15 @@ const movies = [
     bookmarked: true,
     genre: 'fantasy',
   },
+  {
+    title: 'React',
+    subtitle: 'Vendetta',
+    storyline: 'Chris Redfield enlists the help of Leon S. Kennedy and Rebecca Chambers to stop a death merchant, with a vengeance, from spreading a deadly virus in New York.',
+    rating: 4.2,
+    imagePath: 'logo512.png',
+    bookmarked: true,
+    genre: 'romance',
+  },
 ];
 
 export default movies;
