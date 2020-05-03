@@ -20,14 +20,14 @@ class AddMovie extends React.Component {
     this.stHandler = this.stHandler.bind(this);
   }
 
-  /* Função que gerencia a passagem de dados das caixas de texto 
+  /* Função que gerencia a passagem de dados das caixas de texto
   para o estado correspondente (state handler) */
   stHandler(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  /* Puxa o caminho obtido no botão de seleção de imagem e joga 
+  /* Puxa o caminho obtido no botão de seleção de imagem e joga
   para a caixa de texto o caminho da imagem passando pelo estado do componente */
   pathToText(event) {
     const { value } = event.target;
