@@ -20,7 +20,7 @@ class AddMovie extends Component {
   }
 
   onChange(event) {
-    const { name, value } = event.target;
+    const { value, name } = event.target;
     this.setState({ [name]: value });
   }
 
@@ -41,8 +41,8 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const optionsArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     return (
-      <fieldset>
-        <Input innerText="Título" name="title" value={title} onChange={this.onChange} />
+      <form>
+        <Input type="text" innerText="Título" name="title" value={title} onChange={this.onChange} />
         <Input innerText="Subtítulo" name="subtitle" value={subtitle} onChange={this.onChange} />
         <Input innerText="Imagem" name="imagePath" value={imagePath} onChange={this.onChange} />
         <label htmlFor="storyline">
@@ -58,7 +58,7 @@ class AddMovie extends Component {
         />
         <Select value={genre} onChange={this.onChange} options={optionsArr} name="genre" />
         <button type="button" onClick={this.addMovie}>Adicionar filme</button>
-      </fieldset>
+      </form>
     );
   }
 }

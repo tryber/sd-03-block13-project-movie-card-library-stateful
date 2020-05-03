@@ -11,12 +11,13 @@ class SearchBar extends Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <fieldset>
+      <form>
         <Input
           name="searchText"
           innerText="Inclui o texto:"
           value={searchText}
           onChange={onSearchTextChange}
+          type="text"
         />
         <Input
           innerText="Mostrar somente favoritos"
@@ -26,7 +27,7 @@ class SearchBar extends Component {
           onChange={onBookmarkedChange}
         />
         <Select options={selectArr} value={selectedGenre} onChange={onSelectedGenreChange} />
-      </fieldset>
+      </form>
     );
   }
 }
