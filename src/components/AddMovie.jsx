@@ -42,10 +42,24 @@ class AddMovie extends Component {
     );
   }
 
+  genero() {
+    const { genre } = this.state;
+    return (
+      <div>
+        <label htmlFor="Gênero">
+          Gênero
+          <select value={genre} onChange={(e) => this.onChangeHandler(e, 'genre')}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
+      </div>
+    );
+  }
+
   render() {
-    const arraySelect = ['Ação', 'Comédia', 'Suspense'];
-    const arrayVal = ['action', 'comedy', 'thriller'];
-    const detructuring = this.state;
+    const { storyline } = this.state;
     const { onClick } = this.props;
     return (
       <div>
@@ -55,20 +69,17 @@ class AddMovie extends Component {
           {this.createInput('imagePath', 'Imagem')}
           <label htmlFor="input">
           Sinopse
-            <textarea value={detructuring.storyline} onChange={(e) => this.onChangeHandler(e, 'storyline')} />
+            <textarea value={storyline} onChange={(e) => this.onChangeHandler(e, 'storyline')} />
           </label>
           {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
-          <label htmlFor="Gênero">
-          Gênero
-            <select value={detructuring.genre} onChange={(e) => this.onChangeHandler(e, 'genre')}>
-              {arraySelect.map((el, index) => (
-                <option value={arrayVal[index]}>
-                  {el}
-                </option>
-              ))}
-            </select>
-          </label>
-          <button type="button" value="Adicionar filme" onClick={() => { onClick(this.state); this.reset(); }}>
+          {this.genero()}
+          <button
+            type="button"
+            value="Adicionar filme"
+            onClick={() => {
+              onClick(this.state); this.reset();
+            }}
+          >
         Adicionar filme
           </button>
         </form>
