@@ -1,9 +1,42 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 
-import Input from './Input';
-import Select from './Select';
-
+const selection = (selectedGenre, onSelectedGenreChange) => {
+  const selectArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
+  return (
+    <>
+      <label htmlFor="genre">
+      Gênero
+        <select
+          id="genre"
+          name="genre"
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+        >
+          {selectArr.map((option) => (
+            <option key={option[0]} value={option[0]}>
+              {option[1]}
+            </option>
+          ))}
+        </select>
+      </label>
+    </>
+  );
+};
+const input = (type, innerText, name, value, onChange) => (
+  <>
+    <label htmlFor={name}>
+      {innerText}
+      <input
+        name={name}
+        id={name}
+        value={value}
+        onChange={onChange}
+        type={type}
+      />
+    </label>
+  </>
+);
 class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -39,25 +72,25 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const optionsArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     return (
       <form>
-        <Input type="text" innerText="Título" name="title" value={title} onChange={this.onChange} />
-        <Input innerText="Subtítulo" name="subtitle" value={subtitle} onChange={this.onChange} />
-        <Input innerText="Imagem" name="imagePath" value={imagePath} onChange={this.onChange} />
+
+        {input('text', 'Título', 'title', title, this.onChange)}
+        {input('text', 'Subtítulo', 'subtitle', subtitle, this.onChange)}
+        {input('text', 'Imagem', 'imagePath', imagePath, this.onChange)}
         <label htmlFor="storyline">
           Sinopse
-          <textarea name="storyline" value={storyline} onChange={this.onChange} />
+          <textarea
+            name="storyline"
+            value={storyline}
+            onChange={this.onChange}
+          />
         </label>
-        <Input
-          innerText="Avaliação"
-          name="rating"
-          value={rating}
-          onChange={this.onChange}
-          type="number"
-        />
-        <Select value={genre} onChange={this.onChange} options={optionsArr} name="genre" />
-        <button type="button" onClick={this.addMovie}>Adicionar filme</button>
+        {input('number', 'Avaliação', 'rating', rating, this.onChange)}
+        {selection(genre, this.onChange)}
+        <button type="button" onClick={this.addMovie}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
