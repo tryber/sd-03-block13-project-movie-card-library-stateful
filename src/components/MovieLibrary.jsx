@@ -21,12 +21,12 @@ class MovieLibrary extends React.Component {
     this.movieFilter = this.movieFilter.bind(this);
     this.addMovie = this.addMovie.bind(this);
   }
-  
+
   // Insere novo filme na grade. O parâmetro filme vem da função chamada em AddMovie.
   // A sintaxe com spread abaixo é usada no lugar de outra como
   // ...{movies: this.state.movies.concat(filme)} pois é mais eficiente.
   addMovie(filme) {
-    { this.setState({ movies: [...this.state.movies, filme] })};
+    this.setState({ movies: [...this.state.movies, filme] });
   }
 
   // Faz o filtro dos posteres a serem exibidos na página confomrme o filtro aplicado

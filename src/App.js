@@ -6,9 +6,9 @@ import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
-    <div className='App'>
+    <div>
       <Header />
-      <MovieLibrary movies={movies}/>
+      <MovieLibrary movies={movies} />
     </div>
   );
 }
