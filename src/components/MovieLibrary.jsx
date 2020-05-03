@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class MovieLibrary extends React.Component {
     }
     this.handleBmChange = this.handleBmChange.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
+    this.updateMovieList = this.updateMovieList.bind(this);
   }
 
   handleBmChange() {
@@ -44,10 +46,14 @@ class MovieLibrary extends React.Component {
   }
 
   movieFilter(movies) {
-    const filtered = movies.filter(movie =>
+    return movies.filter(movie =>
       this.bmCheck(movie) && this.genreCheck(movie) && this.textCheck(movie)
-    )
-    return filtered;
+    );
+  }
+
+  updateMovieList(movie) {
+    this.setState({ movies: [...this.state.movies, movie] })
+    console.log(this.state)
   }
 
   render () {
@@ -62,6 +68,7 @@ class MovieLibrary extends React.Component {
         onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
         <MovieList movies={this.movieFilter(this.state.movies)} />
+        <AddMovie onClick={this.updateMovieList} />
       </div>
     )
   }
