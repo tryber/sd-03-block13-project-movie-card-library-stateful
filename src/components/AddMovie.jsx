@@ -24,7 +24,7 @@ const selection = (selectedGenre, onSelectedGenreChange) => {
   );
 };
 const input = (type, innerText, name, value, onChange) => (
-  <>
+  <div>
     <label htmlFor={name}>
       {innerText}
       <input
@@ -35,7 +35,7 @@ const input = (type, innerText, name, value, onChange) => (
         type={type}
       />
     </label>
-  </>
+  </div>
 );
 class AddMovie extends Component {
   constructor(props) {

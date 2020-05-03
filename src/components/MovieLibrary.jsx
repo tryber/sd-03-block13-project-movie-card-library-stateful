@@ -58,11 +58,12 @@ class MovieLibrary extends Component {
 
   filterBy(arr) {
     const { selectedGenre, bookmarkedOnly, searchText } = this.state;
+    const ifStringLowerCase = (detail) => (typeof detail === 'string'
+      ? detail.toLowerCase().includes(searchText.toLowerCase())
+      : false);
     const filterByText = searchText === ''
       ? arr
-      : arr.filter((movie) => Object.values(movie).some((detail) => (typeof detail === 'string'
-        ? detail.toLowerCase().includes(searchText.toLowerCase())
-        : false)));
+      : arr.filter((movie) => Object.values(movie).some((detail) => ifStringLowerCase(detail)));
 
     const filterByMarked = bookmarkedOnly
       ? filterByText.filter((movie) => movie.bookmarked === true)

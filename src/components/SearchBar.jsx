@@ -30,8 +30,8 @@ const selection = (selectedGenre, onSelectedGenreChange) => {
     ['thriller', 'Suspense'],
   ];
   return (
-    <>
-      <label htmlFor="genreSelecion">Filtrar por gênero</label>
+    <div>
+      <label htmlFor="genreSelMoecion">Filtrar por gênero</label>
       <select
         id="genreSelecion"
         name="genreSelecion"
@@ -44,7 +44,7 @@ const selection = (selectedGenre, onSelectedGenreChange) => {
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 class SearchBar extends Component {
