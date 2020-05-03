@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 const selection = (selectedGenre, onSelectedGenreChange) => {
   const selectArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
   return (
-    <>
+    <div>
       <label htmlFor="genre">
       Gênero
         <select
@@ -20,7 +20,7 @@ const selection = (selectedGenre, onSelectedGenreChange) => {
           ))}
         </select>
       </label>
-    </>
+    </div>
   );
 };
 const input = (type, innerText, name, value, onChange) => (
