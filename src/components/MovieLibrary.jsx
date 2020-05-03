@@ -22,15 +22,14 @@ class MovieLibrary extends React.Component {
   }
 
   bmCheck (movie) {
-    if(this.state.bookmarkedOnly === false || movie.bookmarked === true){ //checar se apenas um check movie.bookmarked === true substitui essa linha
+    if(this.state.bookmarkedOnly === false || movie.bookmarked === true){
       return movie;
     }
     return false;
   }
 
   genreCheck(movie) {
-    if(!this.state.selectedGenre || 
-    (this.state.selectedGenre && this.state.selectedGenre === movie.genre)){
+    if(!this.state.selectedGenre || this.state.selectedGenre === movie.genre){
       return movie;
     }
     return false;
