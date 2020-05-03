@@ -42,6 +42,22 @@ class AddMovie extends Component {
     );
   }
 
+  botao(onClick) {
+    return (
+      <div>
+        <button
+          type="button"
+          value="Adicionar filme"
+          onClick={() => {
+            onClick(this.state); this.reset();
+          }}
+        >
+        Adicionar filme
+        </button>
+      </div>
+    );
+  }
+
   genero() {
     const { genre } = this.state;
     return (
@@ -73,15 +89,7 @@ class AddMovie extends Component {
           </label>
           {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
           {this.genero()}
-          <button
-            type="button"
-            value="Adicionar filme"
-            onClick={() => {
-              onClick(this.state); this.reset();
-            }}
-          >
-        Adicionar filme
-          </button>
+          {this.botao(onClick)}
         </form>
       </div>
     );
