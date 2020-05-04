@@ -42,7 +42,7 @@ export default class AddMovie extends Component {
     return (
       <React.Fragment>
         <label htmlFor="genre">Gênero</label>
-        <select name="genre" onChange={this.handleChange} value={genre}>
+        <select name="genre" id="genre" onChange={this.handleChange} value={genre}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -59,13 +59,13 @@ export default class AddMovie extends Component {
       <div className="movie-card">
         <form className="" action="">
           <label htmlFor="title">Título</label>
-          <input type="text" name="title" value={title} onChange={this.handleChange} />
+          <input type="text" name="title" id="title" value={title} onChange={this.handleChange} />
 
           <label htmlFor="subtitle">Subtítulo</label>
-          <input type="text" name="subtitle" value={subtitle} onChange={this.handleChange} />
+          <input type="text" name="subtitle" id="subtitle" value={subtitle} onChange={this.handleChange} />
 
-          <label htmlFor="imagem">Imagem</label>
-          <input type="text" name="imagePath" value={imagePath} onChange={this.handleChange} />
+          <label htmlFor="imagePath">Imagem</label>
+          <input type="text" name="imagePath" id="imagePath" value={imagePath} onChange={this.handleChange} />
 
           <label htmlFor="storyLine">Sinopse</label>
           <textarea
@@ -76,7 +76,7 @@ export default class AddMovie extends Component {
           />
 
           <label htmlFor="rating">Avaliação</label>
-          <input type="number" name="rating" value={rating} onChange={this.handleChange} />
+          <input type="number" name="rating" id="rating" value={rating} onChange={this.handleChange} />
           <br /><br />
           {this.addSelect()}
 
