@@ -25,7 +25,7 @@ export default class AddMovie extends Component {
   handleChange(event, name) {
     const { value } = event.target;
     this.setState({ [name]: value });
-    if (name === 'rating') this.setState({ [name]: Number(value) })
+    if (name === 'rating') this.setState({ [name]: Number(value) });
   }
 
   myFunction() {
@@ -43,7 +43,9 @@ export default class AddMovie extends Component {
     return (
       <React.Fragment>
         <label htmlFor={name}>{text}</label>
-        <input type={type} name={name} value={value} id={name} onChange={(event) => this.handleChange(event, name)} />
+        <input type={type} name={name} value={value} id={name}
+          onChange={(event) => this.handleChange(event, name)}
+        />
       </React.Fragment>
     );
   }
@@ -78,7 +80,7 @@ export default class AddMovie extends Component {
           <textarea
             name="storyline"
             value={storyline}
-            onChange={(event) => this.handleChange(event, "storyline")}
+            onChange={(event) => this.handleChange(event, 'storyline')}
             id="storyline" cols="25" rows="3"
           />
 
