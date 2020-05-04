@@ -66,21 +66,21 @@ export default class AddMovie extends Component {
       <div className="movie-card">
         <form>
 
-          {this.addInput("text", "title", title, this.handleChange, "Título")}
+          {this.addInput('text', 'title', title, this.handleChange, 'Título')}
 
-          {this.addInput("text", "subtitle", subtitle, this.handleChange, "Subtítulo")}
+          {this.addInput('text', 'subtitle', subtitle, this.handleChange, 'Subtítulo')}
 
-          {this.addInput("text", "imagePath", imagePath, this.handleChange, "Imagem")}
+          {this.addInput('text', 'imagePath', imagePath, this.handleChange, 'Imagem')}
 
-          <label htmlFor="storyLine">Sinopse</label>
+          <label htmlFor="storyline">Sinopse</label>
           <textarea
-            name="storyLine"
+            name="storyline"
             value={storyline}
             onChange={this.handleChange}
-            id="storyLine" cols="25" rows="3"
+            id="storyline" cols="25" rows="3"
           />
 
-          {this.addInput("number", "rating", rating, this.handleChange, "Avaliação")}
+          {this.addInput('number', 'rating', rating, this.handleChange, 'Avaliação')}
 
           <br /><br />
           {this.addSelect()}
