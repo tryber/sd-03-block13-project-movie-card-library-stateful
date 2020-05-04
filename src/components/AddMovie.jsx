@@ -37,12 +37,21 @@ export default class AddMovie extends Component {
     this.setState({ ...this.state });
   }
 
+  addInput(type, name, value, onChange, text) {
+    return (
+    <React.Fragment>
+      <label htmlFor={name}>{text}</label>
+      <input type={type} name={name} value={value} id={name} onChange={onChange} />
+    </React.Fragment>
+    )
+  }
+
   addSelect() {
     const { genre } = this.state;
     return (
       <React.Fragment>
         <label htmlFor="genre">Gênero</label>
-        <select name="genre" id="genre" onChange={this.handleChange} value={genre}>
+        <select name="genre" id="genre" onChange={(event) => this.handleChange(event, 'genre')} value={genre}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -56,14 +65,23 @@ export default class AddMovie extends Component {
     return (
       <div className="movie-card">
         <form>
-          <label htmlFor="title">Título</label>
-          <input type="text" name="title" id="title" value={title} onChange={this.handleChange} />
 
-          <label htmlFor="subtitle">Subtítulo</label>
-          <input type="text" name="subtitle" id="subtitle" value={subtitle} onChange={this.handleChange} />
+          {this.addInput("text", "title", title, this.handleChange, "Título")}
 
-          <label htmlFor="imagePath">Imagem</label>
-          <input type="text" name="imagePath" id="imagePath" value={imagePath} onChange={this.handleChange} />
+          {/* <label htmlFor="title">Título</label>
+          <input type="text" name="title" id="title" value={title} onChange={this.handleChange} /> */}
+
+          {/* <label htmlFor="subtitle">Subtítulo</label>
+          <input type="text" name="subtitle" id="subtitle"
+          value={subtitle} onChange={this.handleChange}
+          /> */}
+
+          {this.addInput("text", "subtitle", subtitle, this.handleChange, "Subtítulo")}
+
+          {this.addInput("text", "imagePath", imagePath, this.handleChange, "Imagem")}
+
+          {/* <label htmlFor="imagePath">Imagem</label>
+          <input type="text" name="imagePath" id="imagePath" value={imagePath} onChange={this.handleChange} /> */}
 
           <label htmlFor="storyLine">Sinopse</label>
           <textarea
