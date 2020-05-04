@@ -20,6 +20,7 @@ class MovieLibrary extends Component {
     this.onSelectedGenre = this.onSelectedGenre.bind(this);
     this.onClick = this.onClick.bind(this);
     this.filterBy = this.filterBy.bind(this);
+
   }
 
   onSearchTextChange(event) {
@@ -51,10 +52,10 @@ class MovieLibrary extends Component {
   }
 
   onClick(callback) {
-    console.log(callback);
-    this.setState((prevState) => {
-      prevState.movies.push(callback);
-    });
+    this.setState((state) => ({ movies: [...state.movies, callback] }));
+    // this.setState((prevState) => {
+    //   prevState.movies.push(callback);
+    // });
   }
 
   filterBy(arr) {
@@ -76,7 +77,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    // console.log('render the page');
+    console.log('render the page');
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
