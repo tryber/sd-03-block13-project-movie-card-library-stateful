@@ -4,10 +4,13 @@ import React, { Component } from 'react';
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
+
+    this.addOption = this.addOption.bind(this);
     
   }
 
-  addOption = () => (
+  addOption() { 
+return (
     <React.Fragment>
       <label htmlFor="gender">Filtrar por gênero</label>
       <select name="gender" id="gender" onChange={this.props.onSelectedGenreChange}>
@@ -17,8 +20,8 @@ export default class SearchBar extends Component {
         <option value="thriller">Suspense</option>
       </select>
     </React.Fragment>
-  );
-  
+  )};
+
   // addInput(type, value, name, labelText) {
   //   return (
   //     <section>
@@ -29,10 +32,10 @@ export default class SearchBar extends Component {
   // }
 
   render() {
-    console.log('searchBar this props', this.props.onSearchTextChange);
-    console.log('this do searchbar', this);
-    console.log('this.props do searchBar', this.props);
-    
+    // console.log('searchBar this props', this.props.onSearchTextChange);
+    // console.log('this do searchbar', this);
+    // console.log('this.props do searchBar', this.props);
+
     const { searchText, onSearchTextChange } = this.props;
 
     return (
@@ -47,7 +50,6 @@ export default class SearchBar extends Component {
 
         {this.addOption()}       
         {/* {this.addInput('checkBox', 'name', "name", "Teste de Input")} */}
-        
 
       </form>
     );

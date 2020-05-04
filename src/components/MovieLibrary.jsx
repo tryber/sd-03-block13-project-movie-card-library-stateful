@@ -15,25 +15,25 @@ export default class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    
+
     this.searchGenre = this.searchGenre.bind(this);
     this.bookmarkedSearch = this.bookmarkedSearch.bind(this);
     this.onBookedmarkedChange = this.onBookedmarkedChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
   }
 
-  addMovie(element) {
-    this.setState( (el) => ({movies: [...el.movies, element]}) );
-  }
-  
   onBookedmarkedChange() {
     const { bookmarkedOnly } = this.state;
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
+  addMovie(element) {
+    this.setState((el) => ({ movies: [...el.movies, element] }));
+  }
+
   bookmarkedSearch(movie) {
     const { bookmarkedOnly } = this.state;
-    if (bookmarkedOnly && movie.bookmarked === true || !bookmarkedOnly) return true;
+    if ((bookmarkedOnly && movie.bookmarked === true) || !bookmarkedOnly) return true;
     return false;
   }
 
@@ -45,28 +45,29 @@ export default class MovieLibrary extends Component {
 
   textOrGenreChange(event, name) {
     const { value } = event.target;
-    this.setState({ [name]: value});
+    this.setState({ [name]: value });
   }
-  
+
   filterMovies(movies) {
     const { searchText } = this.state;
-    return movies.filter((movie) => (movie.title.includes(searchText) || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText))
+    return movies.filter((movie) => (movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText))
       && this.searchGenre(movie) && this.bookmarkedSearch(movie));
   }
 
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
-    
+
     return (
       <div>
-        <SearchBar searchText={searchText} onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
+        <SearchBar searchText={searchText}
+          onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
           bookmarkedOnly={bookmarkedOnly} onBookedmarkedChange={this.onBookedmarkedChange}
           onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}  selectedGenre={selectedGenre} />
-          
+
         <MovieList movies={this.filterMovies(movies)} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
-} 
+}

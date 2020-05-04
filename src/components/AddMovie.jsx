@@ -12,19 +12,18 @@ export default class AddMovie extends Component {
       storyLine: '',
       rating: 0,
       genre: 'action',
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.reset = this.reset.bind(this);
     this.addSelect = this.addSelect.bind(this);
     this.myFunction = this.myFunction.bind(this);
-
   }
 
   handleChange(event) {
     console.log(event.target.value);
     const { name, value } = event.target;
-    this.setState({ [name]: value} );
+    this.setState({ [name]: value });
   }
 
   myFunction() {
@@ -35,9 +34,9 @@ export default class AddMovie extends Component {
   }
 
   reset() {
-    this.setState({...this.state});
+    this.setState( { ...this.state });
   }
-  
+
   addSelect() {
     const { genre } = this.state;
     return (
@@ -47,7 +46,7 @@ export default class AddMovie extends Component {
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
-        </select>      
+        </select>
       </React.Fragment>
     );
   }
@@ -67,15 +66,16 @@ export default class AddMovie extends Component {
 
           <label htmlFor="imagem">Imagem</label>
           <input type="text" name="imagePath" value={imagePath} onChange={this.handleChange} />
-          
+
           <label htmlFor="storyLine">Sinopse</label>
-          <textarea name="storyLine" value={storyLine} onChange={this.handleChange} id="storyLine" cols="25" rows="3"></textarea>
+          <textarea name="storyLine" value={storyLine}
+            onChange={this.handleChange} id="storyLine" cols="25" rows="3"></textarea>
 
           <label htmlFor="rating">Avaliação</label>
           <input type="number" name="rating" value={rating} onChange={this.handleChange} />
           <br /><br />
           {this.addSelect()}
-          
+
           <button type="button" onClick={this.myFunction}>Adicionar filme</button>
         </form>
       </div>
