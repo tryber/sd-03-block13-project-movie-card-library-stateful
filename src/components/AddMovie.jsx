@@ -20,10 +20,11 @@ class AddMovie extends React.Component {
     this.stHandler = this.stHandler.bind(this);
   }
 
-  /* Função que gerencia a passagem de dados das caixas de texto
-  para o estado correspondente (state handler) */
-  stHandler(event) {
-    const { name, value } = event.target;
+  /* Função genérica que gerencia a passagem de dados das caixas de texto
+  para seu o estado correspondente no componente (state handler).
+  Podia ter sido feito puxando direto a propriedade name do input, mas não passa no teste. */
+  stHandler(event, name) {
+    const { value } = event.target;
     this.setState({ [name]: value });
   }
 
@@ -48,18 +49,18 @@ class AddMovie extends React.Component {
       <form className="formRegister">
         <legend>Cadastro de filmes</legend>
         <label htmlFor="text">Título</label>
-        <input type="text" name="title" onChange={this.stHandler} value={title} />
+        <input type="text" onChange={(evt) => this.stHandler(evt, 'title')} value={title} />
         <label htmlFor="text">Subtítulo</label>
-        <input type="text" name="subtitle" onChange={this.stHandler} value={subtitle} />
+        <input type="text" onChange={(evt) => this.stHandler(evt, 'subtitle')} value={subtitle} />
         <label htmlFor="text">Imagem</label>
-        <input type="text" name="imagePath" onChange={this.stHandler} value={imagePath} />
-        <input type="file" name="selectFile" onChange={this.pathToText} />
+        <input type="text" onChange={(e) => this.stHandler(e, 'imagePath')} value={imagePath} />
+        <input type="file" onChange={this.pathToText} />
         <label htmlFor="text">Sinopse</label>
-        <input type="text" name="storyline" onChange={this.stHandler} value={storyline} />
+        <input type="text" onChange={(e) => this.stHandler(e, 'storyline')} value={storyline} />
         <label htmlFor="number">Avaliação</label>
-        <input type="number" name="rating" onChange={this.stHandler} value={rating} />
+        <input type="number" onChange={(evt) => this.stHandler(evt, 'rating')} value={rating} />
         <label htmlFor="select">Gênero</label>
-        <select name="genre" onChange={this.stHandler} value={genre}>
+        <select name="genre" onChange={(evt) => this.stHandler(evt, 'genre')} value={genre}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
