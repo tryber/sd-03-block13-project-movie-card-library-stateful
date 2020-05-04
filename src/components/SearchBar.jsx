@@ -11,10 +11,11 @@ class SearchBar extends React.Component {
         <br />
         <label htmlFor="bookmarked">Mostrar somente favoritos</label>
         <input
-        name="bookmarked"
-        type="checkbox"
-        checked={bookmarkedOnly}
-        onChange={onBookmarkedChange} />
+          name="bookmarked"
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange} 
+        />
         <br />
         <label htmlFor="genre">Filtrar por gênero</label>
         <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
@@ -25,7 +26,7 @@ class SearchBar extends React.Component {
         </select>
 
       </form>
-    )
+    );
   }
 }
 

@@ -22,20 +22,20 @@ class MovieLibrary extends React.Component {
   }
 
   bmCheck(movie) {
-    if (this.state.bookmarkedOnly === false || movie.bookmarked === true){
+    if (this.state.bookmarkedOnly === false || movie.bookmarked === true) {
       return movie;
     }
     return false;
   }
 
   genreCheck(movie) {
-    if (!this.state.selectedGenre || this.state.selectedGenre === movie.genre){
+    if (!this.state.selectedGenre || this.state.selectedGenre === movie.genre) {
       return movie;
     }
     return false;
   }
 
-  textCheck (movie) {
+  textCheck(movie) {
     if (movie.title.includes(this.state.searchText) ||
     movie.subtitle.includes(this.state.searchText) ||
     movie.storyline.includes(this.state.searchText)) {
@@ -45,8 +45,9 @@ class MovieLibrary extends React.Component {
   }
 
   movieFilter(movies) {
-    return movies.filter((movie) =>
-      this.bmCheck(movie) && this.genreCheck(movie) && this.textCheck(movie)
+    return movies.filter((movie) => this.bmCheck(movie) && 
+    this.genreCheck(movie) && 
+    this.textCheck(movie)
     );
   }
 
