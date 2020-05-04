@@ -51,9 +51,8 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    const {
-      selectedGenre, onSelectedGenreChange,
-    } = this.props; // searchText string, onSearchTextChange callback, bookmarkedOnly boolean
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    // searchText string, onSearchTextChange callback, bookmarkedOnly boolean
     // onBookmarkedChange callback, selectedGenre string, onSelectedGenreChange callback
     return (
       <form>
@@ -69,7 +68,12 @@ export default class SearchBar extends React.Component {
         </label> */}
         <label htmlFor="select">
           Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange} id="select" name="selectedGenre">
+          <select
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            id="select"
+            name="selectedGenre"
+          >
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
