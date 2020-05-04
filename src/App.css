@@ -81,3 +81,11 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar {
+  align-items: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
