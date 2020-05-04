@@ -52,8 +52,9 @@ class AddMovie extends Component {
     this.addMovie = this.addMovie.bind(this);
   }
 
-  onChange(event) {
-    const { value, name } = event.target;
+  onChange(value, name) {
+    // const { value } = event.target;
+    console.log(value);
     this.setState({ [name]: value });
   }
 
@@ -74,20 +75,21 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
-
-        {input('text', 'Título', 'title', title, this.onChange)}
-        {input('text', 'Subtítulo', 'subtitle', subtitle, this.onChange)}
-        {input('text', 'Imagem', 'imagePath', imagePath, this.onChange)}
+        {input('text', 'Título', 'title', title, (e) => this.onChange(e.target.value, 'title'))}
+        {input('text', 'Subtítulo', 'subtitle', subtitle, (e) => this.onChange(e.target.value, 'subtitle'))}
+        {input('text', 'Imagem', 'imagePath', imagePath, (e) => this.onChange(e.target.value, 'imagePath'))}
         <label htmlFor="storyline">
           Sinopse
           <textarea
             name="storyline"
             value={storyline}
-            onChange={this.onChange}
+            onChange={(e) => this.onChange(e.target.value, 'storyline')}
           />
         </label>
-        {input('number', 'Avaliação', 'rating', rating, this.onChange)}
-        {selection(genre, this.onChange)}
+        {input('number', 'Avaliação', 'rating', rating, (e) => this.onChange(
+          Number(e.target.value), 'rating',
+        ))}
+        {selection(genre, (e) => this.onChange(e.target.value, 'genre'))}
         <button type="button" onClick={this.addMovie}>
           Adicionar filme
         </button>
