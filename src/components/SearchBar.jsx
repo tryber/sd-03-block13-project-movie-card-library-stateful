@@ -40,7 +40,7 @@ export default class SearchBar extends Component {
     const { searchText, onSearchTextChange } = this.props;
 
     return (
-      <form action="" className="search-bar">
+      <form className="search-bar">
         <h5>Search your movie</h5>
 
         <label htmlFor="Inclui-o-texto">Inclui o texto: </label>
@@ -50,7 +50,7 @@ export default class SearchBar extends Component {
         <input
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookedmarkedChange}
-          name="check" type="checkBox"
+          name="check" type="checkbox"
         />
 
         {this.addOption()}

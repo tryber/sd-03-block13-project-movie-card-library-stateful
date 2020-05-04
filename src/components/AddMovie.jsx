@@ -52,7 +52,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    // console.log('estou no AddMovie, este é o state: ', this.state);
+    // console.log('estou no AddMovie, este é o state: ', this.state);  
     // console.log('AddMovie props:', this.props);
     const { title, subtitle, imagePath, storyLine, rating } = this.state;
     return (
