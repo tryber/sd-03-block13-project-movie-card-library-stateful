@@ -13,7 +13,6 @@ const stateInitial = {
 export default class AddMovie extends Component {
   constructor(props) {
     super(props);
-    
     this.state = stateInitial;
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,9 +22,9 @@ export default class AddMovie extends Component {
     this.addInput = this.addInput.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(event, name) {
     console.log(event.target.value);
-    const { name, value } = event.target;
+    const { value } = event.target;
     this.setState({ [name]: value });
   }
 
@@ -79,7 +78,7 @@ export default class AddMovie extends Component {
           <textarea
             name="storyline"
             value={storyline}
-            onChange={this.handleChange}
+            onChange={(event) => this.handleChange(event, "storyline")}
             id="storyline" cols="25" rows="3"
           />
 
