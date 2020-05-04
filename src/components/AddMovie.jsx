@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={() => { this.props.onClick(this.state); this.setState(reset);}
+        <button type="button" onClick={() => { this.props.onClick(this.state); this.setState(reset);}
         }>Adicionar filme</button>
       </form>
     )
