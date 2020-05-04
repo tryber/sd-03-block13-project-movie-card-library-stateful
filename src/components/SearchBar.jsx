@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -11,18 +11,24 @@ class SearchBar extends React.Component {
       selectedGenre: this.props.selectedGenre,
       onSelectedGenreChange: this.props.onSelectedGenreChange,
     };
+    this.chamaNoInput = this.chamaNoInput.bind(this);
   }
+
+  chamaNoInput(type, id, value, onChange) {
+    if (value === 'checked') {
+      return <input type={type} id={id} checked={this.state.bookmarkedOnly} onChange={onChange} />;
+    }
+    return <input type={type} id={id} value={value} onChange={onChange} />;
+  }
+
   render() {
     return (
       <div>
         <form>
           <label htmlFor="textFilter">Inclui o texto</label>
-          <input type="text" id="textFilter" 
-            value={this.state.searchText} onChange={this.state.onSearchTextChange}
-          />
+          {this.chamaNoInput('text', 'textFilter', this.state.searchText, this.state.onSearchTextChange)}
           <label htmlFor="favoritos">Mostrar somente favoritos</label>
-          <input type="checkbox" id="favoritos" checked={this.state.bookmarkedOnly} onChange={this.state.onBookmarkedChange}
-          />
+          {this.chamaNoInput('checkbox', 'favoritos', 'checked', this.state.onBookmarkedChange)}
           <label htmlFor="gender">Filtrar por gênero</label>
           <select value={this.state.selectedGenre} onChange={this.state.onSelectedGenreChange}>
             <option value="">Todos</option>
