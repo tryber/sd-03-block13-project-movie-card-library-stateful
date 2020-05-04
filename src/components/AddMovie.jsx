@@ -53,9 +53,9 @@ class AddMovie extends React.Component {
         {this.createInput('subtitle', subtitle, 'Subtítulo')}
         {this.createInput('imagePath', imagePath, 'Imagem')}
         <label htmlFor="storyline">Sinopse</label>
-        <textarea 
+        <textarea
           name="storyline" value={storyline}
-          onChange={(e) => this.setState({ storyline: e.target.value })} 
+          onChange={(e) => this.setState({ storyline: e.target.value })}
         />
         {this.createInput('rating', rating, 'Avaliação', 'number')}
         <label htmlFor="genre">Gênero</label>
@@ -64,9 +64,8 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button 
-          type="button" 
-          onClick={() => { this.props.onClick(this.state); this.setState(reset); }}
+        <button
+          type="button" onClick={() => { this.props.onClick(this.state); this.setState(reset); }}
         >Adicionar filme
         </button>
       </form>

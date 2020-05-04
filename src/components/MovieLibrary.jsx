@@ -45,9 +45,9 @@ class MovieLibrary extends React.Component {
   }
 
   movieFilter(movies) {
-    return movies.filter((movie) => this.bmCheck(movie) && 
-    this.genreCheck(movie) && 
-    this.textCheck(movie)
+    return movies.filter((movie) => this.bmCheck(movie) &&
+    this.genreCheck(movie) &&
+    this.textCheck(movie),
     );
   }
 
