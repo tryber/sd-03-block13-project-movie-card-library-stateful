@@ -43,7 +43,10 @@ export default class AddMovie extends Component {
     return (
       <React.Fragment>
         <label htmlFor={name}>{text}</label>
-        <input type={type} name={name} value={value} id={name}
+        <input type={type}
+          name={name}
+          value={value}
+          id={name}
           onChange={(event) => this.handleChange(event, name)}
         />
       </React.Fragment>
