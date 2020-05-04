@@ -1,23 +1,26 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 
+const stateInitial = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 export default class AddMovie extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    
+    this.state = stateInitial;
 
     this.handleChange = this.handleChange.bind(this);
     this.reset = this.reset.bind(this);
     this.addSelect = this.addSelect.bind(this);
     this.myFunction = this.myFunction.bind(this);
+    this.addInput = this.addInput.bind(this);
   }
 
   handleChange(event) {
@@ -34,10 +37,10 @@ export default class AddMovie extends Component {
   }
 
   reset() {
-    this.setState({ ...this.state });
+    this.setState(stateInitial);
   }
 
-  addInput(type, name, value, onChange, text) {
+  addInput(type, name, value, text) {
     return (
       <React.Fragment>
         <label htmlFor={name}>{text}</label>
@@ -66,11 +69,11 @@ export default class AddMovie extends Component {
       <div className="movie-card">
         <form>
 
-          {this.addInput('text', 'title', title, this.handleChange, 'Título')}
+          {this.addInput('text', 'title', title, 'Título')}
 
-          {this.addInput('text', 'subtitle', subtitle, this.handleChange, 'Subtítulo')}
+          {this.addInput('text', 'subtitle', subtitle, 'Subtítulo')}
 
-          {this.addInput('text', 'imagePath', imagePath, this.handleChange, 'Imagem')}
+          {this.addInput('text', 'imagePath', imagePath, 'Imagem')}
 
           <label htmlFor="storyline">Sinopse</label>
           <textarea
@@ -80,7 +83,7 @@ export default class AddMovie extends Component {
             id="storyline" cols="25" rows="3"
           />
 
-          {this.addInput('number', 'rating', rating, this.handleChange, 'Avaliação')}
+          {this.addInput('number', 'rating', rating, 'Avaliação')}
 
           <br /><br />
           {this.addSelect()}
