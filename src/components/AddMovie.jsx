@@ -68,7 +68,8 @@ export default class AddMovie extends Component {
           <input type="text" name="imagePath" value={imagePath} onChange={this.handleChange} />
 
           <label htmlFor="storyLine">Sinopse</label>
-          <textarea name="storyLine" value={storyLine}
+          <textarea name="storyLine"
+            value={storyLine}
             onChange={this.handleChange}
             id="storyLine" cols="25" rows="3"
           />
