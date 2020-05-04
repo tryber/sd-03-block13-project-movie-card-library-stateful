@@ -1,57 +1,61 @@
-// implement AddMovie component here
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class AddMovie extends Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.reset = this.reset.bind(this);
-    this.addSelect = this.addSelect.bind(this);
-    this.myFunction = this.myFunction.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
-  handleChange(event) {
-    console.log(event.target.value);
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  handleChangeInput(event, stateElem) {
+    const { value } = event.target;
+
+    this.setState({ [stateElem]: (stateElem === 'rating' ? Number(value) : value) });
   }
 
-  myFunction() {
+
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
     // event.preventDefault();
-    // console.log('estou no AddMovie. eu fui clicado, ass: Button', this.state);
-    this.props.onClick(this.state);
-    this.reset();
   }
 
-  reset() {
-    this.setState({ ...this.state });
-  }
-
-  addSelect() {
-    const { genre } = this.state;
+  title() {
+    const { title } = this.state;
     return (
-      <React.Fragment>
-        <label htmlFor="genre">Gênero</label>
-        <select name="genre" id="genre" onChange={this.handleChange} value={genre}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
-      </React.Fragment>
+
+      <div>
+        <label htmlFor="title">
+          Título
+          <input
+            type="text"
+            onChange={(event) => this.handleChangeInput(event, 'title')}
+            value={title}
+          />
+        </label>
+      </div>
     );
   }
 
+ 
   render() {
+<<<<<<< HEAD
     const { title, subtitle, imagePath, storyLine, rating } = this.state;
     return (
       <div className="movie-card">
@@ -81,6 +85,15 @@ export default class AddMovie extends Component {
           <button type="button" onClick={this.myFunction}>Adicionar filme</button>
         </form>
       </div>
+=======
+    return (
+      <form className="form-movie">
+        {this.title()}
+        <button type="button" onClick={this.addMovie}>Adicionar filme</button>
+      </form>
+>>>>>>> dd3b15b0b8841a2ed5904c42f94ee7443d46b79c
     );
   }
 }
+
+export default AddMovie;
