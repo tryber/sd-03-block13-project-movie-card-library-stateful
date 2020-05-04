@@ -12,8 +12,8 @@ export default class SearchBar extends Component {
     return (
       <React.Fragment>
         <label htmlFor="gender">Filtrar por gênero</label>
-        <select name="gender" id="gender" onChange={this.props.onSelectedGenreChange}>
-          <option value="Todos">Todos</option>
+        <select name="gender" value={this.props.selectedGenre} id="gender" onChange={this.props.onSelectedGenreChange}>
+          <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -21,16 +21,6 @@ export default class SearchBar extends Component {
       </React.Fragment>
     );
   }
-
-  // addInput(type, value, name, labelText) {
-  //   return (
-  //     <section>
-  //       <label htmlFor={name}>{labelText}</label>
-  //       <input type={type} name={name} id={name} value={value}
-  //        onChange={this.props.onSelectedGenreChange } ></input>
-  //     </section>
-  //   )
-  // }
 
   render() {
     // console.log('searchBar this props', this.props.onSearchTextChange);
@@ -49,8 +39,8 @@ export default class SearchBar extends Component {
         <label htmlFor="check">Mostrar somente favoritos</label>
         <input
           checked={this.props.bookmarkedOnly}
-          onChange={this.props.onBookedmarkedChange}
-          name="check" type="checkbox"
+          onChange={this.props.onBookmarkedChange}
+          name="check" type="checkbox" value={this.props.bookmarkedOnly}
         />
 
         {this.addOption()}

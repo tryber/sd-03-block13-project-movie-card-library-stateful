@@ -20,6 +20,7 @@ export default class MovieLibrary extends Component {
     this.bookmarkedSearch = this.bookmarkedSearch.bind(this);
     this.onBookedmarkedChange = this.onBookedmarkedChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.textOrGenreChange = this.textOrGenreChange.bind(this);
   }
 
   onBookedmarkedChange() {
@@ -46,6 +47,7 @@ export default class MovieLibrary extends Component {
   textOrGenreChange(event, name) {
     const { value } = event.target;
     this.setState({ [name]: value });
+    console.log(name, value);
   }
 
   filterMovies(movies) {
@@ -63,7 +65,7 @@ export default class MovieLibrary extends Component {
         <SearchBar
           searchText={searchText}
           onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
-          bookmarkedOnly={bookmarkedOnly} onBookedmarkedChange={this.onBookedmarkedChange}
+          bookmarkedOnly={bookmarkedOnly} onBookmarkedChange={this.onBookedmarkedChange}
           onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}
           selectedGenre={selectedGenre}
         />
