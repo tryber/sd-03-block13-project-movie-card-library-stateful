@@ -23,9 +23,9 @@ export default class AddMovie extends Component {
   }
 
   handleChange(event, name) {
-    console.log(event.target.value);
     const { value } = event.target;
     this.setState({ [name]: value });
+    if (name === 'rating') this.setState({ [name]: Number(value) })
   }
 
   myFunction() {
