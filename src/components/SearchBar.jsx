@@ -47,8 +47,11 @@ export default class SearchBar extends Component {
         <input onChange={onSearchTextChange} value={searchText} name="Inclui-o-texto" type="text" />
 
         <label htmlFor="check">Mostrar somente favoritos</label>
-        <input checked={this.props.bookmarkedOnly} onChange={this.props.onBookedmarkedChange}
-          name="check" type="checkBox" />
+        <input
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookedmarkedChange}
+          name="check" type="checkBox"
+        />
 
         {this.addOption()}
         {/* {this.addInput('checkBox', 'name', "name", "Teste de Input")} */}

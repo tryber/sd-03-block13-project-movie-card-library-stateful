@@ -65,7 +65,8 @@ export default class MovieLibrary extends Component {
           onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
           bookmarkedOnly={bookmarkedOnly} onBookedmarkedChange={this.onBookedmarkedChange}
           onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}
-          selectedGenre={selectedGenre} />
+          selectedGenre={selectedGenre}
+        />
 
         <MovieList movies={this.filterMovies(movies)} />
         <AddMovie onClick={this.addMovie} />
