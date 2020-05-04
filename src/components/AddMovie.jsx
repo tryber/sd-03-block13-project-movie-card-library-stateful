@@ -68,20 +68,9 @@ export default class AddMovie extends Component {
 
           {this.addInput("text", "title", title, this.handleChange, "Título")}
 
-          {/* <label htmlFor="title">Título</label>
-          <input type="text" name="title" id="title" value={title} onChange={this.handleChange} /> */}
-
-          {/* <label htmlFor="subtitle">Subtítulo</label>
-          <input type="text" name="subtitle" id="subtitle"
-          value={subtitle} onChange={this.handleChange}
-          /> */}
-
           {this.addInput("text", "subtitle", subtitle, this.handleChange, "Subtítulo")}
 
           {this.addInput("text", "imagePath", imagePath, this.handleChange, "Imagem")}
-
-          {/* <label htmlFor="imagePath">Imagem</label>
-          <input type="text" name="imagePath" id="imagePath" value={imagePath} onChange={this.handleChange} /> */}
 
           <label htmlFor="storyLine">Sinopse</label>
           <textarea
@@ -91,8 +80,8 @@ export default class AddMovie extends Component {
             id="storyLine" cols="25" rows="3"
           />
 
-          <label htmlFor="rating">Avaliação</label>
-          <input type="number" name="rating" id="rating" value={rating} onChange={this.handleChange} />
+          {this.addInput("number", "rating", rating, this.handleChange, "Avaliação")}
+
           <br /><br />
           {this.addSelect()}
 
