@@ -12,7 +12,8 @@ export default class SearchBar extends Component {
     return (
       <React.Fragment>
         <label htmlFor="gender">Filtrar por gênero</label>
-        <select name="gender" value={this.props.selectedGenre} id="gender" onChange={this.props.onSelectedGenreChange}>
+        <select name="gender"
+          value={this.props.selectedGenre} id="gender" onChange={this.props.onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
