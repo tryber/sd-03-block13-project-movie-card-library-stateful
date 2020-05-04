@@ -16,23 +16,6 @@ export default class SearchBar extends React.Component {
       </label>
     );
   }
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     name: '',
-  //     email: '',
-  //     cpf: '',
-  //     address: '',
-  //     city: '',
-  //     state: '',
-  //     addressKind: '',
-  //     resume: '',
-  //     role:'',
-  //     hasEntered: false,
-  //   };
-
-  // console.log('The constructor is being called by the object?:', this)
-  // this.changeName = this.changeName.bind(this);
 
   favoriteOnly() {
     const { onBookmarkedChange, bookmarkedOnly } = this.props;
@@ -54,15 +37,15 @@ export default class SearchBar extends React.Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form>
-        {this.favoriteOnly()}
         {this.includesText()}
+        {this.favoriteOnly()}
         <label htmlFor="select">
           Filtrar por gênero
           <select
-            value={selectedGenre}
-            onChange={onSelectedGenreChange}
             id="select"
             name="selectedGenre"
+            onChange={onSelectedGenreChange}
+            value={selectedGenre}
           >
             <option value="">Todos</option>
             <option value="action">Ação</option>

@@ -138,8 +138,8 @@ export default class AddMovie extends React.Component {
         Gênero
         <select
           type="text"
-          name="genre"
           id="genero"
+          name="genre"
           onChange={this.handleChangeGenre}
           value={genre}
         >
@@ -155,9 +155,7 @@ export default class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {/* <fieldset> */}
           <legend>Please include a movie</legend>
-          {/* <div> */}
           {this.title()}
           {this.subtitle()}
           {this.imagePath()}
@@ -167,12 +165,10 @@ export default class AddMovie extends React.Component {
           <button
             type="button"
             value="Adicionar filme"
-            onCLick={this.handleClick}
+            onClick={this.handleClick}
           >
             Adicionar filme
           </button>
-          {/* </div> */}
-          {/* </fieldset> */}
         </form>
       </div>
     );
