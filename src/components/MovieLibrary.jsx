@@ -20,7 +20,6 @@ class MovieLibrary extends Component {
     this.onSelectedGenre = this.onSelectedGenre.bind(this);
     this.onClick = this.onClick.bind(this);
     this.filterBy = this.filterBy.bind(this);
-
   }
 
   onSearchTextChange(event) {
