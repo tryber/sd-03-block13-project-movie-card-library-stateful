@@ -34,7 +34,7 @@ export default class AddMovie extends Component {
   }
 
   reset() {
-    this.setState( { ...this.state });
+    this.setState({ ...this.state });
   }
 
   addSelect() {
@@ -68,8 +68,8 @@ export default class AddMovie extends Component {
           <input type="text" name="imagePath" value={imagePath} onChange={this.handleChange} />
 
           <label htmlFor="storyLine">Sinopse</label>
-          <textarea name="storyLine" value={storyLine}
-            onChange={this.handleChange} id="storyLine" cols="25" rows="3"></textarea>
+          <textarea name="storyLine" value={storyLine} onChange={this.handleChange}
+            id="storyLine" cols="25" rows="3" />
 
           <label htmlFor="rating">Avaliação</label>
           <input type="number" name="rating" value={rating} onChange={this.handleChange} />

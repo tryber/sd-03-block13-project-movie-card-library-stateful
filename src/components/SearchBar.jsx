@@ -6,27 +6,28 @@ export default class SearchBar extends Component {
     super(props);
 
     this.addOption = this.addOption.bind(this);
-    
   }
 
-  addOption() { 
-return (
-    <React.Fragment>
-      <label htmlFor="gender">Filtrar por gênero</label>
-      <select name="gender" id="gender" onChange={this.props.onSelectedGenreChange}>
-        <option value="Todos">Todos</option>
-        <option value="action">Ação</option>
-        <option value="comedy">Comédia</option>
-        <option value="thriller">Suspense</option>
-      </select>
-    </React.Fragment>
-  )};
+  addOption() {
+    return (
+      <React.Fragment>
+        <label htmlFor="gender">Filtrar por gênero</label>
+        <select name="gender" id="gender" onChange={this.props.onSelectedGenreChange}>
+          <option value="Todos">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </React.Fragment>
+    );
+  }
 
   // addInput(type, value, name, labelText) {
   //   return (
   //     <section>
   //       <label htmlFor={name}>{labelText}</label>
-  //       <input type={type} name={name} id={name} value={value} onChange={this.props.onSelectedGenreChange } ></input>
+  //       <input type={type} name={name} id={name} value={value}
+  //        onChange={this.props.onSelectedGenreChange } ></input>
   //     </section>
   //   )
   // }
@@ -46,9 +47,10 @@ return (
         <input onChange={onSearchTextChange} value={searchText} name="Inclui-o-texto" type="text" />
 
         <label htmlFor="check">Mostrar somente favoritos</label>
-        <input checked={this.props.bookmarkedOnly} onChange={this.props.onBookedmarkedChange} name="check" type="checkBox" />
+        <input checked={this.props.bookmarkedOnly} onChange={this.props.onBookedmarkedChange}
+          name="check" type="checkBox" />
 
-        {this.addOption()}       
+        {this.addOption()}
         {/* {this.addInput('checkBox', 'name', "name", "Teste de Input")} */}
 
       </form>

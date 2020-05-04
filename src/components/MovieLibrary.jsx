@@ -60,10 +60,12 @@ export default class MovieLibrary extends Component {
 
     return (
       <div>
-        <SearchBar searchText={searchText}
+        <SearchBar
+          searchText={searchText}
           onSearchTextChange={(event) => this.textOrGenreChange(event, 'searchText')}
           bookmarkedOnly={bookmarkedOnly} onBookedmarkedChange={this.onBookedmarkedChange}
-          onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}  selectedGenre={selectedGenre} />
+          onSelectedGenreChange={(event) => this.textOrGenreChange(event, 'selectedGenre')}
+          selectedGenre={selectedGenre} />
 
         <MovieList movies={this.filterMovies(movies)} />
         <AddMovie onClick={this.addMovie} />
