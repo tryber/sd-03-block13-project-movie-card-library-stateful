@@ -10,7 +10,7 @@ const reset = {
 };
 
 class AddMovie extends React.Component {
-  constructor (props){
+  constructor(props) {
     super(props);
     this.state = {
       subtitle: '',
@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   handleChange(event, name) {
@@ -45,27 +45,28 @@ class AddMovie extends React.Component {
     );
   }
 
-  render () {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state
+  render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
         {this.createInput('title', title, 'Título')}
         {this.createInput('subtitle', subtitle, 'Subtítulo')}
         {this.createInput('imagePath', imagePath, 'Imagem')}
-        <label htmlFor='storyline'>Sinopse</label>
-        <textarea name='storyline' value={storyline} onChange={(e) =>
-          this.setState({ storyline: e.target.value })}></textarea>
+        <label htmlFor="storyline">Sinopse</label>
+        <textarea name="storyline" value={storyline}
+        onChange={(e) => this.setState({ storyline: e.target.value })} />
         {this.createInput('rating', rating, 'Avaliação', 'number')}
-        <label htmlFor='genre'>Gênero</label>
+        <label htmlFor="genre">Gênero</label>
         <select value={genre} onChange={(e) => this.setState({ genre: e.target.value })}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="button" onClick={() => {
-          this.props.onClick(this.state); this.setState(reset);}}>Adicionar filme</button>
+        <button type="button" 
+        onClick={() => { this.props.onClick(this.state); this.setState(reset); }}>Adicionar filme
+        </button>
       </form>
-    )
+    );
   }
 }
 
