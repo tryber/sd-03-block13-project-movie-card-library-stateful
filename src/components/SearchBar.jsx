@@ -52,20 +52,10 @@ export default class SearchBar extends React.Component {
 
   render() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
-    // searchText string, onSearchTextChange callback, bookmarkedOnly boolean
-    // onBookmarkedChange callback, selectedGenre string, onSelectedGenreChange callback
     return (
       <form>
         {this.favoriteOnly()}
         {this.includesText()}
-        {/* <label htmlFor="input">
-          Inclui o texto:
-          <input type="text" value={searchText} onChange={onSearchTextChange} />
-        </label>
-        <label htmlFor="input">
-          Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-        </label> */}
         <label htmlFor="select">
           Filtrar por gênero
           <select
