@@ -52,12 +52,10 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    // console.log('estou no AddMovie, este é o state: ', this.state);
-    // console.log('AddMovie props:', this.props);
     const { title, subtitle, imagePath, storyLine, rating } = this.state;
     return (
       <div className="movie-card">
-        <form className="" action="">
+        <form>
           <label htmlFor="title">Título</label>
           <input type="text" name="title" id="title" value={title} onChange={this.handleChange} />
 
