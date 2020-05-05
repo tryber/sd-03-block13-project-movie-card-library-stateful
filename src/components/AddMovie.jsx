@@ -11,12 +11,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.chamaNaRefatoracao = this.chamaNaRefatoracao.bind(this);
+
     this.updState = this.updState.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   chamaNaRefatoracao(type, id, value, onChange) {
+    this.chamaNaRefatoracao = this.chamaNaRefatoracao.bind(this);
     if (type === 'textarea') {
       return <textarea id={id} value={value} onChange={onChange} />;
     }
