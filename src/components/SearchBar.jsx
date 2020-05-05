@@ -1,4 +1,5 @@
-// implement SearchBar component here
+import React from 'react';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -24,3 +25,5 @@ class SearchBar extends React.Component {
     </div>);
   }
 }
+
+export default SearchBar;

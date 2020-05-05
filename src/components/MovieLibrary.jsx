@@ -1,4 +1,3 @@
-// implement MovieLibrary component here
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
