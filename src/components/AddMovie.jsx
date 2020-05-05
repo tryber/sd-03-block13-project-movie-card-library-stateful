@@ -37,7 +37,8 @@ class AddMovie extends React.Component {
   }
 
   onChangeRating(event) {
-    this.setState({ rating: event.target.value });
+    const { value } = event.target;
+    this.setState({ rating: parseFloat(value) });
   }
 
   onChangeGenre(event) {

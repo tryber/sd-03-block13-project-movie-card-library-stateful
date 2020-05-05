@@ -22,7 +22,6 @@ class MovieLibrary extends React.Component {
 
   onCliclAddMovie(filme) {
     const movies = this.state.movies;
-    filme.rating = parseFloat(filme.rating);
     movies.push(filme);
     this.setState({ movies });
   }
