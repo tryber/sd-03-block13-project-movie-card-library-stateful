@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@raphaRS 
+tryber
+/
+sd-03-block13-project-movie-card-library-stateful
+generated from betrybe/sd-0x-block13-project-movie-card-library-stateful
+10
+0
+0
+ Code
+ Issues 0
+ Pull requests 41 Actions
+ Projects 0
+ Wiki
+ Security 0
+ Insights
+sd-03-block13-project-movie-card-library-stateful/src/components/MovieLibrary.test.js /
+@ilan274 ilan274 Project done
+44cb0de 5 days ago
+@ilan274@jeanpsv
+ 275 lines (221 sloc)  9.79 KB
+ 
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 
@@ -273,3 +302,5 @@ describe('<MovieLibrary /> should render <AddMovie />', () => {
     expect(newMovies[newMovies.length - 1]).toEqual(newMovie);
   });
 });
+
+
