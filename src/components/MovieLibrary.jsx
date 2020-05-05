@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
       filters = movies;
     }
     if (bookmarkedOnly === true) {
-      filters = filters.filter((item) => item.bookmarked === true)
+      filters = filters.filter((item) => item.bookmarked === true);
     }
     if (searchText !== '') {
       filters = filters.filter((item) =>
