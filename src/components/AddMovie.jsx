@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 export default class AddMovie extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1></h1>
+      </div>
+    );
   }
 }

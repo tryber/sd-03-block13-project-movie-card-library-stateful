@@ -5,8 +5,12 @@ import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
   render() {
-    <SearchBar />
-    <MovieList />
-    <AddMovie />
+    return (
+      <div>
+        <SearchBar />
+        <MovieList />
+        <AddMovie />
+      </div>
+    );
   }
 }
