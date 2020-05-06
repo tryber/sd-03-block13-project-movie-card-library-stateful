@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const {
     searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
     selectedGenre, onSelectedGenreChange,
-  } = this.props;
+  } = props;
 
   return (
     <form>
