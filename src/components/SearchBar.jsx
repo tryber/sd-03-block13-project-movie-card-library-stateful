@@ -16,10 +16,10 @@ const SearchBar = (props) => {
       </label>
       <label htmlFor="selectedGenre">Filtrar por gênero
       <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange} />
-        <option value="">Todos</option>
-        <option value="action">Ação</option>
-        <option value="comedy">Comédia</option>
-        <option value="thriller">Suspense</option>
+        <option key="Todos" value="">Todos</option>
+        <option key="Ação" value="action">Ação</option>
+        <option key="Comédia" value="comedy">Comédia</option>
+        <option key="Suspense" value="thriller">Suspense</option>
       </label>
     </form>
   );
