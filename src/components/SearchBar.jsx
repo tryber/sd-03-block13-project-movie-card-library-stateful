@@ -6,7 +6,7 @@ export default class SearchBar extends React.Component {
       <form>
         <input type="text" name="" id="" />
         <input type="checkbox" name="" id="" />
-        <select name="" id=""/>
+        <select name="" id="" />
       </form>
     );
   }
