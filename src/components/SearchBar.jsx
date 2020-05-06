@@ -5,7 +5,7 @@ const genreArray = [
     { text: 'Ação', value: 'action' },
     { text: 'Comédia', value: 'comedy' },
     { text: 'Suspense', value: 'thriller' },
-  ];
+    ];
 
 export default class SearchBar extends React.Component {
   render() {
