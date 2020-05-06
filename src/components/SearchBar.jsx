@@ -9,10 +9,10 @@ const SearchBar = () => {
   return (
     <form>
       <label htmlFor="searchText">Inclui o texto:
-      <input type="text" name="searchText" value={searchText} onChange={onSearchTextChange} />
+      <input type="text" id="searchText" value={searchText} onChange={onSearchTextChange} />
       </label>
-      <label htmlFor="bookmarkedOnly">Mostrar somente favoritos
-      <input type="checkbox" id="bookmarkedOnly" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+      <label htmlFor="check">Mostrar somente favoritos
+      <input type="checkbox" id="check" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
       </label>
       <label htmlFor="selectedGenre">Filtrar por gênero
       <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange} />
