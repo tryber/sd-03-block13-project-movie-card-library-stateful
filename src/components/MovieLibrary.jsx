@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
   }
 
   insertSearch(value) {
-    this.setState((state) => ({ searchText: `${state.searchText}${value}`, }));
+    this.setState((state) => ({ searchText: `${state.searchText}${value}` }));
   }
 
   changeBookMark() {
