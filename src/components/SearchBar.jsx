@@ -10,9 +10,9 @@ export class SearchBar extends Component {
         <form>
           <label htmlFor="text">Inclui o texto:</label>
           <input type="text" value={searchText} onChange={onSearchTextChange} />
-          <label htmlFor="">Mostrar somente favoritos</label>
+          <label htmlFor="checkbox">Mostrar somente favoritos</label>
           <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-          <label htmlFor="">Filtrar por gênero</label>
+          <label htmlFor="genre">Filtrar por gênero</label>
           <select value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
