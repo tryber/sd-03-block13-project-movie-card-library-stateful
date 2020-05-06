@@ -8,24 +8,22 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
-    }
+      selectedGenre: '',
+    };
   }
 
   insertSearch(value) {
-    this.setState((state) => ({
-      searchText: `${state.searchText}${value}`,
-    }));
+    this.setState((state) => ({ searchText: `${state.searchText}${value}`, }));
   }
 
   changeBookMark() {
-    this.setState({ bookmarkedOnly: true, });
+    this.setState({ bookmarkedOnly: true });
   }
 
   selectGenre(value) {
-    this.setState({selectedGenre: value,});
+    this.setState({ selectedGenre: value });
   }
 
   render() {
@@ -33,12 +31,12 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-        searchText={this.state.searchText}
-        onSearchTextChange={() => this.insertSearch()}
-        bookmarkedOnly={this.state.bookmarkedOnly}
-        onBookmarkedChange={() => this.changeBookMark()}
-        selectedGenre={this.state.selectedGenre}
-        onSelectedGenreChange={() => this.selectGenre()}
+          searchText={this.state.searchText}
+          onSearchTextChange={() => this.insertSearch()}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={() => this.changeBookMark()}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={() => this.selectGenre()}
         />
         {/* <MovieList movies={this.props.movies} />
         <AddMovie /> */}
