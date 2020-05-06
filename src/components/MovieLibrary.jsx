@@ -14,17 +14,17 @@ class MovieLibrary extends Component {
     }
   }
 
-  insertSearch = (value) => {
+  insertSearch(value) {
     this.setState((state) => ({
       searchText: `${state.searchText}${value}`,
     }));
   }
 
-  changeBookMark = () => {
+  changeBookMark() {
     this.setState({ bookmarkedOnly: true, });
   }
 
-  selectGenre = (value) => {
+  selectGenre(value) {
     this.setState({selectedGenre: value,});
   }
 
