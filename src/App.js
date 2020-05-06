@@ -1,20 +1,15 @@
-import React from 'react';
-import './App.css';
-
-import Header from './components/Header';
-import MovieList from './components/MovieList';
-import MoviesList from './data';
-import SearchBar from './components/SearchBar';
+import React from "react";
+import MovieLibrary from "./components/MovieLibrary";
+import Data from "./data";
+import "./App.css";
+import Header from "./components/Header";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <div>
-          <SearchBar />
-        </div>
-        <MovieList movies={MoviesList} />
+        <MovieLibrary movies={Data} />
       </div>
     );
   }
