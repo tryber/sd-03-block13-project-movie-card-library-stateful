@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 
+const genreArray = [
+  { text: 'Todos', value: '' },
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
+];
+
 export class SearchBar extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
@@ -14,10 +21,11 @@ export class SearchBar extends Component {
           <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           <label htmlFor="genre">Filtrar por gênero</label>
           <select value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            {genreArray.map(({ text, value }) => (
+              <option key={text} value={value}>
+                {text}
+              </option>
+            ))}
           </select>
         </form>
       </div>
