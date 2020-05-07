@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
           type="text"
           id="titulo"
           name="title"
-          onChange={(elem) => this.handleChange(elem,'title')}
+          onChange={(elem) => this.handleChange(elem, 'title')}
           value={title}
         />
       </label>
@@ -49,7 +49,7 @@ class AddMovie extends React.Component {
           type="text"
           id="subtitulo"
           name="subtitle"
-          onChange={(elem) => this.handleChange(elem,'subtitle')}
+          onChange={(elem) => this.handleChange(elem, 'subtitle')}
           value={subtitle}
         />
       </label>
@@ -65,7 +65,7 @@ class AddMovie extends React.Component {
           type="text"
           id="imagem"
           name="imagePath"
-          onChange={(elem) => this.handleChange(elem,'imagePath')}
+          onChange={(elem) => this.handleChange(elem, 'imagePath')}
           value={imagePath}
         />
       </label>
@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
           type="textarea"
           id="sinopse"
           name="storyline"
-          onChange={(elem) => this.handleChange(elem,'storyline')}
+          onChange={(elem) => this.handleChange(elem, 'storyline')}
           value={storyline}
         />
       </label>
@@ -97,7 +97,7 @@ class AddMovie extends React.Component {
           type="number"
           id="avaliacao"
           name="rating"
-          onChange={(elem) => this.handleChange(elem,'rating')}
+          onChange={(elem) => this.handleChange(elem, 'rating')}
           value={Number(rating)}
         />
       </label>
@@ -113,7 +113,7 @@ class AddMovie extends React.Component {
           type="text"
           id="genero"
           name="genre"
-          onChange={this.handleChange['genre']}
+          onChange={(elem) => this.handleChange(elem, 'genre')}
           value={genre}
         >
           <option text="Ação" value="action">Ação</option>
