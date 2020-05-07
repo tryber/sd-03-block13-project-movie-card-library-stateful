@@ -1,8 +1,10 @@
 import React from 'react';
+import genres from '../genreData';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       title: '',
       subtitle: '',
@@ -11,6 +13,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    
+    this.insertTitle = this.insertTitle.bind(this);
+    this.insertSubt = this.insertSubt.bind(this);
+    this.insertStory = this.insertStory.bind(this);
+    this.insertRating = this.insertRating.bind(this);
+    this.changeGenreType = this.changeGenreType.bind(this);
+    this.clickToAdd = this.clickToAdd.bind(this);
   }
 
   insertTitle(event) {
@@ -21,24 +30,25 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: event.target.value });
   }
 
-  insertStoryline(value) {
-    this.setState((state) => ({ storyline: `${state.storyline}${value}` }));
+  insertStory(event) {
+    this.setState({ storyline: event.target.value });
   }
 
-  insertRating(value) {
-    this.setState((state) => ({ rating: state.rating + value }));
+  insertRating(event) {
+    this.setState({ rating: event.target.value });
   }
 
-  changeGenreType(value) {
-    this.setState({ genre: value });
+  changeGenreType(event) {
+    this.setState({ genre: event.target.value });
   }
 
-  // clickToAdd() {
-
-  // }
+  clickToAdd(event) {
+    if (event && event.preventDefault) event.preventDefault();
+    this.props.onClick(this.state);
+  }
 
   render() {
-    const { storyline, onStoryChange, rating, onRatingChange, genre, onGenreChange } = this.props;
+    const genreAdd = genres.slice(1, 4);
 
     return (
       <form>
@@ -48,19 +58,19 @@ class AddMovie extends React.Component {
         <label htmlFor="subtitle">Subtítulo
         <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.insertSubt} />
         </label>
-        <label htmlFor="storyline">Sinopse
-        <textarea type="text" id="storyline" value={storyline} onChange={onStoryChange} />
+        <label htmlFor="stor">Sinopse
+        <textarea type="text" id="stor" value={this.state.storyline} onChange={this.insertStory} />
         </label>
         <label htmlFor="rating">Avaliação
-        <input type="number" id="rating" value={rating} onChange={onRatingChange} />
+        <input type="number" id="rating" value={this.state.rating} onChange={this.insertRating} />
         </label>
         <label htmlFor="genre">Gênero
-        <select id="genre" value={genre} onChange={onGenreChange} />
-          <option key="Ação" value="action">Ação</option>
-          <option key="Comédia" value="comedy">Comédia</option>
-          {/* <option key="Suspense" value="thriller">Suspense</option> */}
+        <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
+          {genreAdd.map((genre) => (
+            <option key={genre.value} value={genre.value}>{genre.option}</option>
+          ))}
         </label>
-        {/* <button type="button" onClick={() => clickToAdd()} >Adicionar filme</button> */}
+        <button type="submit" onClick={this.clickToAdd} >Adicionar filme</button>
       </form>
     );
   }
