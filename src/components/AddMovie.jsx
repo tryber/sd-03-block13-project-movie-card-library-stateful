@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
         <label htmlFor="rating">Avaliação
         <input type="number" id="rating" value={this.state.rating} onChange={this.insertRating} />
         </label>
-        <this.genreForm />
+        { this.genreForm() }
         <button type="submit" onClick={this.clickToAdd} >Adicionar filme</button>
       </form>
     );
