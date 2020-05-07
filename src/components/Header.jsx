@@ -10,9 +10,7 @@ class Header extends React.Component {
       firstName: 'Harper',
       lastName: 'Perez',
     };
- 
   }
-
 
   render() {
     return (
