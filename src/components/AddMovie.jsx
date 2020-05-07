@@ -17,10 +17,16 @@ export default class AddMovie extends Component {
     this.adicionarfilme = this.adicionarfilme.bind(this);
   }
 
-  handleChange(event) {
-    const { id, value } = event.target;
-    this.setState({ [id]: value });
+  /* handleChange(name, value) {
+    // const { id, value } = event.target;
+    this.setState({ [name]: value });
     console.log(this.state);
+  } */
+
+  handleChange(event, stateElem) {
+    const { value } = event.target;
+
+    this.setState({ [stateElem]: (stateElem === 'rating' ? parseFloat(value) : value) });
   }
 
   adicionarfilme() {
@@ -48,7 +54,7 @@ export default class AddMovie extends Component {
             type="text"
             id="title"
             value={title}
-            onChange={this.handleChange}
+            onChange={(event) => this.handleChange(event, 'title')}
           />
         </label>
       </div>
@@ -65,7 +71,7 @@ export default class AddMovie extends Component {
           type="text"
           id="subtitle"
           value={subtitle}
-          onChange={this.handleChange}
+          onChange={(event) => this.handleChange(event, 'subtitle')}
         />
       </label>
     );
@@ -82,7 +88,7 @@ export default class AddMovie extends Component {
             type="text"
             id="imagePath"
             value={imagePath}
-            onChange={this.handleChange}
+            onChange={(event) => this.handleChange(event, 'imagePath')}
           />
         </label>
       </div>
@@ -99,7 +105,7 @@ export default class AddMovie extends Component {
           <textarea
             id="storyline"
             value={storyline}
-            onChange={this.handleChange}
+            onChange={(event) => this.handleChange(event, 'storyline')}
           />
         </label>
       </div>
@@ -117,7 +123,7 @@ export default class AddMovie extends Component {
             type="number"
             id="rating"
             value={rating}
-            onChange={(event) => this.handleChange(event)}
+            onChange={(event) => this.handleChange(event, 'rating')}
           />
         </label>
       </div>
