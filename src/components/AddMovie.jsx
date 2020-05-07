@@ -63,7 +63,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <label htmlFor="rating">Avaliação</label>
-          <input type="number" value={this.state.rating} value={rating} name="rating" onChange={this.alteraAvaliacao} />
+        <input type="number" value={this.state.rating} value={rating} name="rating" onChange={this.alteraAvaliacao} />
       </div>
     );
   }
