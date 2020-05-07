@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import React, { Component } from 'react';
+import React from 'react';
 
 const genreArr = [
   { text: 'Ação', value: 'action' },
@@ -7,7 +7,7 @@ const genreArr = [
   { text: 'Suspense', value: 'thriller' },
 ];
 
-class AddMovie extends Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
