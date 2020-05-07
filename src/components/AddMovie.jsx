@@ -1,57 +1,98 @@
 import React, { Component } from 'react';
 
-const genreArray = [
-  { text: 'Ação', value: 'action' },
-  { text: 'Comédia', value: 'comedy' },
-  { text: 'Suspense', value: 'thriller' },
-];
-
-export class AddMovie extends Component {
+const selection = (selectedGenre, onSelectedGenreChange) => {
+  const selectArr = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
+  return (
+    <div>
+      <label htmlFor="genre">
+      Gênero
+        <select
+          id="genre"
+          name="genre"
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+        >
+          {selectArr.map((option) => (
+            <option key={option[0]} value={option[0]}>
+              {option[1]}
+            </option>
+          ))}
+        </select>
+      </label>
+    </div>
+  );
+};
+const input = (type, innerText, name, value, onChange) => (
+  <div>
+    <label htmlFor={name}>
+      {innerText}
+      <input
+        name={name}
+        id={name}
+        value={value}
+        onChange={onChange}
+        type={type}
+      />
+    </label>
+  </div>
+);
+class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
-
-    this.handleChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
-  handleChange(event) {
-      const {evento} = event
-    this.setState({ [evento]: event.target.value });
+  onChange(value, name) {
+    // const { value } = event.target;
+    console.log(value);
+    this.setState({ [name]: value });
   }
-  
+
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <div>
-        <form>
-          <label htmlFor="Título">Título</label>
-          <input type="text" value={this.state.title} onChange={this.handleChange} />
-          <label htmlFor="Subtítulo">Subtítulo</label>
-          <input type="text" value={this.state.subtitle} />
-          <label htmlFor="Imagem">Imagem</label>
-          <input type="text" value={this.state.imagePath} />
-          <label htmlFor="Sinopse">Sinopse</label>
-          <textarea cols="30" rows="10" value={this.state.storyline} />
-          <label htmlFor="Avaliação">Avaliação</label>
-          <input type="number" value={this.state.rating} />
-          <label htmlFor="Gênero">Gênero</label>
-          <select value={this.state.genre}>
-            {genreArray.map(({ text, value }) => (
-              <option key={text} value={value}>
-                {text}
-              </option>
-            ))}
-          </select>
-          <button>Adicionar filme</button>
-        </form>
-      </div>
+      <form>
+        {input('text', 'Título', 'title', title, (e) => this.onChange(e.target.value, 'title'))}
+        {input('text', 'Subtítulo', 'subtitle', subtitle, (e) => this.onChange(e.target.value, 'subtitle'))}
+        {input('text', 'Imagem', 'imagePath', imagePath, (e) => this.onChange(e.target.value, 'imagePath'))}
+        <label htmlFor="storyline">
+          Sinopse
+          <textarea
+            name="storyline"
+            value={storyline}
+            onChange={(e) => this.onChange(e.target.value, 'storyline')}
+          />
+        </label>
+        {input('number', 'Avaliação', 'rating', rating, (e) => this.onChange(
+          Number(e.target.value), 'rating',
+        ))}
+        {selection(genre, (e) => this.onChange(e.target.value, 'genre'))}
+        <button type="button" onClick={this.addMovie}>
+          Adicionar filme
+        </button>
+      </form>
     );
   }
 }
