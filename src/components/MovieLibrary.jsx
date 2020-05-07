@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
     };
     this.insertSearch = this.insertSearch.bind(this);
     this.changeBookMark = this.changeBookMark.bind(this);
+    this.selectGenre = this.selectGenre.bind(this);
   }
 
   insertSearch(event) {

@@ -52,9 +52,17 @@ class AddMovie extends React.Component {
     this.props.onClick(this.state);
   }
 
-  render() {
+  genreForm() {
     const genreAdd = genres.slice(1, 4);
+    <label htmlFor="genre">Gênero
+    <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
+      {genreAdd.map((genre) => (
+        <option key={genre.value} value={genre.value}>{genre.option}</option>
+      ))}
+    </label>
+  }
 
+  render() {
     return (
       <form>
         <label htmlFor="title">Título
@@ -72,12 +80,7 @@ class AddMovie extends React.Component {
         <label htmlFor="rating">Avaliação
         <input type="number" id="rating" value={this.state.rating} onChange={this.insertRating} />
         </label>
-        <label htmlFor="genre">Gênero
-        <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
-          {genreAdd.map((genre) => (
-            <option key={genre.value} value={genre.value}>{genre.option}</option>
-          ))}
-        </label>
+        {this.renderGenre()}
         <button type="submit" onClick={this.clickToAdd} >Adicionar filme</button>
       </form>
     );
