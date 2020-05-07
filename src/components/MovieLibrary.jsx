@@ -13,6 +13,8 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
+      title: '',
+      subtitle: '',
     };
   }
 
@@ -28,6 +30,14 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  insertTitle(event) {
+    this.setState({ title: event.target.value });
+  }
+
+  insertSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
+  }
+
   render() {
     return (
       <div>
@@ -41,7 +51,12 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.selectGenre}
         />
         {/* <MovieList movies={this.props.movies} /> */}
-        <AddMovie />
+        <AddMovie
+          title={this.state.title}
+          onTitleChange={this.insertTitle}
+          subtitle={this.state.subtitle}
+          onSubtitleChange={this.insertSubtitle}
+        />
       </div>
     );
   }
