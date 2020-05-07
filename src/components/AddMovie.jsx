@@ -16,8 +16,8 @@ class AddMovie extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e, type) {
-    const input = e.target;
+  handleChange(event, type) {
+    const input = event.target;
     if (type === 'rating') { this.setState({ [type]: +input.value }); } else this.setState({ [type]: input.value });
     console.log(this.state);
   }
@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  firstlabels() {
+  forms1() {
     const { title, subtitle, imagePath } = this.state;
     return (
       <div>
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  morelabels() {
+  forms2() {
     const { storyline, rating } = this.state;
     return (
       <div>
@@ -84,8 +84,8 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          {this.firstlabels()}
-          {this.morelabels()}
+          {this.forms1()}
+          {this.forms2()}
           <div>
             <label htmlFor="genre">
               Gênero
