@@ -5,8 +5,10 @@ class SearchBar extends React.Component {
     super(props);
   } */
   render() {
-    const {searchText, onSearchTextChange, bookmarkedOnly, 
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange} = this.props
+    const { 
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange 
+    } = this.props;
     return (
       <form>
         <div>
@@ -14,8 +16,8 @@ class SearchBar extends React.Component {
           <input id="textSearch" type="text" value={searchText} onChange={onSearchTextChange} />
         </div>
         <div>
-          <label htmlFor="selectFavorites">Mostrar somente favoritos</label>
-          <input id="selectFavorites" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <label htmlFor="fav">Mostrar somente favoritos</label>
+          <input id="fav" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </div>
         <div>
           <label htmlFor="filter">Filtrar por gênero</label>
