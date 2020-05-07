@@ -1,85 +1,96 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class AddMovie extends React.Component {
+const initialState = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
+class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    };
-    this.changeHandler = this.changeHandler.bind(this);
-    this.alteraAvaliacao = this.alteraAvaliacao.bind(this);
-    this.passaState = this.passaState.bind(this);
+
+    this.state = initialState;
   }
 
-  changeHandler(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  onChangeHandler(event, type) {
+    const { value } = event.target;
+    if (type === 'rating') { this.setState({ [type]: +value }); } else this.setState({ [type]: value });
   }
 
-  alteraAvaliacao(event) {
-    this.setState({ rating: Number(event.target.value) });
+  reset() {
+    this.setState(initialState);
   }
 
-  passaState() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    });
+  createInput(inputName, text, inputType = 'text') {
+    const stat = this.state;
+    return (
+      <label htmlFor={inputName}>
+        {text}
+        <input
+          type={inputType}
+          name={inputName}
+          id={inputName}
+          value={stat[inputName]}
+          onChange={(e) => this.onChangeHandler(e, inputName)}
+        />
+      </label>
+    );
   }
 
-  someForms() {
-    const { title, subtitle, imagePath } = this.state;
+  botao(onClick) {
     return (
       <div>
-        <label htmlFor="input">
-          Título
-          <input type="text" onChange={this.changeHandler} value={title} name="title" />
-        </label>
-        <label htmlFor="input">
-          Subtítulo
-          <input type="text" value={subtitle} name="subtitle" onChange={this.changeHandler} />
-        </label>
-        <label htmlFor="input">
-          Imagem
-          <input type="text" value={imagePath} name="imagePath" onChange={this.changeHandler} />
-        </label>
+        <button
+          type="button"
+          value="Adicionar filme"
+          onClick={() => {
+            onClick(this.state); this.reset();
+          }}
+        >
+        Adicionar filme
+        </button>
       </div>
     );
   }
 
-  formRating() {
-    const { rating } = this.state;
+  genero() {
+    const { genre } = this.state;
     return (
       <div>
-        <label htmlFor="rating">Avaliação</label>
-        <input type="number" value={this.state.rating} value={rating} name="rating" onChange={this.alteraAvaliacao} />
+        <label htmlFor="Gênero">
+          Gênero
+          <select value={genre} onChange={(e) => this.onChangeHandler(e, 'genre')}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
       </div>
     );
   }
 
   render() {
+    const { storyline } = this.state;
+    const { onClick } = this.props;
     return (
-      <form onSubmit={this.passaState}>
-        {this.someForms()}
-        <label htmlFor="storyLine">Sinopse</label>
-        <textarea name="storyLine" value={this.state.storyLine} onChange={this.changeHandler} />
-        {this.formRating()}
-        <label htmlFor="genre">Gênero</label>
-        <select value={this.state.genre} name="genre" onChange={this.changeHandler}>
-          <option value="action">Ação</option><option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select> <button onClick={this.passaState}>Adicionar filme</button></form>
+      <div>
+        <form id="form1">
+          {this.createInput('title', 'Título')}
+          {this.createInput('subtitle', 'Subtítulo')}
+          {this.createInput('imagePath', 'Imagem')}
+          <label htmlFor="input">
+          Sinopse
+            <textarea value={storyline} onChange={(e) => this.onChangeHandler(e, 'storyline')} />
+          </label>
+          {this.createInput('rating', 'Avaliação', 'number', this.handleChangeRating)}
+          {this.genero()}
+          {this.botao(onClick)}
+        </form>
+      </div>
     );
   }
 }
