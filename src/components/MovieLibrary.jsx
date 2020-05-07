@@ -1,5 +1,4 @@
 import React from 'react';
-import movies from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -11,7 +10,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: this.props.movies,
     };
     this.handleBmChange = this.handleBmChange.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
