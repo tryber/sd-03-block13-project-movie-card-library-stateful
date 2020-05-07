@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
 
     this.insertTitle = this.insertTitle.bind(this);
     this.insertSubt = this.insertSubt.bind(this);
+    this.insertImg = this.insertImg.bind(this);
     this.insertStory = this.insertStory.bind(this);
     this.insertRating = this.insertRating.bind(this);
     this.changeGenreType = this.changeGenreType.bind(this);
@@ -28,6 +29,10 @@ class AddMovie extends React.Component {
 
   insertSubt(event) {
     this.setState({ subtitle: event.target.value });
+  }
+
+  insertImg(event) {
+    this.setState({ imagePath: event.target.value });
   }
 
   insertStory(event) {
@@ -57,6 +62,9 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="subtitle">Subtítulo
         <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.insertSubt} />
+        </label>
+        <label htmlFor="imagePath">Subtítulo
+        <input type="text" id="imagePath" value={this.state.imagePath} onChange={this.insertImg} />
         </label>
         <label htmlFor="stor">Sinopse
         <textarea type="text" id="stor" value={this.state.storyline} onChange={this.insertStory} />
