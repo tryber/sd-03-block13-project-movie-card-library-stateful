@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  insertSearch = (event) => {
+  insertSearch (event) {
     this.setState({ searchText: event.target.value });
   }
 
