@@ -124,12 +124,6 @@ class AddMovie extends React.Component {
     );
   }
 
-  handleClick() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(this.initialState);
-  }
-
   render() {
     return (
       <div>
@@ -144,7 +138,10 @@ class AddMovie extends React.Component {
         <button
           type="button"
           value="Adicionar filme"
-          onClick={this.handleClick}
+          onClick={() => {
+            this.props.onClick(this.state);
+            this.setState(this.initialState); 
+          }}
         >
           Adicionar filme
         </button>
