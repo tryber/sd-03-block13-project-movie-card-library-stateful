@@ -14,8 +14,8 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        {/*<MovieList movies={this.props.movies} />
+        <AddMovie /> */}
       </div>
     );
   }
