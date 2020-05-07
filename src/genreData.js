@@ -15,6 +15,6 @@ const genres = [
     option: 'Suspense',
     value: 'thriller',
   },
-]
+];
 
 export default genres;

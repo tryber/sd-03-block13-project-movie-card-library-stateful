@@ -1,5 +1,5 @@
 import React from 'react';
-import genres from '../genreData'
+import genres from '../genreData';
 
 const SearchBar = (props) => {
   const {
@@ -17,7 +17,9 @@ const SearchBar = (props) => {
       </label>
       <label htmlFor="selectedGenre">Filtrar por gênero
       <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange} />
-        {genres.map((genre) => (<option key={genre.value} value={genre.value}>{genre.option}</option>))}
+        {genres.map((genre) => (
+        <option key={genre.value} value={genre.value}>{genre.option}</option>
+        ))}
       </label>
     </form>
   );
