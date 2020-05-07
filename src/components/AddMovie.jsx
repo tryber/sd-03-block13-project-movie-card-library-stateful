@@ -17,7 +17,12 @@ export class AddMovie extends Component {
     return (
       <div>
         <form>
-          <label htmlFor="title">Título</label>
+        <label htmlFor="title">Título</label>
+        <label htmlFor="subtitle">Subtítulo</label>
+        <label htmlFor="imagePath">Imagem</label>
+        <label htmlFor="storyLine">Sinopse</label>
+        <label htmlFor="rating">Avaliação</label>
+        <label htmlFor="genre">Gênero</label>
         </form>
       </div>
     );
