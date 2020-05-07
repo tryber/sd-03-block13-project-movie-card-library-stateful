@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <label htmlFor="searchText">
-        Inclui o texto
+        Inclui o texto:
         <input
           type="text"
           name="searchText"
