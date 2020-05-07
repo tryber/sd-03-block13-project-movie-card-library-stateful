@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
   // }
 
   render() {
-    const { storyline, onStoryChange, rating, onRatingChange, genre, onGenreChange, } = this.props;
+    const { storyline, onStoryChange, rating, onRatingChange, genre, onGenreChange } = this.props;
 
     return (
       <form>
