@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     this.insertSearch = this.insertSearch.bind(this);
     this.changeBookMark = this.changeBookMark.bind(this);
     this.selectGenre = this.selectGenre.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   insertSearch(event) {
@@ -29,6 +30,10 @@ class MovieLibrary extends Component {
 
   selectGenre(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  addMovie(movie) {
+    this.setState((state) => ({ movies: [state.movies, movie] }));
   }
 
   render() {
@@ -44,7 +49,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.selectGenre}
         />
         {/* <MovieList movies={this.props.movies} /> */}
-        <AddMovie />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }

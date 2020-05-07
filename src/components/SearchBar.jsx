@@ -16,10 +16,11 @@ const SearchBar = (props) => {
       <input type="checkbox" id="check" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
       </label>
       <label htmlFor="selectedGenre">Filtrar por gênero
-      <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange} />
+      <select id="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
         {genres.map((genre) => (
           <option key={genre.value} value={genre.value}>{genre.option}</option>
         ))}
+      </select>
       </label>
     </form>
   );

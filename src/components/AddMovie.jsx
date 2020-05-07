@@ -19,6 +19,7 @@ class AddMovie extends React.Component {
     this.insertImg = this.insertImg.bind(this);
     this.insertStory = this.insertStory.bind(this);
     this.insertRating = this.insertRating.bind(this);
+    this.genreForm = this.genreForm.bind(this);
     this.changeGenreType = this.changeGenreType.bind(this);
     this.clickToAdd = this.clickToAdd.bind(this);
   }
@@ -56,10 +57,11 @@ class AddMovie extends React.Component {
     const genreAdd = genres.slice(1, 4);
     return (
       <label htmlFor="genre">Gênero
-      <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
+      <select id="genre" value={this.state.genre} onChange={this.changeGenreType}>
         {genreAdd.map((genre) => (
           <option key={genre.value} value={genre.value}>{genre.option}</option>
         ))}
+      </select>
       </label>
     );
   }
@@ -73,7 +75,7 @@ class AddMovie extends React.Component {
         <label htmlFor="subtitle">Subtítulo
         <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.insertSubt} />
         </label>
-        <label htmlFor="imagePath">Subtítulo
+        <label htmlFor="imagePath">Imagem
         <input type="text" id="imagePath" value={this.state.imagePath} onChange={this.insertImg} />
         </label>
         <label htmlFor="stor">Sinopse
@@ -82,7 +84,7 @@ class AddMovie extends React.Component {
         <label htmlFor="rating">Avaliação
         <input type="number" id="rating" value={this.state.rating} onChange={this.insertRating} />
         </label>
-        {this.renderGenre()}
+        <this.genreForm />
         <button type="submit" onClick={this.clickToAdd} >Adicionar filme</button>
       </form>
     );
