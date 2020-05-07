@@ -13,6 +13,19 @@ export class AddMovie extends Component {
     };
   }
 
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     return (
       <div>
@@ -23,6 +36,9 @@ export class AddMovie extends Component {
           <label htmlFor="storyLine">Sinopse</label>
           <label htmlFor="rating">Avaliação</label>
           <label htmlFor="genre">Gênero</label>
+          <button type="button" onClick={this.addMovie}>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
