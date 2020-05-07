@@ -98,7 +98,7 @@ class AddMovie extends React.Component {
           id="avaliacao"
           name="rating"
           onChange={(elem) => this.handleChange(elem, 'rating')}
-          value={Number(rating)}
+          value={rating}
         />
       </label>
     );
@@ -127,14 +127,14 @@ class AddMovie extends React.Component {
   handleClick() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(initialState);
+    this.setState(this.initialState);
   }
 
   render() {
     return (
       <div>
         <form>
-        {this.titulo()}
+          {this.titulo()}
           {this.subtitulo()}
           {this.imagem()}
           {this.sinopse()}
