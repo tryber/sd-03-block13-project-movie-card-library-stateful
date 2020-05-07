@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    
+
     this.insertTitle = this.insertTitle.bind(this);
     this.insertSubt = this.insertSubt.bind(this);
     this.insertStory = this.insertStory.bind(this);
