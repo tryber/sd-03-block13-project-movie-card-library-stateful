@@ -13,6 +13,7 @@ export default class MovieLibrary extends Component {
         selectedGenre: '',
         movies:  props.movies,
       };
+    }
     return (
       <div>
         <SearchBar />
