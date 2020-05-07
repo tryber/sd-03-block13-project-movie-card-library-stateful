@@ -54,12 +54,14 @@ class AddMovie extends React.Component {
 
   genreForm() {
     const genreAdd = genres.slice(1, 4);
-    <label htmlFor="genre">Gênero
-    <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
-      {genreAdd.map((genre) => (
-        <option key={genre.value} value={genre.value}>{genre.option}</option>
-      ))}
-    </label>
+    return (
+      <label htmlFor="genre">Gênero
+      <select id="genre" value={this.state.genre} onChange={this.changeGenreType} />
+        {genreAdd.map((genre) => (
+          <option key={genre.value} value={genre.value}>{genre.option}</option>
+        ))}
+      </label>
+    );
   }
 
   render() {
