@@ -34,41 +34,17 @@ export class AddMovie extends Component {
       <div>
         <form>
           <label htmlFor="Título">Título</label>
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={(event) => this.handleChange(event, 'title')}
-          />
+          <input type="text" value={this.state.title} onChange={(event) => this.handleChange(event, 'title')} />
           <label htmlFor="Subtítulo">Subtítulo</label>
-          <input
-            type="text"
-            value={this.state.subtitle}
-            onChange={(event) => this.handleChange(event, 'subtitle')}
-          />
+          <input type="text" value={this.state.subtitle} onChange={(event) => this.handleChange(event, 'subtitle')} />
           <label htmlFor="Imagem">Imagem</label>
-          <input
-            type="text"
-            value={this.state.imagePath}
-            onChange={(event) => this.handleChange(event, 'imagePath')}
-          />
+          <input type="text" value={this.state.imagePath} onChange={(event) => this.handleChange(event, 'imagePath')} />
           <label htmlFor="Sinopse">Sinopse</label>
-          <textarea
-            cols="30"
-            rows="10"
-            value={this.state.storyline}
-            onChange={(event) => this.handleChange(event, 'storyline')}
-          />
+          <textarea cols="30" rows="10" value={this.state.storyline} onChange={(event) => this.handleChange(event, 'storyline')} />
           <label htmlFor="Avaliação">Avaliação</label>
-          <input
-            type="number"
-            value={this.state.rating}
-            onChange={(event) => this.handleChange(event, 'rating')}
-          />
+          <input type="number" value={this.state.rating} onChange={(event) => this.handleChange(event, 'rating')} />
           <label htmlFor="Gênero">Gênero</label>
-          <select
-            value={this.state.genre}
-            onChange={(event) => this.handleChange(event, 'genre')}
-          >
+          <select value={this.state.genre} onChange={(event) => this.handleChange(event, 'genre')}>
             {genreArray.map(({ text, value }) => (
               <option key={text} value={value}>
                 {text}
