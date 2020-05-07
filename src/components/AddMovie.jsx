@@ -17,7 +17,7 @@ class AddMovie extends React.Component {
     this.setState({ title: event.target.value });
   }
 
-  insertSubtitle(event) {
+  insertSubt(event) {
     this.setState({ subtitle: event.target.value });
   }
 
@@ -38,9 +38,7 @@ class AddMovie extends React.Component {
   // }
 
   render() {
-    const {
-      storyline, onStoryLineChange, rating, onRatingChange, genre, onGenreChange,
-    } = this.props;
+    const { storyline, onStoryChange, rating, onRatingChange, genre, onGenreChange, } = this.props;
 
     return (
       <form>
@@ -48,10 +46,10 @@ class AddMovie extends React.Component {
         <input type="text" id="title" value={this.state.title} onChange={this.insertTitle} />
         </label>
         <label htmlFor="subtitle">Subtítulo
-        <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.insertSubtitle} />
+        <input type="text" id="subtitle" value={this.state.subtitle} onChange={this.insertSubt} />
         </label>
         <label htmlFor="storyline">Sinopse
-        <textarea type="text" id="storyline" value={storyline} onChange={onStoryLineChange} />
+        <textarea type="text" id="storyline" value={storyline} onChange={onStoryChange} />
         </label>
         <label htmlFor="rating">Avaliação
         <input type="number" id="rating" value={rating} onChange={onRatingChange} />
