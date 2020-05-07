@@ -140,7 +140,7 @@ class AddMovie extends React.Component {
           value="Adicionar filme"
           onClick={() => {
             this.props.onClick(this.state);
-            this.setState(this.initialState); 
+            this.setState(this.initialState);
           }}
         >
           Adicionar filme
