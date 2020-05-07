@@ -20,11 +20,11 @@ class MovieLibrary extends Component {
     this.setState({ searchText: event.target.value });
   }
 
-  changeBookMark = (event) => {
+  changeBookMark (event) {
     this.setState({ bookmarkedOnly: event.target.checked });
   }
 
-  selectGenre = (event) => {
+  selectGenre (event) {
     this.setState({ selectedGenre: event.target.value });
   }
 
