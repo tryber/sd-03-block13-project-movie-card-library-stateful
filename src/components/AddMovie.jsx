@@ -65,18 +65,18 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor='tlt'>Título</label>
-        <input id='tlt' value={this.state.title} onChange={this.changeTitle} type="text" />
-        <label htmlFor='sub' >Subtítulo</label>
-        <input id='sub' value={this.state.subtitle} onChange={this.changeSubtitle} type="text" />
-        <label htmlFor='img' >Imagem</label>
-        <input id='img' value={this.state.imagePath} onChange={this.changeImage} type="text" />
-        <label htmlFor='snp' >Sinopse</label>
-        <textarea id='snp' value={this.state.storyline} onChange={this.changeStoryline}></textarea>
-        <label htmlFor='rate' >Avaliação</label>
-        <input id='rate' value={this.state.rating} onChange={this.changeRating} type="number" />
-        <label htmlFor='gnr' >Gênero</label>
-        <select id='gnr' value={this.state.genre} onChange={this.changeGenre} >
+        <label htmlFor="tlt">Título</label>
+        <input id="tlt" value={this.state.title} onChange={this.changeTitle} type="text" />
+        <label htmlFor="sub" >Subtítulo</label>
+        <input id="sub" value={this.state.subtitle} onChange={this.changeSubtitle} type="text" />
+        <label htmlFor="img" >Imagem</label>
+        <input id="img" value={this.state.imagePath} onChange={this.changeImage} type="text" />
+        <label htmlFor="snp" >Sinopse</label>
+        <textarea id="snp" value={this.state.storyline} onChange={this.changeStoryline}></textarea>
+        <label htmlFor="rate" >Avaliação</label>
+        <input id="rate" value={this.state.rating} onChange={this.changeRating} type="number" />
+        <label htmlFor="gnr" >Gênero</label>
+        <select id="gnr" value={this.state.genre} onChange={this.changeGenre} >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
