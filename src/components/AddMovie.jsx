@@ -9,8 +9,8 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action',    
-    }
+      genre: 'action',
+    };
   }
 
   insertTitle(value) {
@@ -37,8 +37,11 @@ class AddMovie extends React.Component {
 
   // }
 
-  render () {
-    const { title, onTitleChange, subtitle, onSubtitleChange, storyline, onStoryLineChange, rating, onRatingChange, genre, onGenreChange, } = this.props;
+  render() {
+    const {
+      title, onTitleChange, subtitle, onSubtitleChange,
+      storyline, onStoryLineChange, rating, onRatingChange, genre, onGenreChange,
+    } = this.props;
 
     return (
       <form>
@@ -62,7 +65,7 @@ class AddMovie extends React.Component {
         </label>
         {/* <button type="button" onClick={() => clickToAdd()} >Adicionar filme</button> */}
       </form>
-    )
+    );
   }
 }
 
