@@ -20,6 +20,8 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.generateInput = this.generateInput.bind(this);
+    this.generateTextArea = this.generateTextArea.bind(this);
+    this.btnClick = this.btnClick.bind(this);
   }
 
   generateInput(txt, name, type, value) {
