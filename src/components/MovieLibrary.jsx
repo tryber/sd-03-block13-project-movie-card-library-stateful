@@ -45,8 +45,8 @@ class MovieLibrary extends React.Component {
     return false;
   }
 
-  movieFilter(movies) {
-    return movies.filter((movie) => this.bmCheck(movie) &&
+  movieFilter(film) {
+    return film.filter((movie) => this.bmCheck(movie) &&
     this.genreCheck(movie) &&
     this.textCheck(movie),
     );
@@ -66,7 +66,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.handleBmChange}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
-          />
+        />
         <MovieList movies={this.movieFilter(this.state.movies)} />
         <AddMovie onClick={this.updateMovieList} />
       </div>
