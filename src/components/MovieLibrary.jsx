@@ -7,23 +7,25 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: this.props.movies,
     };
   }
 
-  insertSearch(value) {
-    this.setState((state) => ({ searchText: `${state.searchText}${value}` }));
+  insertSearch = (event) => {
+    this.setState({ searchText: event.target.value });
   }
 
-  changeBookMark() {
-    this.setState({ bookmarkedOnly: true });
+  changeBookMark = (event) => {
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
-  selectGenre(value) {
-    this.setState({ selectedGenre: value });
+  selectGenre = (event) => {
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -32,11 +34,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={() => this.insertSearch()}
+          onSearchTextChange={this.insertSearch}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={() => this.changeBookMark()}
+          onBookmarkedChange={this.changeBookMark}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={() => this.selectGenre()}
+          onSelectedGenreChange={this.selectGenre}
         />
         {/* <MovieList movies={this.props.movies} /> */}
         <AddMovie />
