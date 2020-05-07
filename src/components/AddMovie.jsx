@@ -36,7 +36,7 @@ export class AddMovie extends Component {
           <label htmlFor="Gênero">Gênero</label>
           <select name="" id="" value={this.state.genre}>
             {genreArray.map(({ text, value }) => (
-            <option key={text} value={value}>{text}</option>
+              <option key={text} value={value}>{text}</option>
             ))}
           </select>
           <button>Adicionar filme</button>
