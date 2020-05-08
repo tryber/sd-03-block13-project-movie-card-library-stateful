@@ -46,15 +46,15 @@ class MovieLibrary extends Component {
   displayByGenre() {
     const filtered = this.displayBookmarked();
     if (this.state.selectedGenre === '') {
-      return filtered
+      return filtered;
     }
     return filtered.filter((movie) => movie.genre === this.state.selectedGenre);
   }
 
   displayByName() {
     const filtered2 = this.displayByGenre();
-    if (this.state.searchText === "") {
-      return filtered2
+    if (this.state.searchText === '') {
+      return filtered2;
     }
     return filtered2.filter((movie) =>
       (movie.title.toLowerCase()).includes(this.state.searchText.toLowerCase()) ||
