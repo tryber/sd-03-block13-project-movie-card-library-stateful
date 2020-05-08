@@ -1,5 +1,5 @@
 import React from 'react';
-import './AddMovie.css'
+import './AddMovie.css';
 
 class AddMovie extends React.Component {
   constructor(props) {

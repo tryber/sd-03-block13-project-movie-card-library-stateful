@@ -8,11 +8,11 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
     this.changeSearchText = this.changeSearchText.bind(this);
     this.changeBookmarked = this.changeBookmarked.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
@@ -23,49 +23,44 @@ class MovieLibrary extends Component {
   }
 
   changeSearchText(event) {
-    const input = event.target.value
-    this.setState({ searchText: input })
+    const input = event.target.value;
+    this.setState({ searchText: input });
   }
 
   changeBookmarked() {
-    this.setState(state => ({
-      bookmarkedOnly: !state.bookmarkedOnly
-    }))
+    this.setState((state) => ({ bookmarkedOnly: !state.bookmarkedOnly }));
   }
 
   changeGenre(event) {
-    const input = event.target.value 
-    this.setState({ selectedGenre: input })
+    const input = event.target.value;
+    this.setState({ selectedGenre: input });
   }
 
   displayBookmarked() {
     if (this.state.bookmarkedOnly === true) {
-      return this.props.movies.filter(movie => movie.bookmarked === true)
-    } else {
-      return this.props.movies
+      return this.props.movies.filter((movie) => movie.bookmarked === true);
     }
+    return this.props.movies;
   }
 
   displayByGenre() {
     const filtered = this.displayBookmarked();
-    if (this.state.selectedGenre === "") {
+    if (this.state.selectedGenre === '') {
       return filtered
-    } else {
-      return filtered.filter(movie => movie.genre === this.state.selectedGenre)
     }
+    return filtered.filter((movie) => movie.genre === this.state.selectedGenre);
   }
 
   displayByName() {
-    const filtered2 = this.displayByGenre()
+    const filtered2 = this.displayByGenre();
     if (this.state.searchText === "") {
       return filtered2
-    } else {
-      return filtered2.filter(movie =>
-        (movie.title.toLowerCase()).includes(this.state.searchText.toLowerCase())|| 
-        (movie.subtitle.toLowerCase()).includes(this.state.searchText.toLowerCase())|| 
-        (movie.storyline.toLowerCase()).includes(this.state.searchText.toLowerCase()) 
-        === true)
     }
+    return filtered2.filter((movie) =>
+      (movie.title.toLowerCase()).includes(this.state.searchText.toLowerCase()) ||
+      (movie.subtitle.toLowerCase()).includes(this.state.searchText.toLowerCase()) ||
+      (movie.storyline.toLowerCase()).includes(this.state.searchText.toLowerCase())
+      === true);
   }
 
   addMovie(state) {
@@ -84,11 +79,8 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.changeGenre}
         />
-        <MovieList
-          movies={choosenMovies}
-
-        />
-        <AddMovie onClick={this.addMovie}/>
+        <MovieList movies={choosenMovies} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
