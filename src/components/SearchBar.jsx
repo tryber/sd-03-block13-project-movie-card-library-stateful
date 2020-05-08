@@ -1,16 +1,14 @@
 import React from 'react';
+import './SearchBar.css';
 
 class SearchBar extends React.Component {
-  /* constructor(props) {
-    super(props);
-  } */
   render() {
     const {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <form>
+      <form className="searchForm">
         <div>
           <label htmlFor="textSearch">Inclui o texto:</label>
           <input id="textSearch" type="text" value={searchText} onChange={onSearchTextChange} />

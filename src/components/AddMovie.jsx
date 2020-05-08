@@ -1,4 +1,5 @@
 import React from 'react';
+import './AddMovie.css'
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="movieForm">
         <label htmlFor="tlt">Título</label>
         <input id="tlt" value={this.state.title} onChange={this.changeTitle} type="text" />
         <label htmlFor="sub" >Subtítulo</label>
