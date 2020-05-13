@@ -146,27 +146,27 @@ describe('<SearchBar /> component Movie Genre select', () => {
     )
   );
 
-  it.skip('renders a select inside the form', () => {
+  it('renders a select inside the form', () => {
     expect(searchBar().find('form select').length).toEqual(1);
   });
 
-  it.skip('has a label with the text "Filtrar por gênero"', () => {
+  it('has a label with the text "Filtrar por gênero"', () => {
     expect(searchBar().find('label').at(2).text()).toMatch('Filtrar por gênero');
   });
 
-  it.skip('passes the `selectedGenre` prop as the value of the select', () => {
+  it('passes the `selectedGenre` prop as the value of the select', () => {
     const select = searchBar().find('form select');
 
     expect(select.prop('value')).toEqual(props.selectedGenre);
   });
 
-  it.skip('passes the `onSelectedGenreChange` prop to the `onChange` attribute of the select', () => {
+  it('passes the `onSelectedGenreChange` prop to the `onChange` attribute of the select', () => {
     const select = searchBar().find('form select');
 
     expect(select.prop('onChange')).toEqual(props.onSelectedGenreChange);
   });
 
-  it.skip('renders 4 options inside the select with expected text and values', () => {
+  it('renders 4 options inside the select with expected text and values', () => {
     const genreOptions = [
       { text: 'Todos', value: '' },
       { text: 'Ação', value: 'action' },

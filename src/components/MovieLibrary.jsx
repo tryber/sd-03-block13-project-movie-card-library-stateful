@@ -9,9 +9,11 @@ export default class MovieLibrary extends React.Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
+      selectedGenre: 'action'
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this)
   }
 
   onSearchTextChange(event) {
@@ -24,6 +26,11 @@ export default class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: input.value });
   }
 
+  onSelectedGenreChange(event) {
+    const input = event.target;
+    this.setState({ selectedGenre: input.value });
+  }
+
   render() {
     return (
       <div>
@@ -32,6 +39,8 @@ export default class MovieLibrary extends React.Component {
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.props.movies} />
       </div>
