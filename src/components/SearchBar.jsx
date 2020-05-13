@@ -4,12 +4,12 @@ import React from 'react';
 export default class SearchBar extends React.Component {
   text() {
     return (
-        <label htmlFor="Text">Inclui o texto
-          <input type="text"
-            value={this.props.searchText}
-            onChange={this.props.onSearchTextChange}
-          />
-        </label>
+      <label htmlFor="Text">Inclui o texto
+        <input type="text"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+        />
+      </label>
     );
   }
 
