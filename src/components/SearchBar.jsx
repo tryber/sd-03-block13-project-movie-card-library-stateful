@@ -2,14 +2,26 @@
 import React from 'react';
 
 export default class SearchBar extends React.Component {
+  text() {
+    return (
+        <label htmlFor="Text">Inclui o texto
+          <input type="text"
+            value={this.props.searchText}
+            onChange={this.props.onSearchTextChange}
+          />
+        </label>
+    );
+  }
+
   render() {
     return (
       <form>
-        <label htmlFor="Text">Inclui o texto</label>
-        <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange}
-        />
+        {this.text()}
         <label htmlFor="Text">Mostrar somente favoritos</label>
-        <input type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
+        <input
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
         />
         <label htmlFor="Text">Filtrar por gênero</label>
         <select
