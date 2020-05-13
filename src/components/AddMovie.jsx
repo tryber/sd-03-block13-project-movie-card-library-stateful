@@ -11,7 +11,8 @@ export default class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
+
     this.title = this.title.bind(this);
     this.subtitle = this.subtitle.bind(this);
     this.imagem = this.imagem.bind(this);
