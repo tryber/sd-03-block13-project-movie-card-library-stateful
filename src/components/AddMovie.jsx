@@ -52,7 +52,7 @@ class AddMovie extends Component {
             onClick(this.state); this.reset();
           }}
         >
-        Adicionar filmee
+        Adicionar filme
         </button>
       </div>
     );
