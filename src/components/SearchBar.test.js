@@ -108,22 +108,22 @@ describe('<SearchBar /> component Bookmarked checkbox', () => {
     )
   );
 
-  it.skip('renders a checkbox input inside the form', () => {
+  it('renders a checkbox input inside the form', () => {
     expect(searchBar().find('form input[type="checkbox"]').length).toBe(1);
   });
 
-  it.skip('has a label with the text "Mostrar somente favoritos"', () => {
+  it('has a label with the text "Mostrar somente favoritos"', () => {
     expect(searchBar().find('label').at(1).text())
       .toMatch('Mostrar somente favoritos');
   });
 
-  it.skip('passes the `bookmarkedOnly` prop to the `checked` attribute of the input', () => {
+  it('passes the `bookmarkedOnly` prop to the `checked` attribute of the input', () => {
     const input = searchBar().find('form input[type="checkbox"]');
 
     expect(input.prop('checked')).toBe(props.bookmarkedOnly);
   });
 
-  it.skip('passes the `onBookmarkedChange` to the `onChange` attribute of text input', () => {
+  it('passes the `onBookmarkedChange` to the `onChange` attribute of text input', () => {
     const input = searchBar().find('form input[type="checkbox"]');
 
     expect(input.prop('onChange')).toEqual(props.onBookmarkedChange);

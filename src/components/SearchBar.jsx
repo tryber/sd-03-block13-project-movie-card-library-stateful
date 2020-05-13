@@ -11,6 +11,12 @@ export default class SearchBar extends React.Component {
           value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
         />
+        <label htmlFor="Text">Mostrar somente favoritos</label>
+        <input 
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
+        />
       </form>
     );
   }
