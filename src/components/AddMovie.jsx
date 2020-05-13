@@ -1,18 +1,19 @@
 // implement AddMovie component here
 import React from 'react';
 
+const initialState = {
+  title: '',
+  subtitle: '',
+  storyline: '',
+  rating: 0,
+  imagePath: '',
+  genre: 'action',
+};
+
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-
+    this.state = initialState
     this.title = this.title.bind(this);
     this.subtitle = this.subtitle.bind(this);
     this.imagem = this.imagem.bind(this);
@@ -24,6 +25,7 @@ export default class AddMovie extends React.Component {
     this.mudaSinopse = this.mudaSinopse.bind(this);
     this.mudaAvaliacao = this.mudaAvaliacao.bind(this);
     this.mudaGen = this.mudaGen.bind(this);
+    this.handleClick = this.handleClick.bind(this)
   }
 
   title() {
@@ -101,6 +103,12 @@ export default class AddMovie extends React.Component {
     this.setState({ genre: input.value });
   }
 
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(initialState);
+  }
+
   render() {
     return (
       <form>
@@ -117,6 +125,13 @@ export default class AddMovie extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
+        <button
+          type="button"
+          value="Adicionar Filme"
+          onClick={this.handleClick}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
