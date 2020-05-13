@@ -5,28 +5,24 @@ import SearchBar from './SearchBar';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      searchText: '',
-    };
+    super(props);
+    this.state = { searchText: '' };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
   onSearchTextChange(event) {
-    const input = event.target
-    this.setState({
-      searchText: input.value
-    });
+    const input = event.target;
+    this.setState({ searchText: input.value });
   }
 
   render() {
     return (
       <div>
-        <SearchBar 
+        <SearchBar
           searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
         />
-        <MovieList movies={this.props.movies}/>
+        <MovieList movies={this.props.movies} />
       </div>
     );
   }
