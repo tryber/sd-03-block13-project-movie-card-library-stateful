@@ -2,6 +2,7 @@
 import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
+        <AddMovie />
       </div>
     );
   }
