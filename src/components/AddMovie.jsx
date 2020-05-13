@@ -13,7 +13,7 @@ const initialState = {
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState
+    this.state = initialState;
     this.title = this.title.bind(this);
     this.subtitle = this.subtitle.bind(this);
     this.imagem = this.imagem.bind(this);
@@ -25,7 +25,7 @@ export default class AddMovie extends React.Component {
     this.mudaSinopse = this.mudaSinopse.bind(this);
     this.mudaAvaliacao = this.mudaAvaliacao.bind(this);
     this.mudaGen = this.mudaGen.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   title() {

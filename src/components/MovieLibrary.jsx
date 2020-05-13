@@ -17,7 +17,7 @@ export default class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -40,7 +40,6 @@ export default class MovieLibrary extends React.Component {
   }
 
   render() {
-    console.log(this.state.movies)
     return (
       <div>
         <SearchBar
