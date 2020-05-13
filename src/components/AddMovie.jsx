@@ -12,24 +12,24 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     }
-    this.title = this.title.bind(this)
-    this.subtitle = this.subtitle.bind(this)
-    this.imagem = this.imagem.bind(this)
-    this.sinopse = this.sinopse.bind(this)
-    this.avaliaçao = this.avaliaçao.bind(this)
-    this.mudaTitle = this.mudaTitle.bind(this)
-    this.mudasubTitle = this.mudasubTitle.bind(this)
-    this.mudaImage = this.mudaImage.bind(this)
-    this.mudaSinopse = this.mudaSinopse.bind(this)
-    this.mudaAvaliacao = this.mudaAvaliacao.bind(this)
-    this.mudaGen = this.mudaGen.bind(this)
+    this.title = this.title.bind(this);
+    this.subtitle = this.subtitle.bind(this);
+    this.imagem = this.imagem.bind(this);
+    this.sinopse = this.sinopse.bind(this);
+    this.avaliaçao = this.avaliaçao.bind(this);
+    this.mudaTitle = this.mudaTitle.bind(this);
+    this.mudasubTitle = this.mudasubTitle.bind(this);
+    this.mudaImage = this.mudaImage.bind(this);
+    this.mudaSinopse = this.mudaSinopse.bind(this);
+    this.mudaAvaliacao = this.mudaAvaliacao.bind(this);
+    this.mudaGen = this.mudaGen.bind(this);
   }
 
   title() {
     return (
       <label htmlFor="title">
         Título
-        <input type="text" value={this.state.title} onChange={this.mudaTitle}/>
+        <input type="text" value={this.state.title} onChange={this.mudaTitle} />
       </label>
     );
   }
@@ -38,7 +38,7 @@ export default class AddMovie extends React.Component {
     return (
       <label htmlFor="subtitle">
         Subtítulo
-        <input type="text" value={this.state.subtitle} onChange={this.mudasubTitle}/>
+        <input type="text" value={this.state.subtitle} onChange={this.mudasubTitle} />
       </label>
     );
   }
@@ -47,7 +47,7 @@ export default class AddMovie extends React.Component {
     return (
       <label htmlFor="imagem">
         Imagem
-        <input type="text" value={this.state.imagePath} onChange={this.mudaImage}/>
+        <input type="text" value={this.state.imagePath} onChange={this.mudaImage} />
       </label>
     );
   }
@@ -56,7 +56,7 @@ export default class AddMovie extends React.Component {
     return (
       <label htmlFor="sinopse">
         Sinopse
-        <textarea type="text" value={this.state.storyline} onChange={this.mudaSinopse}/>
+        <textarea type="text" value={this.state.storyline} onChange={this.mudaSinopse} />
       </label>
     );
   }
@@ -65,39 +65,39 @@ export default class AddMovie extends React.Component {
     return (
       <label htmlFor="avaliaçao">
         Avaliação
-        <input type="number" value={this.state.rating} onChange={this.mudaAvaliacao}/>
+        <input type="number" value={this.state.rating} onChange={this.mudaAvaliacao} />
       </label>
     );
   }
 
   mudaTitle(event) {
-    const input = event.target
-    this.setState({ title: input.value })
+    const input = event.target;
+    this.setState({ title: input.value });
   }
 
   mudasubTitle(event) {
-    const input = event.target
-    this.setState({ subtitle: input.value })
+    const input = event.target;
+    this.setState({ subtitle: input.value });
   }
 
   mudaImage(event) {
-    const input = event.target
-    this.setState({ imagePath: input.value })
+    const input = event.target;
+    this.setState({ imagePath: input.value });
   }
 
   mudaSinopse(event) {
-    const input = event.target
-    this.setState({ storyline: input.value })
+    const input = event.target;
+    this.setState({ storyline: input.value });
   }
 
   mudaAvaliacao(event) {
-    const input = event.target
-    this.setState({ rating: Number(input.value) })
+    const input = event.target;
+    this.setState({ rating: Number(input.value) });
   }
 
   mudaGen(event) {
-    const input = event.target
-    this.setState({ genre: input.value })
+    const input = event.target;
+    this.setState({ genre: input.value });
   }
 
   render() {
