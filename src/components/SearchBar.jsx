@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor="">Inclui o texto</label>
+        <label>Inclui o texto</label>
         <input
           type="text"
           value={this.props.searchText}
