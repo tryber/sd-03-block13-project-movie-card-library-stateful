@@ -59,7 +59,7 @@ class AddMovie extends Component {
   }
 
   addButton() {
-    this.props.onClick = this.state
+    this.props.onClick = this.state;
     this.setState({
       title: '',
       subtitle: '',
@@ -71,7 +71,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
         {this.generateInputField('Título', 'title', 'text', title)}
