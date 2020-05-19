@@ -94,30 +94,3 @@ h2 {
   font-size: 25px;
   margin: 20px;
 }
-
-/* 
-input {
-  background-color: transparent;
-  border-bottom: 1px solid black;
-  border-style: none;
-  height: 15px;
-  margin-left: 10px;
-}
-
-select {
-  background-color: crimson;
-  border-style: none;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  margin-left: 15px;
-}
-
-option:hover {
-  background-color: #343a40;
-}
-
-.checkmark {
-  height: 20px;
-  width: 20px;
-}*/
