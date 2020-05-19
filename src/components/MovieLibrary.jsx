@@ -8,6 +8,7 @@ class MovieLibrary extends React.Component {
  render() {
    return (
      <div>
+       <h2>Encontre um filme</h2>
        <SearchBar />
      </div>
    );
