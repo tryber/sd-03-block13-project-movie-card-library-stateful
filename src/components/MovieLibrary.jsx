@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 // import MovieList from './MovieList';
-// import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+class MovieLibrary extends Component {
   render() {
     return (
       <div>
         <h2>Encontre um filme</h2>
         <SearchBar />
+        <AddMovie />
       </div>
     );
   }
