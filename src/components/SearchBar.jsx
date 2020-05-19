@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
         </label>
         <label htmlFor="Mostrar filmes favoritos">
           Mostrar somente favoritos
-          <input type="checkBox" checked={bookmarkedOnly} onChange={onBookMarkedChange}/>
+          <input type="checkBox" checked={bookmarkedOnly} onChange={onBookMarkedChange} />
         </label>
         <label htmlFor="Filtrar filmes por gênero">
           Filtrar por gênero
