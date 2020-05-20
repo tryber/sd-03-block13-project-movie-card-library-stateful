@@ -51,7 +51,7 @@ class MovieLibrary extends Component {
         <h2>Encontre um filme</h2>
         <SearchBar
           searchText={searchText}
-          onSearckTextChange={(event) => this.handleOnChange(event, 'searchText')}
+          onSearchTextChange={(event) => this.handleOnChange(event, 'searchText')}
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={(event) => this.handleOnChange(event, 'bookmarkedOnly')}
           selectedGenre={selectedGenre}
@@ -59,7 +59,7 @@ class MovieLibrary extends Component {
         />
         <MovieList movies={this.movieFilter()} />
         <h2>Adicione um novo filme a lista</h2>
-        <AddMovie onClick={this.addNewMovie} />
+        <AddMovie onClick={(newMovie) => this.addNewMovie(newMovie)} />
       </div>
     );
   }

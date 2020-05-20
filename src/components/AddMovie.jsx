@@ -36,7 +36,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor={title} className="label">
         {title}
-        <input
+        <textarea
           className={name}
           value={value}
           onChange={(event) => this.changeState(event, name)}
@@ -63,7 +63,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form className="input-fields">
         {this.generateInputField('Título', 'title', 'text', title)}
@@ -72,6 +72,7 @@ class AddMovie extends Component {
         {this.generateTextArea('Sinopse', 'storyline', storyline)}
         {this.generateInputField('Avaliação', 'rating', 'number', rating)}
         <label htmlFor="Gênero" className="label">
+          Gênero
           <select value={this.state.genre} onChange={(event) => this.changeState(event, 'genre')}>
             {genreArray.map(({ text, value }) => (
               <option key={text} value={value}>
@@ -80,7 +81,7 @@ class AddMovie extends Component {
             ))}
           </select>
         </label>
-        <button onClick={this.addButton}>Adicionar filme</button>
+        <button type="button" onClick={() => this.addButton()}>Adicionar filme</button>
       </form>
     );
   }
