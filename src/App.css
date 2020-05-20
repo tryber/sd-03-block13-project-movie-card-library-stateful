@@ -22,6 +22,7 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
 }
 
@@ -82,15 +83,44 @@ body {
   padding: 12px 20px;
 }
 
-.search {
-  display: flex;
-  flex-direction: column;
-  font-size: 18px;
-  margin-left: 30px;
-}
-
 h2 {
-  color: crimson;
+  color: #007bff;;
   font-size: 25px;
   margin: 20px;
+  text-align: center;
+}
+
+input {
+  height: 25px;
+}
+
+.input-fields {
+  width: 90%;
+  margin: auto;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.check-box {
+  display: flex;
+  align-content: center;
+}
+
+.footer {
+  align-items: center;
+  background-color: #343a40;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.footer p {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  margin: 0;
 }

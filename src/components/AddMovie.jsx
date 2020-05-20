@@ -15,7 +15,7 @@ class AddMovie extends Component {
 
   generateInputField(title, name, type, value) {
     return (
-      <label htmlFor={title}>
+      <label htmlFor={title} className="label">
         {title}
         <input
           className={name}
@@ -29,7 +29,7 @@ class AddMovie extends Component {
 
   generateTextArea(title, name, value) {
     return (
-      <label htmlFor={title}>
+      <label htmlFor={title} className="label">
         {title}
         <input
           className={name}
@@ -40,10 +40,10 @@ class AddMovie extends Component {
     );
   }
 
-  generateGenre(title, name, value) {
+  generateGenre( name, value) {
     return (
-      <label htmlFor={title}>
-        {title}
+      <label htmlFor='Gênero' className="label">
+        Gênero
         <select value={value} onChange={(event) => this.changeState(event, name)}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -73,14 +73,14 @@ class AddMovie extends Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form>
+      <form className="input-fields">
         {this.generateInputField('Título', 'title', 'text', title)}
         {this.generateInputField('Subtítulo', 'subtitle', 'text', subtitle)}
         {this.generateInputField('Imagem', 'imagePath', 'text', imagePath)}
         {this.generateTextArea('Sinopse', 'storyline', storyline)}
         {this.generateInputField('Avaliação', 'rating', 'number', rating)}
-        <button onClick={this.addButton}>Adicionar filme</button>
         {this.generateGenre(genre)}
+        <button onClick={this.addButton}>Adicionar filme</button>
       </form>
     );
   }
