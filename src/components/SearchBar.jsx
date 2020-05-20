@@ -11,11 +11,7 @@ class SearchBar extends Component {
           <input type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
         <label htmlFor="Mostrar filmes favoritos" className="check-box">
-          <input 
-            type="checkBox"
-            checked={bookmarkedOnly}
-            onChange={onBookMarkedChange}
-          />
+          <input type="checkBox" checked={bookmarkedOnly} onChange={onBookMarkedChange} />
           Mostrar somente favoritos
         </label>
         <label htmlFor="Filtrar filmes por gênero" className="label">

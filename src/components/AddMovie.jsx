@@ -40,9 +40,9 @@ class AddMovie extends Component {
     );
   }
 
-  generateGenre( name, value) {
+  generateGenre(name, value) {
     return (
-      <label htmlFor='Gênero' className="label">
+      <label htmlFor="Gênero" className="label">
         Gênero
         <select value={value} onChange={(event) => this.changeState(event, name)}>
           <option value="action">Ação</option>

@@ -6,24 +6,21 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
   handleOnChange(event, key) {
-    this.setState({
-      [key]: (key === 'bookmarkedOnly' ? event.target.checked : event.target.value)
-    });
+    this.setState({ [key]: (key === 'bookmarkedOnly' ? event.target.checked : event.target.value) });
   }
 
   addNewMovie(newMovie) {
-    const { movies } = this.state
+    const { movies } = this.state;
     this.setState({ movies: [...movies, newMovie] });
   }
 
