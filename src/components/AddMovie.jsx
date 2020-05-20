@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+const genreArray = [
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
+];
 class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -40,26 +45,13 @@ class AddMovie extends Component {
     );
   }
 
-  generateGenre(name, value) {
-    return (
-      <label htmlFor="Gênero" className="label">
-        Gênero
-        <select value={value} onChange={(event) => this.changeState(event, name)}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
-      </label>
-    );
-  }
-
   changeState(event, type) {
     const { value } = event.target;
     this.setState({ [type]: type === 'rating' ? parseFloat(value) : value });
   }
 
   addButton() {
-    this.props.onClick = this.state;
+    this.props.onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -79,7 +71,15 @@ class AddMovie extends Component {
         {this.generateInputField('Imagem', 'imagePath', 'text', imagePath)}
         {this.generateTextArea('Sinopse', 'storyline', storyline)}
         {this.generateInputField('Avaliação', 'rating', 'number', rating)}
-        {this.generateGenre(genre)}
+        <label htmlFor="Gênero" className="label">
+          <select value={this.state.genre} onChange={(event) => this.changeState(event, 'genre')}>
+            {genreArray.map(({ text, value }) => (
+              <option key={text} value={value}>
+                {text}
+              </option>
+            ))}
+          </select>
+        </label>
         <button onClick={this.addButton}>Adicionar filme</button>
       </form>
     );
