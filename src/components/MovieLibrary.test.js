@@ -168,7 +168,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(movieLibrary().find('MovieList').length).toBe(1);
   });
 
-  it.skip('passes to MovieList movies with titles matching the text', () => {
+  it('passes to MovieList movies with titles matching the text', () => {
     movieLibrary().setState({ searchText: 'awesome' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -176,7 +176,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies[0]).toEqual(movies[0]);
   });
 
-  it.skip('passes to MovieList movies with subtitles matching the text', () => {
+  it('passes to MovieList movies with subtitles matching the text', () => {
     movieLibrary().setState({ searchText: 'incredible' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -184,7 +184,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies[0]).toEqual(movies[1]);
   });
 
-  it.skip('passes to MovieList movies with storyline matching the text', () => {
+  it('passes to MovieList movies with storyline matching the text', () => {
     movieLibrary().setState({ searchText: 'great' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -192,7 +192,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies[0]).toEqual(movies[2]);
   });
 
-  it.skip('does not filter the movies passed to MovieList', () => {
+  it('does not filter the movies passed to MovieList', () => {
     movieLibrary().setState({ searchText: '' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -200,7 +200,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies).toEqual(movies);
   });
 
-  it.skip('does not filter the movies passed to MovieList', () => {
+  it('does not filter the movies passed to MovieList', () => {
     movieLibrary().setState({ searchText: '' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -208,7 +208,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies).toEqual(movies);
   });
 
-  it.skip('it.skip only passes to MovieList bookmarked movies', () => {
+  it('it only passes to MovieList bookmarked movies', () => {
     movieLibrary().setState({ bookmarkedOnly: true });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -216,7 +216,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies[0]).toEqual(movies[0]);
   });
 
-  it.skip('it.skip does not filter the movies passed to MovieList', () => {
+  it('it does not filter the movies passed to MovieList', () => {
     movieLibrary().setState({ selectedGenre: '' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -224,7 +224,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
     expect(passedMovies).toEqual(movies);
   });
 
-  it.skip('passes to MovieList only movies matching the genre', () => {
+  it('passes to MovieList only movies matching the genre', () => {
     movieLibrary().setState({ selectedGenre: 'comedy' });
     const passedMovies = movieLibrary().find('MovieList').props().movies;
 
@@ -236,7 +236,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
 describe('<MovieLibrary /> should render <AddMovie />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('renders a `AddMovie` component', () => {
+  it('renders a `AddMovie` component', () => {
     expect(movieLibrary().find('AddMovie').length).toBe(1);
   });
 
@@ -246,7 +246,7 @@ describe('<MovieLibrary /> should render <AddMovie />', () => {
   // The callback receives the movie to be inserted.
   // The callback should update MovieLibrary's state,
   // by adding the new movie at the end of the `movies`.
-  it.skip('passes to `AddMovie` a callback to enable adding the new movie at the end of the movies list', () => {
+  it('passes to `AddMovie` a callback to enable adding the new movie at the end of the movies list', () => {
     // Initially, MovieLibrary's state field selectedGenere is empty
     const wrapper = mount(<MovieLibrary movies={movies} />);
     const addMovie = wrapper.find('AddMovie');
