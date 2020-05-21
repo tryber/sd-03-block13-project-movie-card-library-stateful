@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -40,35 +40,35 @@ export default class MovieLibrary extends React.Component {
   }
 
   changeMovies() {
-    const { movies } = this.state
+    const { movies } = this.state;
     const allMovies = [...movies]
-    return this.filteredMovies(this.changeFavorite(this.changeGenre(allMovies)))
+    return this.filteredMovies(this.changeFavorite(this.changeGenre(allMovies)));
   }
 
   changeGenre(mov) {
-    const { selectedGenre } = this.state
+    const { selectedGenre } = this.state;
     if (selectedGenre !== '') {
-      return mov.filter((element) => element.genre === selectedGenre)
+      return mov.filter((element) => element.genre === selectedGenre);
     }
     return mov;
   }
 
   changeFavorite(mov) {
-    const { bookmarkedOnly } = this.state
+    const { bookmarkedOnly } = this.state;
     if (bookmarkedOnly !== false) {
-      return mov.filter((element => element.bookmarked === true))
+      return mov.filter((element => element.bookmarked === true));
     }
-    return mov
+    return mov;
   }
 
   filteredMovies(mov) {
-    const { searchText } = this.state
+    const { searchText } = this.state;
     if (searchText !== '') {
-      return mov.filter(element => 
-          element.title.includes(searchText) || 
+      return mov.filter((element) => 
+          element.title.includes(searchText) ||
           element.subtitle.includes(searchText) ||
           element.storyline.includes(searchText)
-      ) 
+      );
     }
     return mov;
   }
