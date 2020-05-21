@@ -41,7 +41,7 @@ export default class MovieLibrary extends React.Component {
 
   changeMovies() {
     const { movies } = this.state;
-    const allMovies = [...movies]
+    const allMovies = [...movies];
     return this.filteredMovies(this.changeFavorite(this.changeGenre(allMovies)));
   }
 
@@ -56,7 +56,7 @@ export default class MovieLibrary extends React.Component {
   changeFavorite(mov) {
     const { bookmarkedOnly } = this.state;
     if (bookmarkedOnly !== false) {
-      return mov.filter((element => element.bookmarked === true));
+      return mov.filter((element) => element.bookmarked === true);
     }
     return mov;
   }
@@ -64,11 +64,10 @@ export default class MovieLibrary extends React.Component {
   filteredMovies(mov) {
     const { searchText } = this.state;
     if (searchText !== '') {
-      return mov.filter((element) => 
+      return mov.filter((element) =>
           element.title.includes(searchText) ||
           element.subtitle.includes(searchText) ||
-          element.storyline.includes(searchText)
-      );
+          element.storyline.includes(searchText));
     }
     return mov;
   }
