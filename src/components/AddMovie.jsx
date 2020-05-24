@@ -17,25 +17,11 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onSubtitleChange = this.onSubtitleChange.bind(this);
-    this.onImagePathChange = this.onImagePathChange.bind(this);
+
     this.onStoryLineChange = this.onStoryLineChange.bind(this);
     this.onRatingChange = this.onRatingChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
     this.onGenreChange = this.onGenreChange.bind(this);
-  }
-
-  onTitleChange(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  onSubtitleChange(event) {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  onImagePathChange(event) {
-    this.setState({ imagePath: event.target.value });
   }
 
   onStoryLineChange(event) {
@@ -62,20 +48,29 @@ class AddMovie extends Component {
     });
   }
 
+  changeState(event, name) {
+    this.setState({ [name]: event.target.value });
+  }
+
+  createText(name, text, value) {
+    return (
+    <label htmlFor={name}>{text}
+      <input 
+        type="text"
+        value={value}
+        onChange={(event) => this.changeState(event, name)} />
+    </label>
+    );
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
-          <label htmlFor="titulo">Título
-            <input type="text" value={title} onChange={this.onTitleChange} />
-          </label>
-          <label htmlFor="subtitulo">Subtítulo
-            <input type="text" value={subtitle} onChange={this.onSubtitleChange} />
-          </label>
-          <label htmlFor="imagePath">Imagem
-            <input type="text" value={imagePath} onChange={this.onImagePathChange} />
-          </label>
+          {this.createText('title', 'Título', title )}
+          {this.createText('subtitle', 'Subtítulo', subtitle )}
+          {this.createText('imagePath', 'Imagem', imagePath )}
           <label htmlFor="sinopse">Sinopse
             <textarea value={storyline} onChange={this.onStoryLineChange} />
           </label>
