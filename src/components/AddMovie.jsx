@@ -55,10 +55,7 @@ class AddMovie extends Component {
   createText(name, text, value) {
     return (
       <label htmlFor={name}>{text}
-        <input
-          type="text"
-          value={value}
-          onChange={(event) => this.changeState(event, name)} />
+        <input type="text" value={value} onChange={(event) => this.changeState(event, name)} />
       </label>
     );
   }
