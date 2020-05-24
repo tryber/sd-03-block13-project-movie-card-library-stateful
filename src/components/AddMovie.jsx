@@ -54,12 +54,12 @@ class AddMovie extends Component {
 
   createText(name, text, value) {
     return (
-    <label htmlFor={name}>{text}
-      <input 
-        type="text"
-        value={value}
-        onChange={(event) => this.changeState(event, name)} />
-    </label>
+      <label htmlFor={name}>{text}
+        <input
+          type="text"
+          value={value}
+          onChange={(event) => this.changeState(event, name)} />
+      </label>
     );
   }
 
@@ -68,9 +68,9 @@ class AddMovie extends Component {
     return (
       <div>
         <form>
-          {this.createText('title', 'Título', title )}
-          {this.createText('subtitle', 'Subtítulo', subtitle )}
-          {this.createText('imagePath', 'Imagem', imagePath )}
+          {this.createText('title', 'Título', title)}
+          {this.createText('subtitle', 'Subtítulo', subtitle)}
+          {this.createText('imagePath', 'Imagem', imagePath)}
           <label htmlFor="sinopse">Sinopse
             <textarea value={storyline} onChange={this.onStoryLineChange} />
           </label>
@@ -79,11 +79,8 @@ class AddMovie extends Component {
           </label>
           <label htmlFor="genger">Gênero
             <select id="genger" value={genre} onChange={this.onGenreChange} >
-              { genreArray.map(({ text, value }) => (
-                  <option key={text} value={value}>
-                    {text}
-                  </option>
-                ))
+              {genreArray.map(({ text, value }) => (
+                <option key={text} value={value}>{text}</option>))
               }
             </select>
           </label>
