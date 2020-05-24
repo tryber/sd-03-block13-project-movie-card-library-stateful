@@ -16,13 +16,14 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onSubtitleChange = this.onSubtitleChange.bind(this);
     this.onImagePathChange = this.onImagePathChange.bind(this);
     this.onStoryLineChange = this.onStoryLineChange.bind(this);
     this.onRatingChange = this.onRatingChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
+    this.onGenreChange = this.onGenreChange.bind(this);
   }
 
   onTitleChange(event) {
@@ -42,14 +43,14 @@ class AddMovie extends Component {
   }
 
   onRatingChange(event) {
-    this.setState({ rating: event.target.value });
+    this.setState({ rating: parseFloat(event.target.value) });
   }
 
   onGenreChange(event) {
     this.setState({ genre: event.target.value });
   }
 
-  onButtonClick(event) {
+  onButtonClick() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -62,26 +63,27 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
-          <label htmlFor="titulo"> Título
-            <input type="text" value={this.title} onChange={this.onTitleChange} />
+          <label htmlFor="titulo">Título
+            <input type="text" value={title} onChange={this.onTitleChange} />
           </label>
-          <label htmlFor="subtitulo"> Subtítulo
-            <input type="text" value={this.subtitle} onChange={this.onSubtitleChange} />
+          <label htmlFor="subtitulo">Subtítulo
+            <input type="text" value={subtitle} onChange={this.onSubtitleChange} />
           </label>
-          <label htmlFor="imagePath"> Imagem
-            <input type="text" value={this.imagePath} onChange={this.onImagePathChange} />
+          <label htmlFor="imagePath">Imagem
+            <input type="text" value={imagePath} onChange={this.onImagePathChange} />
           </label>
-          <label htmlFor="sinopse"> Sinopse
-            <textarea value={this.storyline} onChange={this.onStoryLineChange} />
+          <label htmlFor="sinopse">Sinopse
+            <textarea value={storyline} onChange={this.onStoryLineChange} />
           </label>
-          <label htmlFor="rating"> Avaliação
-            <input type="number" value={this.rating} onChange={this.onRatingChange} />
+          <label htmlFor="rating">Avaliação
+            <input type='number' value={rating} onChange={this.onRatingChange} />
           </label>
-          <label htmlFor="genger"> Gênero
-            <select id="genger" value={this.genre} onChange={this.onGenreChange} >
+          <label htmlFor="genger">Gênero
+            <select id="genger" value={genre} onChange={this.onGenreChange} >
               {
                 genreArray.map(({ text, value }) => (
                   <option key={text} value={value}>
@@ -91,7 +93,7 @@ class AddMovie extends Component {
               }
             </select>
           </label>
-          <button type="submit" onClick={this.onButtonClick}>Adicionar filme</button>
+          <button type="button" onClick={this.onButtonClick}>Adicionar filme</button>
         </form>
       </div>
     );
