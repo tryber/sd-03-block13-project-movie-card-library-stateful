@@ -54,42 +54,39 @@ class AddMovie extends Component {
 
   createText(name, text, value) {
     return (
-    <label htmlFor={name}>{text}
-      <input 
-        type="text"
-        value={value}
-        onChange={(event) => this.changeState(event, name)} />
-    </label>
+      <label htmlFor={name}>{text}
+        <input
+          type="text"
+          value={value}
+          onChange={(event) => this.changeState(event, name)} />
+      </label>
     );
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
-        <form>
-          {this.createText('title', 'Título', title )}
-          {this.createText('subtitle', 'Subtítulo', subtitle )}
-          {this.createText('imagePath', 'Imagem', imagePath )}
-          <label htmlFor="sinopse">Sinopse
-            <textarea value={storyline} onChange={this.onStoryLineChange} />
-          </label>
-          <label htmlFor="rating">Avaliação
-            <input type="number" value={rating} onChange={this.onRatingChange} />
-          </label>
-          <label htmlFor="genger">Gênero
-            <select id="genger" value={genre} onChange={this.onGenreChange} >
-              {
-                genreArray.map(({ text, value }) => (
-                  <option key={text} value={value}>
-                    {text}
-                  </option>
-                ))
-              }
-            </select>
-          </label>
-          <button type="button" onClick={this.onButtonClick}>Adicionar filme</button>
-        </form>
+        {this.createText('title', 'Título', this.state.title)}
+        {this.createText('subtitle', 'Subtítulo', this.state.subtitle)}
+        {this.createText('imagePath', 'Imagem', this.state.imagePath)}
+        <label htmlFor="sinopse">Sinopse
+          <textarea value={this.state.storyline} onChange={this.onStoryLineChange} />
+        </label>
+        <label htmlFor="rating">Avaliação
+          <input type="number" value={this.state.rating} onChange={this.onRatingChange} />
+        </label>
+        <label htmlFor="genger">Gênero
+          <select id="genger" value={this.state.genre} onChange={this.onGenreChange} >
+            {
+              genreArray.map(({ text, value }) => (
+                <option key={text} value={value}>
+                  {text}
+                </option>
+              ))
+            }
+          </select>
+        </label>
+        <button type="button" onClick={this.onButtonClick}>Adicionar filme</button>
       </div>
     );
   }
