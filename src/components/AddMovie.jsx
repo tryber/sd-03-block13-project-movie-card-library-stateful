@@ -9,7 +9,7 @@ const genreArray = [
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -80,7 +80,7 @@ class AddMovie extends Component {
             <textarea value={storyline} onChange={this.onStoryLineChange} />
           </label>
           <label htmlFor="rating">Avaliação
-            <input type='number' value={rating} onChange={this.onRatingChange} />
+            <input type="number" value={rating} onChange={this.onRatingChange} />
           </label>
           <label htmlFor="genger">Gênero
             <select id="genger" value={genre} onChange={this.onGenreChange} >

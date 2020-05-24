@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
     this.onClick = this.onClick.bind(this);
   }
 
@@ -20,26 +20,26 @@ class MovieLibrary extends Component {
     this.setState({ [key]: (key === 'bookmarkedOnly') ? e.target.checked : e.target.value });
   }
 
+  onClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
+  }
+
   moviesFilter() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filterMovies = [...movies];
 
-    if(bookmarkedOnly) {
-      filterMovies = filterMovies.filter(movie => movie.bookmarked === true)
-    } else if(selectedGenre) {
-      filterMovies = filterMovies.filter(movie => movie.genre === selectedGenre)
+    if (bookmarkedOnly) {
+      filterMovies = filterMovies.filter((movie) => movie.bookmarked === true);
+    } else if (selectedGenre) {
+      filterMovies = filterMovies.filter((movie) => movie.genre === selectedGenre);
     } else if (searchText) {
-      filterMovies = filterMovies.filter(movie => 
+      filterMovies = filterMovies.filter((movie) =>
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText) )
+        movie.storyline.includes(searchText));
     }
     return filterMovies;
-  }
-
-  onClick(newMovie) {
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
