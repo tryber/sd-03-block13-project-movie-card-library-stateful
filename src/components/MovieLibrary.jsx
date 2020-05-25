@@ -20,6 +20,7 @@ class MovieLibrary extends Component {
     this.displayBookmarked = this.displayBookmarked.bind(this);
     this.displayByGenre = this.displayByGenre.bind(this);
     this.displayByName = this.displayByName.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   changeSearchText(event) {
@@ -63,12 +64,13 @@ class MovieLibrary extends Component {
       === true);
   }
 
-  addMovie(state) {
-    this.props.movies.push(state);
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] })
   }
 
   render() {
-    const choosenMovies = this.displayByName();
+    const movies = this.displayByName();
     return (
       <div>
         <SearchBar
@@ -79,7 +81,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.changeGenre}
         />
-        <MovieList movies={choosenMovies} />
+        <MovieList movies={movies} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );

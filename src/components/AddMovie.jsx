@@ -53,7 +53,7 @@ class AddMovie extends React.Component {
 
   buttonAction() {
     this.props.onClick(this.state);
-    this.setState({
+    this.setState({ 
       subtitle: '',
       title: '',
       imagePath: '',
